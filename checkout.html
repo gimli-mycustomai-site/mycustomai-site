@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout — My Custom AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/checkout.css" />
+</head>
+<body>
+
+<!-- ── Nav ───────────────────────────────────────────────── -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">My <span>Custom</span> AI</a>
+    <div class="intake-progress-nav">
+      <span class="progress-step done">1. Account</span>
+      <span class="progress-arrow">→</span>
+      <span class="progress-step active">2. Payment</span>
+      <span class="progress-arrow">→</span>
+      <span class="progress-step">3. Your Business</span>
+      <span class="progress-arrow">→</span>
+      <span class="progress-step">4. Your Plan</span>
+    </div>
+  </div>
+</nav>
+
+<main class="checkout-main">
+  <div class="container">
+    <div class="checkout-wrap">
+
+      <!-- ── Left: Plan Selection + Payment ─────────────── -->
+      <div class="checkout-left">
+
+        <!-- Plan Toggle -->
+        <div class="checkout-section">
+          <h2>Choose your plan</h2>
+
+          <div class="plan-cards">
+            <div class="plan-card" id="planStarter" onclick="selectPlan('starter')">
+              <div class="plan-card-inner">
+                <div class="plan-radio" id="radioStarter"></div>
+                <div class="plan-info">
+                  <div class="plan-card-name">Starter</div>
+                  <div class="plan-card-desc">Custom AI report delivered to your inbox</div>
+                  <ul class="plan-card-features">
+                    <li>3–5 hand-picked AI tools for your business</li>
+                    <li>Step-by-step setup guides</li>
+                    <li>PDF delivered in minutes</li>
+                  </ul>
+                </div>
+                <div class="plan-card-price">$75</div>
+              </div>
+            </div>
+
+            <div class="plan-card featured" id="planPro" onclick="selectPlan('pro')">
+              <div class="plan-badge">Most Popular</div>
+              <div class="plan-card-inner">
+                <div class="plan-radio" id="radioPro"></div>
+                <div class="plan-info">
+                  <div class="plan-card-name">Pro</div>
+                  <div class="plan-card-desc">Report + 1-hour AI strategy consultation</div>
+                  <ul class="plan-card-features">
+                    <li>Everything in Starter</li>
+                    <li>1-hour live AI consultation</li>
+                    <li>30-day follow-up support</li>
+                  </ul>
+                </div>
+                <div class="plan-card-price">$700</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment Placeholder -->
+        <div class="checkout-section">
+          <h2>Payment</h2>
+          <div class="payment-placeholder">
+            <div class="payment-lock">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+              Secure payment
+            </div>
+            <p>Payment is processed securely. You will be redirected to complete your purchase, then returned here to fill out your business intake form.</p>
+            <div class="payment-methods">
+              <span class="pay-badge">Visa</span>
+              <span class="pay-badge">Mastercard</span>
+              <span class="pay-badge">Amex</span>
+              <span class="pay-badge">Apple Pay</span>
+            </div>
+            <button class="btn btn-primary btn-full btn-lg" id="payBtn" onclick="handleCheckout()">
+              Pay <span id="payAmount">$75</span> — Get My Report
+            </button>
+            <p class="pay-note">One-time payment. No subscription. No hidden fees.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── Right: Order Summary ────────────────────────── -->
+      <div class="checkout-right">
+        <div class="order-card">
+          <h3>Order Summary</h3>
+
+          <div class="order-item">
+            <div class="order-item-info">
+              <div class="order-item-name" id="summaryPlanName">Starter Plan</div>
+              <div class="order-item-desc" id="summaryPlanDesc">Custom AI Report</div>
+            </div>
+            <div class="order-item-price" id="summaryPrice">$75</div>
+          </div>
+
+          <div class="order-divider"></div>
+
+          <div class="order-total-row">
+            <span>Total</span>
+            <span id="summaryTotal">$75</span>
+          </div>
+
+          <div class="order-guarantee">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;flex-shrink:0;color:var(--green-mid)">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <span>Satisfaction guaranteed — if your report isn't useful, we'll make it right.</span>
+          </div>
+
+          <div class="order-includes">
+            <div class="includes-title">What's included:</div>
+            <ul id="includesList">
+              <li>✓ Custom AI tools report</li>
+              <li>✓ 3–5 hand-picked tools</li>
+              <li>✓ Step-by-step setup guides</li>
+              <li>✓ PDF to your email in minutes</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="trust-badges">
+          <div class="trust-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            Secure checkout
+          </div>
+          <div class="trust-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            No subscriptions
+          </div>
+          <div class="trust-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            Delivered in minutes
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<!-- ── Footer ─────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-logo">My Custom AI</div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+    <div>© 2026 My Custom AI. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  let selectedPlan = 'starter';
+
+  function selectPlan(plan) {
+    selectedPlan = plan;
+
+    document.getElementById('planStarter').classList.toggle('selected', plan === 'starter');
+    document.getElementById('planPro').classList.toggle('selected', plan === 'pro');
+    document.getElementById('radioStarter').classList.toggle('checked', plan === 'starter');
+    document.getElementById('radioPro').classList.toggle('checked', plan === 'pro');
+
+    const isStarter = plan === 'starter';
+    const price = isStarter ? '$75' : '$700';
+    const name = isStarter ? 'Starter Plan' : 'Pro Plan';
+    const desc = isStarter ? 'Custom AI Report' : 'Custom AI Report + Consultation';
+
+    document.getElementById('payAmount').textContent = price;
+    document.getElementById('summaryPrice').textContent = price;
+    document.getElementById('summaryTotal').textContent = price;
+    document.getElementById('summaryPlanName').textContent = name;
+    document.getElementById('summaryPlanDesc').textContent = desc;
+    document.getElementById('payBtn').innerHTML = `Pay ${price} — ${isStarter ? 'Get My Report' : 'Get Report + Consultation'}`;
+
+    const list = document.getElementById('includesList');
+    if (isStarter) {
+      list.innerHTML = `
+        <li>✓ Custom AI tools report</li>
+        <li>✓ 3–5 hand-picked tools</li>
+        <li>✓ Step-by-step setup guides</li>
+        <li>✓ PDF to your email in minutes</li>
+      `;
+    } else {
+      list.innerHTML = `
+        <li>✓ Everything in Starter</li>
+        <li>✓ 1-hour live AI consultation</li>
+        <li>✓ Understand what AI means for your business</li>
+        <li>✓ 30-day follow-up support</li>
+        <li>✓ PDF to your email in minutes</li>
+      `;
+    }
+  }
+
+  function handleCheckout() {
+    // TODO: Replace with Stripe Payment Link or Stripe Checkout redirect
+    // Example for Stripe Payment Links:
+    //   Starter: https://buy.stripe.com/YOUR_STARTER_LINK
+    //   Pro:     https://buy.stripe.com/YOUR_PRO_LINK
+    //
+    // After successful payment, Stripe should redirect back to:
+    //   intake.html?plan=starter  or  intake.html?plan=pro
+
+    alert('Payment integration coming soon! Contact us on WhatsApp to purchase.');
+    // Uncomment when Stripe is set up:
+    // const links = {
+    //   starter: 'https://buy.stripe.com/YOUR_STARTER_LINK',
+    //   pro:     'https://buy.stripe.com/YOUR_PRO_LINK'
+    // };
+    // window.location.href = links[selectedPlan];
+  }
+
+  // Pre-select plan from URL param (e.g. checkout.html?plan=pro)
+  const urlPlan = new URLSearchParams(window.location.search).get('plan');
+  if (urlPlan === 'pro') {
+    selectPlan('pro');
+  } else {
+    selectPlan('starter');
+  }
+</script>
+
+</body>
+</html>

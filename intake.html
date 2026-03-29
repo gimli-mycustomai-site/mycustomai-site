@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Business Details — My Custom AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/intake.css" />
+  <style>.svg-icon-hero{width:22px;height:22px;color:var(--green-mid)}.intake-icon svg{width:48px;height:48px;color:var(--green-mid)}</style>
+</head>
+<body>
+
+<!-- ── Nav ───────────────────────────────────────────────── -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">My <span>Custom</span> AI</a>
+    <div class="intake-progress-nav">
+      <span class="progress-step done">1. Account</span>
+      <span class="progress-arrow">→</span>
+      <span class="progress-step done">2. Payment</span>
+      <span class="progress-arrow">→</span>
+      <span class="progress-step active">3. Your Business</span>
+      <span class="progress-arrow">→</span>
+      <span class="progress-step">4. Your Plan</span>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Intake Form ────────────────────────────────────────── -->
+<main class="intake-main">
+  <div class="container">
+    <div class="intake-wrap">
+
+      <div class="intake-header">
+        <div class="intake-icon"><svg><use href="assets/icons.svg#icon-doc"/></svg></div>
+        <h1>Tell us about your business</h1>
+        <p>The more detail you give us, the more specific and useful your custom AI plan will be. Takes about 3–5 minutes.</p>
+      </div>
+
+      <form id="intakeForm" class="intake-form">
+
+        <!-- ── Step 1: Business Basics ──────────────────────── -->
+        <div class="form-section" id="step1">
+          <div class="form-section-label">Step 1 of 4 — Business Basics</div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label">Business Name <span class="required">*</span></label>
+              <input type="text" class="form-input" id="bizName" placeholder="e.g. Aloha Plumbing Co." required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Your Name <span class="required">*</span></label>
+              <input type="text" class="form-input" id="ownerName" placeholder="First and last name" required />
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label">Business Type <span class="required">*</span></label>
+              <select class="form-input" id="bizType" onchange="handleBizType()" required>
+                <option value="">Select your industry…</option>
+                <option value="restaurant">Restaurant / Food Service</option>
+                <option value="retail">Retail / E-commerce</option>
+                <option value="contractor">Contractor / Trades</option>
+                <option value="salon">Salon / Spa / Beauty</option>
+                <option value="healthcare">Healthcare / Medical</option>
+                <option value="realestate">Real Estate</option>
+                <option value="accounting">Accounting / Bookkeeping</option>
+                <option value="legal">Legal / Consulting</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Number of Employees</label>
+              <select class="form-input" id="employees">
+                <option value="">Select…</option>
+                <option value="solo">Just me</option>
+                <option value="2-5">2–5</option>
+                <option value="6-20">6–20</option>
+                <option value="21-50">21–50</option>
+                <option value="50+">50+</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Monthly budget for AI tools</label>
+            <select class="form-input" id="budget">
+              <option value="">Select a range…</option>
+              <option value="free">Free tools only</option>
+              <option value="0-50">$0 – $50/month</option>
+              <option value="50-150">$50 – $150/month</option>
+              <option value="150-500">$150 – $500/month</option>
+              <option value="500+">$500+/month</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Tools you already use <span class="hint">(optional)</span></label>
+            <input type="text" class="form-input" id="currentTools" placeholder="e.g. QuickBooks, Google Calendar, Square…" />
+          </div>
+        </div>
+
+        <!-- ── Step 2: Pain Points ──────────────────────────── -->
+        <div class="form-section" id="step2">
+          <div class="form-section-label">Step 2 of 4 — Your Biggest Challenges</div>
+          <label class="form-label">What do you want AI to help with? <span class="required">*</span> <span class="hint">(select all that apply)</span></label>
+
+          <div class="checkbox-grid" id="painPoints">
+            <label class="check-card" data-value="scheduling">
+              <input type="checkbox" value="scheduling" onchange="handlePainPoints()" />
+              <span class="check-icon"><svg class="svg-icon-hero"><use href="assets/icons.svg#icon-calendar"/></svg></span>
+              <span class="check-label">Scheduling &amp; Bookings</span>
+            </label>
+            <label class="check-card" data-value="textsched">
+              <input type="checkbox" value="textsched" onchange="handlePainPoints()" />
+              <span class="check-icon"><svg class="svg-icon-hero"><use href="assets/icons.svg#icon-phone"/></svg></span>
+              <span class="check-label">Text Message Scheduling</span>
+            </label>
+            <label class="check-card" data-value="accounting">
+              <input type="checkbox" value="accounting" onchange="handlePainPoints()" />
+              <span class="check-icon"><svg class="svg-icon-hero"><use href="assets/icons.svg#icon-chart"/></svg></span>
+              <span class="check-label">Accounting &amp; Invoicing</span>
+            </label>
+            <label class="check-card" data-value="customer">
+              <input type="checkbox" value="customer" onchange="handlePainPoints()" />
+              <span class="check-icon"><svg class="svg-icon-hero"><use href="assets/icons.svg#icon-chat"/></svg></span>
+              <span class="check-label">Customer Service &amp; Chat</span>
+            </label>
+            <label class="check-card" data-value="marketing">
+              <input type="checkbox" value="marketing" onchange="handlePainPoints()" />
+              <span class="check-icon"><svg class="svg-icon-hero"><use href="assets/icons.svg#icon-megaphone"/></svg></span>
+              <span class="check-label">Marketing &amp; Social Media</span>
+            </label>
+            <label class="check-card" data-value="inventory">
+              <input type="checkbox" value="inventory" onchange="handlePainPoints()" />
+              <span class="check-icon"><svg class="svg-icon-hero"><use href="assets/icons.svg#icon-box"/></svg></span>
+              <span class="check-label">Inventory Management</span>
+            </label>
+            <label class="check-card" data-value="hr">
+              <input type="checkbox" value="hr" onchange="handlePainPoints()" />
+              <span class="check-icon"><svg class="svg-icon-hero"><use href="assets/icons.svg#icon-users"/></svg></span>
+              <span class="check-label">HR &amp; Staff Scheduling</span>
+            </label>
+            <label class="check-card" data-value="other">
+              <input type="checkbox" value="other" onchange="handlePainPoints()" />
+              <span class="check-icon"><svg class="svg-icon-hero"><use href="assets/icons.svg#icon-gear"/></svg></span>
+              <span class="check-label">Something Else</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- ── Step 3: Dynamic Follow-Up Questions ─────────── -->
+        <div class="form-section" id="step3" style="display:none;">
+          <div class="form-section-label">Step 3 of 4 — A Few More Details</div>
+          <p class="followup-intro">Based on what you selected, we have a few more questions to make your plan more specific.</p>
+          <div id="followupQuestions"></div>
+        </div>
+
+        <!-- ── Step 4: Open Description ────────────────────── -->
+        <div class="form-section" id="step4">
+          <div class="form-section-label">Step 4 of 4 — In Your Own Words</div>
+
+          <div class="form-group">
+            <label class="form-label">Describe what you want to automate or improve <span class="required">*</span></label>
+            <textarea class="form-input form-textarea" id="description" rows="5"
+              placeholder="Tell us about your day-to-day. What tasks eat up your time? What frustrates you most? What would make your life easier? The more detail the better — there are no wrong answers." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Anything else we should know? <span class="hint">(optional)</span></label>
+            <textarea class="form-input form-textarea" id="extra" rows="3"
+              placeholder="Special requirements, goals, things you've already tried…"></textarea>
+          </div>
+        </div>
+
+        <!-- ── Submit ───────────────────────────────────────── -->
+        <div class="form-submit">
+          <button type="submit" class="btn btn-primary btn-lg btn-full" id="submitBtn">
+            Generate My Custom AI Plan →
+          </button>
+          <p class="submit-note">Your plan will be emailed to you within minutes after submission.</p>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</main>
+
+<script src="js/intake.js"></script>
+</body>
+</html>
