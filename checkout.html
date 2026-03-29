@@ -222,21 +222,11 @@
   }
 
   function handleCheckout() {
-    // TODO: Replace with Stripe Payment Link or Stripe Checkout redirect
-    // Example for Stripe Payment Links:
-    //   Starter: https://buy.stripe.com/YOUR_STARTER_LINK
-    //   Pro:     https://buy.stripe.com/YOUR_PRO_LINK
-    //
-    // After successful payment, Stripe should redirect back to:
-    //   intake.html?plan=starter  or  intake.html?plan=pro
-
-    alert('Payment integration coming soon! Contact us on WhatsApp to purchase.');
-    // Uncomment when Stripe is set up:
-    // const links = {
-    //   starter: 'https://buy.stripe.com/YOUR_STARTER_LINK',
-    //   pro:     'https://buy.stripe.com/YOUR_PRO_LINK'
-    // };
-    // window.location.href = links[selectedPlan];
+    const links = {
+      starter: 'https://buy.stripe.com/3cI5kDbaV4zffGJewG7EQ00',
+      pro:     'https://buy.stripe.com/6oU6oHfrbc1Hcux4W67EQ01'
+    };
+    window.location.href = links[selectedPlan];
   }
 
   // Pre-select plan from URL param (e.g. checkout.html?plan=pro)
