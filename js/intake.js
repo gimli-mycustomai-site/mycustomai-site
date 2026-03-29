@@ -205,20 +205,34 @@ document.getElementById('intakeForm').addEventListener('submit', function(e) {
   // Collect all form data
   const formData = collectFormData();
 
-  // TODO: POST formData to backend, trigger PDF generation
-  // Save tools/pain points to localStorage for dashboard
+  // Collect and save form data
   const formData = collectFormData();
   localStorage.setItem('mcai_tools', JSON.stringify(formData.painPoints));
 
-  // Update user record with biz info
   const user = JSON.parse(localStorage.getItem('mcai_user') || '{}');
   user.bizName = user.bizName || formData.bizName;
   user.bizType = formData.bizType;
   user.painPoints = formData.painPoints;
   localStorage.setItem('mcai_user', JSON.stringify(user));
 
-  // Pass plan from URL param to confirmation page
   const plan = new URLSearchParams(window.location.search).get('plan') || 'starter';
+
+  // POST to backend — fire and forget
+  const payload = Object.assign({}, formData, {
+    email:     user.email || '',
+    ownerName: user.name  || formData.ownerName || '',
+    plan:      plan,
+  });
+
+  fetch('https://mycustomai-backend.onrender.com/api/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  }).catch(function(err) {
+    console.warn('Backend submit error:', err.message);
+    // Don't block the user — continue to confirmation regardless
+  });
+
   setTimeout(function() {
     window.location.href = 'confirmation.html?plan=' + plan;
   }, 4000);

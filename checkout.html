@@ -37,39 +37,24 @@
 
         <!-- Plan Toggle -->
         <div class="checkout-section">
-          <h2>Choose your plan</h2>
+          <h2>Your Order</h2>
 
           <div class="plan-cards">
-            <div class="plan-card" id="planStarter" onclick="selectPlan('starter')">
+            <div class="plan-card featured selected" id="planStarter">
               <div class="plan-card-inner">
-                <div class="plan-radio" id="radioStarter"></div>
+                <div class="plan-radio checked" id="radioStarter"></div>
                 <div class="plan-info">
-                  <div class="plan-card-name">Starter</div>
-                  <div class="plan-card-desc">Custom AI report delivered to your inbox</div>
+                  <div class="plan-card-name">Custom AI Playbook</div>
+                  <div class="plan-card-desc">Your personalized AI action plan, delivered in minutes</div>
                   <ul class="plan-card-features">
-                    <li>3–5 hand-picked AI tools for your business</li>
-                    <li>Step-by-step setup guides</li>
-                    <li>PDF delivered in minutes</li>
+                    <li>AI tools hand-picked for your business</li>
+                    <li>Click-by-click setup instructions</li>
+                    <li>90-day implementation roadmap</li>
+                    <li>Quick wins + what to avoid</li>
+                    <li>PDF to your email instantly</li>
                   </ul>
                 </div>
-                <div class="plan-card-price">$75</div>
-              </div>
-            </div>
-
-            <div class="plan-card featured" id="planPro" onclick="selectPlan('pro')">
-              <div class="plan-badge">Most Popular</div>
-              <div class="plan-card-inner">
-                <div class="plan-radio" id="radioPro"></div>
-                <div class="plan-info">
-                  <div class="plan-card-name">Pro</div>
-                  <div class="plan-card-desc">Report + 1-hour AI strategy consultation</div>
-                  <ul class="plan-card-features">
-                    <li>Everything in Starter</li>
-                    <li>1-hour live AI consultation</li>
-                    <li>30-day follow-up support</li>
-                  </ul>
-                </div>
-                <div class="plan-card-price">$700</div>
+                <div class="plan-card-price">$200</div>
               </div>
             </div>
           </div>
@@ -94,7 +79,7 @@
               <span class="pay-badge">Apple Pay</span>
             </div>
             <button class="btn btn-primary btn-full btn-lg" id="payBtn" onclick="handleCheckout()">
-              Pay <span id="payAmount">$75</span> — Get My Report
+              Get My AI Playbook — $200
             </button>
             <p class="pay-note">One-time payment. No subscription. No hidden fees.</p>
           </div>
@@ -109,8 +94,8 @@
 
           <div class="order-item">
             <div class="order-item-info">
-              <div class="order-item-name" id="summaryPlanName">Starter Plan</div>
-              <div class="order-item-desc" id="summaryPlanDesc">Custom AI Report</div>
+              <div class="order-item-name" id="summaryPlanName">Custom AI Playbook</div>
+              <div class="order-item-desc" id="summaryPlanDesc">Personalized AI Action Plan</div>
             </div>
             <div class="order-item-price" id="summaryPrice">$75</div>
           </div>
@@ -180,61 +165,8 @@
 </footer>
 
 <script>
-  let selectedPlan = 'starter';
-
-  function selectPlan(plan) {
-    selectedPlan = plan;
-
-    document.getElementById('planStarter').classList.toggle('selected', plan === 'starter');
-    document.getElementById('planPro').classList.toggle('selected', plan === 'pro');
-    document.getElementById('radioStarter').classList.toggle('checked', plan === 'starter');
-    document.getElementById('radioPro').classList.toggle('checked', plan === 'pro');
-
-    const isStarter = plan === 'starter';
-    const price = isStarter ? '$75' : '$700';
-    const name = isStarter ? 'Starter Plan' : 'Pro Plan';
-    const desc = isStarter ? 'Custom AI Report' : 'Custom AI Report + Consultation';
-
-    document.getElementById('payAmount').textContent = price;
-    document.getElementById('summaryPrice').textContent = price;
-    document.getElementById('summaryTotal').textContent = price;
-    document.getElementById('summaryPlanName').textContent = name;
-    document.getElementById('summaryPlanDesc').textContent = desc;
-    document.getElementById('payBtn').innerHTML = `Pay ${price} — ${isStarter ? 'Get My Report' : 'Get Report + Consultation'}`;
-
-    const list = document.getElementById('includesList');
-    if (isStarter) {
-      list.innerHTML = `
-        <li>✓ Custom AI tools report</li>
-        <li>✓ 3–5 hand-picked tools</li>
-        <li>✓ Step-by-step setup guides</li>
-        <li>✓ PDF to your email in minutes</li>
-      `;
-    } else {
-      list.innerHTML = `
-        <li>✓ Everything in Starter</li>
-        <li>✓ 1-hour live AI consultation</li>
-        <li>✓ Understand what AI means for your business</li>
-        <li>✓ 30-day follow-up support</li>
-        <li>✓ PDF to your email in minutes</li>
-      `;
-    }
-  }
-
   function handleCheckout() {
-    const links = {
-      starter: 'https://buy.stripe.com/3cI5kDbaV4zffGJewG7EQ00',
-      pro:     'https://buy.stripe.com/6oU6oHfrbc1Hcux4W67EQ01'
-    };
-    window.location.href = links[selectedPlan];
-  }
-
-  // Pre-select plan from URL param (e.g. checkout.html?plan=pro)
-  const urlPlan = new URLSearchParams(window.location.search).get('plan');
-  if (urlPlan === 'pro') {
-    selectPlan('pro');
-  } else {
-    selectPlan('starter');
+    window.location.href = 'https://buy.stripe.com/3cI5kDbaV4zffGJewG7EQ00';
   }
 </script>
 
