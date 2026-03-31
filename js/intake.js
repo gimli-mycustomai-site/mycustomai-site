@@ -202,9 +202,6 @@ document.getElementById('intakeForm').addEventListener('submit', function(e) {
   // Show generating overlay
   showGenerating();
 
-  // Collect all form data
-  const formData = collectFormData();
-
   // Collect and save form data
   const formData = collectFormData();
   localStorage.setItem('mcai_tools', JSON.stringify(formData.painPoints));
