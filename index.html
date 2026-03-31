@@ -145,23 +145,54 @@
 <section class="pricing section" id="pricing">
   <div class="container" style="text-align:center;">
     <div class="section-label">Pricing</div>
-    <h2 class="section-title">One plan. Everything you need.</h2>
-    <p class="section-sub">A custom AI playbook built specifically for your business — no tech experience required.</p>
-    <div class="pricing-grid pricing-single">
+    <h2 class="section-title">Start with a plan. Grow with a partner.</h2>
+    <p class="section-sub">From a one-time AI playbook to a dedicated monthly AI partner — pick what fits your business.</p>
+    <div class="pricing-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:960px;margin:0 auto;">
 
-      <div class="pricing-card featured" style="max-width:480px;margin:0 auto;">
+      <!-- Starter -->
+      <div class="pricing-card">
         <div class="pricing-name">Custom AI Playbook</div>
         <div class="pricing-price"><sup>$</sup>200</div>
         <div class="pricing-desc">One-time · Your personalized AI action plan, delivered in minutes</div>
         <ul class="pricing-features">
-          <li>AI tools hand-picked for your specific business</li>
-          <li>Exact setup instructions — click-by-click, no guesswork</li>
+          <li>AI tools hand-picked for your business</li>
+          <li>Click-by-click setup instructions</li>
           <li>90-day implementation roadmap</li>
           <li>Quick wins you can do today for free</li>
-          <li>What to avoid (common mistakes for your industry)</li>
           <li>PDF delivered to your email instantly</li>
         </ul>
-        <a href="#" class="btn btn-primary btn-full" onclick="openModal('signup'); window._selectedPlan='starter'; return false;">Get My AI Playbook — $200</a>
+        <a href="#" class="btn btn-outline btn-full" onclick="openModal('signup'); window._selectedPlan='starter'; return false;">Get My AI Playbook — $200</a>
+      </div>
+
+      <!-- Pro -->
+      <div class="pricing-card featured">
+        <div class="pricing-name">Playbook + Consultation</div>
+        <div class="pricing-price"><sup>$</sup>700</div>
+        <div class="pricing-desc">One-time · Playbook + 1-hour live strategy session</div>
+        <ul class="pricing-features">
+          <li>Everything in Custom AI Playbook</li>
+          <li>1-hour live AI strategy session</li>
+          <li>Custom implementation plan</li>
+          <li>Priority WhatsApp support</li>
+        </ul>
+        <a href="#" class="btn btn-primary btn-full" onclick="openModal('signup'); window._selectedPlan='pro'; return false;">Get Started — $700</a>
+      </div>
+
+      <!-- Retainer -->
+      <div class="pricing-card" style="border:2px solid #2D5016;">
+        <div style="display:inline-block;background:#2D5016;color:#fff;font-size:11px;font-weight:700;letter-spacing:1px;padding:3px 12px;border-radius:20px;margin-bottom:10px;text-transform:uppercase;">Most Value</div>
+        <div class="pricing-name">AI Retainer</div>
+        <div class="pricing-price"><sup>$</sup>750<span style="font-size:16px;font-weight:400;color:#777">/mo</span></div>
+        <div class="pricing-desc">Monthly · Your dedicated AI partner — ongoing strategy &amp; support</div>
+        <ul class="pricing-features">
+          <li>Dedicated AI strategy &amp; roadmap</li>
+          <li>Monthly implementation sessions</li>
+          <li>Ongoing tool setup &amp; optimization</li>
+          <li>Priority WhatsApp + email support</li>
+          <li>New AI tool recommendations monthly</li>
+          <li>Cancel anytime</li>
+        </ul>
+        <a href="#" class="btn btn-outline btn-full" onclick="openModal('signup'); window._selectedPlan='retainer'; return false;">Start My Retainer — $750/mo</a>
       </div>
 
     </div>

@@ -9,6 +9,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/checkout.css" />
+  <style>
+    .plan-card.retainer { border: 2px solid #2D5016; }
+    .plan-card.retainer .plan-card-name { color: #2D5016; }
+    .retainer-badge {
+      display: inline-block;
+      background: #2D5016;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .plan-card-price .per-month {
+      font-size: 13px;
+      font-weight: 400;
+      color: #777;
+    }
+  </style>
 </head>
 <body>
 
@@ -37,10 +58,12 @@
 
         <!-- Plan Toggle -->
         <div class="checkout-section">
-          <h2>Your Order</h2>
+          <h2>Choose Your Plan</h2>
 
           <div class="plan-cards">
-            <div class="plan-card featured selected" id="planStarter">
+
+            <!-- Starter -->
+            <div class="plan-card featured selected" id="planStarter" onclick="selectPlan('starter')">
               <div class="plan-card-inner">
                 <div class="plan-radio checked" id="radioStarter"></div>
                 <div class="plan-info">
@@ -57,10 +80,50 @@
                 <div class="plan-card-price">$200</div>
               </div>
             </div>
+
+            <!-- Pro -->
+            <div class="plan-card" id="planPro" onclick="selectPlan('pro')">
+              <div class="plan-card-inner">
+                <div class="plan-radio" id="radioPro"></div>
+                <div class="plan-info">
+                  <div class="plan-card-name">Playbook + Consultation</div>
+                  <div class="plan-card-desc">Everything in Starter, plus a 1-hour strategy session</div>
+                  <ul class="plan-card-features">
+                    <li>Everything in Custom AI Playbook</li>
+                    <li>1-hour live AI strategy session</li>
+                    <li>Custom implementation plan</li>
+                    <li>Priority support via WhatsApp</li>
+                  </ul>
+                </div>
+                <div class="plan-card-price">$700</div>
+              </div>
+            </div>
+
+            <!-- Retainer -->
+            <div class="plan-card retainer" id="planRetainer" onclick="selectPlan('retainer')">
+              <div class="plan-card-inner">
+                <div class="plan-radio" id="radioRetainer"></div>
+                <div class="plan-info">
+                  <span class="retainer-badge">Most Value</span>
+                  <div class="plan-card-name">AI Retainer</div>
+                  <div class="plan-card-desc">Your ongoing AI partner — strategy, implementation & support every month</div>
+                  <ul class="plan-card-features">
+                    <li>Dedicated AI strategy & roadmap</li>
+                    <li>Monthly implementation sessions</li>
+                    <li>Ongoing tool setup & optimization</li>
+                    <li>Priority WhatsApp + email support</li>
+                    <li>New AI tool recommendations as they emerge</li>
+                    <li>Cancel anytime</li>
+                  </ul>
+                </div>
+                <div class="plan-card-price">$750<span class="per-month">/mo</span></div>
+              </div>
+            </div>
+
           </div>
         </div>
 
-        <!-- Payment Placeholder -->
+        <!-- Payment -->
         <div class="checkout-section">
           <h2>Payment</h2>
           <div class="payment-placeholder">
@@ -71,7 +134,7 @@
               </svg>
               Secure payment
             </div>
-            <p>Payment is processed securely. You will be redirected to complete your purchase, then returned here to fill out your business intake form.</p>
+            <p>Payment is processed securely via Stripe. You'll be redirected to complete your purchase, then returned to fill out your business intake form.</p>
             <div class="payment-methods">
               <span class="pay-badge">Visa</span>
               <span class="pay-badge">Mastercard</span>
@@ -79,9 +142,9 @@
               <span class="pay-badge">Apple Pay</span>
             </div>
             <button class="btn btn-primary btn-full btn-lg" id="payBtn" onclick="handleCheckout()">
-              Get My AI Playbook — $200
+              Get Started — $200
             </button>
-            <p class="pay-note">One-time payment. No subscription. No hidden fees.</p>
+            <p class="pay-note" id="payNote">One-time payment. No subscription. No hidden fees.</p>
           </div>
         </div>
 
@@ -97,14 +160,14 @@
               <div class="order-item-name" id="summaryPlanName">Custom AI Playbook</div>
               <div class="order-item-desc" id="summaryPlanDesc">Personalized AI Action Plan</div>
             </div>
-            <div class="order-item-price" id="summaryPrice">$75</div>
+            <div class="order-item-price" id="summaryPrice">$200</div>
           </div>
 
           <div class="order-divider"></div>
 
           <div class="order-total-row">
             <span>Total</span>
-            <span id="summaryTotal">$75</span>
+            <span id="summaryTotal">$200</span>
           </div>
 
           <div class="order-guarantee">
@@ -132,7 +195,7 @@
             </svg>
             Secure checkout
           </div>
-          <div class="trust-badge">
+          <div class="trust-badge" id="trustBadge2">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="20 6 9 17 4 12"/>
             </svg>
@@ -165,9 +228,83 @@
 </footer>
 
 <script>
-  function handleCheckout() {
-    window.location.href = 'https://buy.stripe.com/6oU7sLbaV3vbeCF9cm7EQ02';
+  const PLANS = {
+    starter: {
+      name:     'Custom AI Playbook',
+      desc:     'Personalized AI Action Plan',
+      price:    '$200',
+      total:    '$200',
+      btnText:  'Get My AI Playbook — $200',
+      note:     'One-time payment. No subscription. No hidden fees.',
+      badge:    'No subscriptions',
+      includes: ['✓ Custom AI tools report','✓ 3–5 hand-picked tools','✓ Step-by-step setup guides','✓ PDF to your email in minutes'],
+      url:      'https://buy.stripe.com/6oU7sLbaV3vbeCF9cm7EQ02',
+    },
+    pro: {
+      name:     'Playbook + Consultation',
+      desc:     'AI Playbook + 1-Hour Strategy Session',
+      price:    '$700',
+      total:    '$700',
+      btnText:  'Get Started — $700',
+      note:     'One-time payment. No subscription. No hidden fees.',
+      badge:    'No subscriptions',
+      includes: ['✓ Custom AI tools report','✓ 1-hour live strategy session','✓ Custom implementation plan','✓ Priority WhatsApp support'],
+      url:      'https://buy.stripe.com/6oU6oHfrbc1Hcux4W67EQ01',
+    },
+    retainer: {
+      name:     'AI Retainer',
+      desc:     'Monthly AI Partner — Strategy & Support',
+      price:    '$750/mo',
+      total:    '$750/mo',
+      btnText:  'Start My Retainer — $750/mo',
+      note:     'Monthly subscription. Cancel anytime.',
+      badge:    'Cancel anytime',
+      includes: ['✓ Dedicated AI strategy & roadmap','✓ Monthly implementation sessions','✓ Ongoing tool optimization','✓ Priority support','✓ New AI tool recommendations'],
+      url:      'https://buy.stripe.com/bJe8wP0wh1n31PT3S27EQ03',
+    },
+  };
+
+  let currentPlan = 'starter';
+
+  function selectPlan(plan) {
+    currentPlan = plan;
+    ['starter','pro','retainer'].forEach(function(p) {
+      const card  = document.getElementById('plan' + p.charAt(0).toUpperCase() + p.slice(1));
+      const radio = document.getElementById('radio'  + p.charAt(0).toUpperCase() + p.slice(1));
+      if (p === plan) {
+        card.classList.add('selected');
+        radio.classList.add('checked');
+      } else {
+        card.classList.remove('selected');
+        radio.classList.remove('checked');
+      }
+    });
+    const d = PLANS[plan];
+    document.getElementById('summaryPlanName').textContent = d.name;
+    document.getElementById('summaryPlanDesc').textContent = d.desc;
+    document.getElementById('summaryPrice').textContent    = d.price;
+    document.getElementById('summaryTotal').textContent    = d.total;
+    document.getElementById('payBtn').textContent          = d.btnText;
+    document.getElementById('payNote').textContent         = d.note;
+    document.getElementById('trustBadge2').querySelector('span') &&
+      (document.getElementById('trustBadge2').lastChild.textContent = d.badge);
+    const ul = document.getElementById('includesList');
+    ul.innerHTML = d.includes.map(function(i){ return '<li>' + i + '</li>'; }).join('');
   }
+
+  function handleCheckout() {
+    const url = PLANS[currentPlan].url;
+    const user = JSON.parse(localStorage.getItem('mcai_user') || '{}');
+    if (user.email) {
+      window.location.href = url + '&prefilled_email=' + encodeURIComponent(user.email);
+    } else {
+      window.location.href = url;
+    }
+  }
+
+  // Pre-select plan from URL param
+  const urlPlan = new URLSearchParams(window.location.search).get('plan');
+  if (urlPlan && PLANS[urlPlan]) selectPlan(urlPlan);
 </script>
 
 </body>
