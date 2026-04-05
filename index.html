@@ -3,29 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Custom AI — AI Tools for Your Business</title>
-  <meta name="description" content="Get a custom AI plan built specifically for your business. Step-by-step setup guides, hand-picked tools, and expert consulting." />
+  <title>My Custom AI — AI Workflows Built for Your Business</title>
+  <meta name="description" content="Get a custom AI plan built specifically for your business. Automated workflows, hand-picked tools, and expert consulting — no tech experience required." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
-  <style>
-    .svg-icon { width: 20px; height: 20px; display: inline-block; vertical-align: middle; }
-    .svg-icon-lg { width: 28px; height: 28px; }
-    .svg-icon-hero { width: 22px; height: 22px; color: var(--green-mid); }
-  </style>
 </head>
 <body>
-<div style="display:none" id="icons-sprite">
-  <script>
-    fetch('assets/icons.svg').then(r=>r.text()).then(t=>{document.getElementById('icons-sprite').innerHTML=t;});
-  </script>
-</div>
 
 <!-- ── Nav ───────────────────────────────────────────────── -->
 <nav class="nav">
   <div class="container nav-inner">
-    <div class="nav-logo">My <span>Custom</span> AI</div>
+    <div class="nav-logo">My<span>Custom</span>AI</div>
     <div class="nav-links">
       <a href="#how-it-works">How It Works</a>
       <a href="#pricing">Pricing</a>
@@ -33,7 +23,7 @@
     </div>
     <div class="nav-cta">
       <a href="#" class="btn btn-outline" onclick="openModal('login'); return false;">Log In</a>
-      <a href="#" class="btn btn-primary" onclick="openModal('signup'); return false;">Get Started</a>
+      <a href="#" class="btn btn-primary" onclick="openModal('signup'); window._selectedPlan='starter'; return false;">Get Started</a>
     </div>
   </div>
 </nav>
@@ -42,55 +32,62 @@
 <section class="hero">
   <div class="container hero-inner">
     <div class="hero-content">
-      <div class="hero-badge"><img src="assets/taro-leaf.svg" class="taro-icon" alt="taro leaf" /> Built for Hawaii businesses</div>
-      <h1>AI tools built around <em>your</em> business</h1>
-      <p>Tell us what you need. We'll find the right AI tools, explain exactly how to set them up, and get you running — no tech experience required.</p>
+      <div class="hero-badge"><span class="hero-badge-dot"></span> AI Automation for Small Business</div>
+      <h1>AI workflows that run your business <em>automatically</em></h1>
+      <p>Tell us what you need. We build the automations, set up the tools, and hand you a ready-to-run system — no tech experience required.</p>
       <div class="hero-actions">
-        <a href="#" class="btn btn-primary btn-lg" onclick="openModal('signup'); window._selectedPlan='starter'; return false;">Get My Custom AI Plan</a>
+        <a href="#" class="btn btn-primary btn-lg" onclick="openModal('signup'); window._selectedPlan='starter'; return false;">Get My Custom AI Plan →</a>
         <a href="#how-it-works" class="btn btn-outline btn-lg">See How It Works</a>
       </div>
     </div>
     <div class="hero-visual">
-      <div class="hero-visual-title">Your Custom AI Plan Includes</div>
-      <div class="hero-tool-item">
-        <div class="hero-tool-icon"><svg class="svg-icon-hero"><use href="assets/icons.svg#icon-calendar"/></svg></div>
-        <div>
-          <div class="hero-tool-name">Smart Scheduling</div>
-          <div class="hero-tool-desc">Automate bookings 24/7</div>
-        </div>
-        <div class="hero-tool-tag">Setup guide</div>
+      <div class="hero-visual-bar">
+        <span class="hero-visual-dot"></span>
+        <span class="hero-visual-dot"></span>
+        <span class="hero-visual-dot"></span>
+        <span class="hero-visual-label">your-ai-plan.workflow</span>
       </div>
-      <div class="hero-tool-item">
-        <div class="hero-tool-icon"><svg class="svg-icon-hero"><use href="assets/icons.svg#icon-chat"/></svg></div>
-        <div>
-          <div class="hero-tool-name">AI Customer Chat</div>
-          <div class="hero-tool-desc">Answer FAQs automatically</div>
+      <div class="hero-visual-body">
+        <div class="hero-tool-item">
+          <div class="hero-tool-icon">⚡</div>
+          <div>
+            <div class="hero-tool-name">Speed-to-Lead</div>
+            <div class="hero-tool-desc">Respond to inquiries in &lt;5 min</div>
+          </div>
+          <div class="hero-tool-tag">Automated</div>
         </div>
-        <div class="hero-tool-tag">Setup guide</div>
-      </div>
-      <div class="hero-tool-item">
-        <div class="hero-tool-icon"><svg class="svg-icon-hero"><use href="assets/icons.svg#icon-chart"/></svg></div>
-        <div>
-          <div class="hero-tool-name">Smart Accounting</div>
-          <div class="hero-tool-desc">Cut bookkeeping time in half</div>
+        <div class="hero-tool-item">
+          <div class="hero-tool-icon">📄</div>
+          <div>
+            <div class="hero-tool-name">Document Processing</div>
+            <div class="hero-tool-desc">Forms &amp; PDFs extracted to your CRM</div>
+          </div>
+          <div class="hero-tool-tag">Automated</div>
         </div>
-        <div class="hero-tool-tag">Setup guide</div>
-      </div>
-      <div class="hero-tool-item">
-        <div class="hero-tool-icon"><svg class="svg-icon-hero"><use href="assets/icons.svg#icon-megaphone"/></svg></div>
-        <div>
-          <div class="hero-tool-name">Marketing Automation</div>
-          <div class="hero-tool-desc">Email & social on autopilot</div>
+        <div class="hero-tool-item">
+          <div class="hero-tool-icon">🔁</div>
+          <div>
+            <div class="hero-tool-name">Follow-Up Sequences</div>
+            <div class="hero-tool-desc">80% of sales take 5+ follow-ups</div>
+          </div>
+          <div class="hero-tool-tag">Automated</div>
         </div>
-        <div class="hero-tool-tag">Setup guide</div>
-      </div>
-      <div class="hero-tool-item">
-        <div class="hero-tool-icon"><svg class="svg-icon-hero"><use href="assets/icons.svg#icon-phone"/></svg></div>
-        <div>
-          <div class="hero-tool-name">Text Message Scheduling</div>
-          <div class="hero-tool-desc">Let customers book via SMS</div>
+        <div class="hero-tool-item">
+          <div class="hero-tool-icon">💬</div>
+          <div>
+            <div class="hero-tool-name">Database Reactivation</div>
+            <div class="hero-tool-desc">Re-engage cold leads, zero ad spend</div>
+          </div>
+          <div class="hero-tool-tag">Automated</div>
         </div>
-        <div class="hero-tool-tag">Setup guide</div>
+        <div class="hero-tool-item">
+          <div class="hero-tool-icon">📊</div>
+          <div>
+            <div class="hero-tool-name">Internal Reporting</div>
+            <div class="hero-tool-desc">Auto summaries to Slack/email/SMS</div>
+          </div>
+          <div class="hero-tool-tag">Automated</div>
+        </div>
       </div>
     </div>
   </div>
@@ -101,43 +98,44 @@
   <div class="container" style="text-align:center;">
     <div class="section-label">The Process</div>
     <h2 class="section-title">From sign-up to running in 4 steps</h2>
-    <p class="section-sub">No jargon. No guesswork. We match you with the right tools and show you exactly how to use them.</p>
+    <p class="section-sub">No jargon. No guesswork. We match you with the right workflows and hand you a plan that actually works.</p>
     <div class="how-steps">
       <div class="step-card">
-        <div class="step-num">1</div>
+        <div class="step-num">01</div>
         <h3>Create your account</h3>
         <p>Sign up with your email in under a minute.</p>
       </div>
       <div class="step-card">
-        <div class="step-num">2</div>
+        <div class="step-num">02</div>
         <h3>Tell us about your business</h3>
-        <p>Describe what you do, your biggest challenges, and what you want to automate.</p>
+        <p>Describe what you do, your biggest bottlenecks, and what you want to automate.</p>
       </div>
       <div class="step-card">
-        <div class="step-num">3</div>
+        <div class="step-num">03</div>
         <h3>Get your custom plan</h3>
-        <p>We build a PDF report with your hand-picked tools and exact setup steps.</p>
+        <p>We build a detailed PDF playbook with your hand-picked workflows and exact setup steps.</p>
       </div>
       <div class="step-card">
-        <div class="step-num">4</div>
-        <h3>Implement & grow</h3>
-        <p>Follow the guide yourself, or add a consult to get expert guidance on your AI strategy.</p>
+        <div class="step-num">04</div>
+        <h3>Implement &amp; scale</h3>
+        <p>Follow the guide yourself, or add a strategy session to get expert eyes on your build.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ── Why Not Just Prompt It Yourself ───────────────────── -->
-<section class="section" style="background:#f7f4ef;">
-  <div class="container" style="text-align:center;max-width:680px;">
-    <h2 class="section-title">Why not just prompt it yourself?</h2>
-    <p style="font-size:1.1rem;color:#444;line-height:1.7;margin-bottom:1rem;">
-      Most people spend hours going back and forth with AI trying to get useful advice — and still end up with something generic.
+<section class="section why-section">
+  <div class="container" style="text-align:center;max-width:640px;">
+    <div class="section-label">Why Not DIY?</div>
+    <h2 class="section-title">Why not just use ChatGPT yourself?</h2>
+    <p style="font-size:1.05rem;margin-bottom:1rem;">
+      Most business owners spend hours prompting back and forth — and still end up with generic advice that doesn't fit their operation.
     </p>
-    <p style="font-size:1.1rem;color:#444;line-height:1.7;margin-bottom:1rem;">
-      Our system is pre-trained on hundreds of real AI tools, industry-specific use cases, and what actually works for small businesses. You fill out a 5-minute form and get a ready-to-execute plan — no prompting required.
+    <p style="font-size:1.05rem;margin-bottom:1rem;">
+      Our system is trained on hundreds of real AI workflows, industry-specific use cases, and what actually converts for small businesses. You fill out a 5-minute form and get a ready-to-execute plan.
     </p>
-    <p style="font-size:1.1rem;font-weight:600;color:#2D5016;">Faster. More specific. Built for businesses like yours.</p>
+    <p style="font-size:1.05rem;font-weight:600;color:var(--accent-bright);">Faster. More specific. Built around how your business actually runs.</p>
   </div>
 </section>
 
@@ -146,8 +144,8 @@
   <div class="container" style="text-align:center;">
     <div class="section-label">Pricing</div>
     <h2 class="section-title">Start with a plan. Grow with a partner.</h2>
-    <p class="section-sub">From a one-time AI playbook to a dedicated monthly AI partner — pick what fits your business.</p>
-    <div class="pricing-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:960px;margin:0 auto;">
+    <p class="section-sub">From a one-time AI playbook to a dedicated monthly partner — pick what fits your business right now.</p>
+    <div class="pricing-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;max-width:960px;margin:0 auto;">
 
       <!-- Starter -->
       <div class="pricing-card">
@@ -155,7 +153,7 @@
         <div class="pricing-price"><sup>$</sup>200</div>
         <div class="pricing-desc">One-time · Your personalized AI action plan, delivered in minutes</div>
         <ul class="pricing-features">
-          <li>AI tools hand-picked for your business</li>
+          <li>AI workflows picked for your business type</li>
           <li>Click-by-click setup instructions</li>
           <li>90-day implementation roadmap</li>
           <li>Quick wins you can do today for free</li>
@@ -166,6 +164,7 @@
 
       <!-- Pro -->
       <div class="pricing-card featured">
+        <div class="pricing-badge">Most Popular</div>
         <div class="pricing-name">Playbook + Consultation</div>
         <div class="pricing-price"><sup>$</sup>700</div>
         <div class="pricing-desc">One-time · Playbook + 1-hour live strategy session</div>
@@ -173,26 +172,26 @@
           <li>Everything in Custom AI Playbook</li>
           <li>1-hour live AI strategy session</li>
           <li>Custom implementation plan</li>
-          <li>Priority WhatsApp support</li>
+          <li>Priority support via WhatsApp</li>
         </ul>
         <a href="#" class="btn btn-primary btn-full" onclick="openModal('signup'); window._selectedPlan='pro'; return false;">Get Started — $700</a>
       </div>
 
       <!-- Retainer -->
-      <div class="pricing-card" style="border:2px solid #2D5016;">
-        <div style="display:inline-block;background:#2D5016;color:#fff;font-size:11px;font-weight:700;letter-spacing:1px;padding:3px 12px;border-radius:20px;margin-bottom:10px;text-transform:uppercase;">Most Value</div>
+      <div class="pricing-card glow-border">
+        <div class="pricing-badge" style="background:linear-gradient(135deg,#6366f1,#a78bfa);">Best Value</div>
         <div class="pricing-name">AI Retainer</div>
-        <div class="pricing-price"><sup>$</sup>750<span style="font-size:16px;font-weight:400;color:#777">/mo</span></div>
+        <div class="pricing-price"><sup>$</sup>750<span style="font-size:1rem;font-weight:400;color:var(--text-muted)">/mo</span></div>
         <div class="pricing-desc">Monthly · Your dedicated AI partner — ongoing strategy &amp; support</div>
         <ul class="pricing-features">
           <li>Dedicated AI strategy &amp; roadmap</li>
           <li>Monthly implementation sessions</li>
-          <li>Ongoing tool setup &amp; optimization</li>
+          <li>Ongoing workflow setup &amp; optimization</li>
           <li>Priority WhatsApp + email support</li>
-          <li>New AI tool recommendations monthly</li>
+          <li>New AI recommendations monthly</li>
           <li>Cancel anytime</li>
         </ul>
-        <a href="#" class="btn btn-outline btn-full" onclick="openModal('signup'); window._selectedPlan='retainer'; return false;">Start My Retainer — $750/mo</a>
+        <a href="#" class="btn btn-primary btn-full" onclick="openModal('signup'); window._selectedPlan='retainer'; return false;">Start My Retainer — $750/mo</a>
       </div>
 
     </div>
@@ -208,32 +207,32 @@
 
       <div class="faq-item">
         <div class="faq-q">What kind of businesses do you work with?</div>
-        <div class="faq-a">We work with any small to mid-sized business in Hawaii — restaurants, contractors, salons, retail shops, healthcare offices, real estate agents, accountants, and more. If you have a business and want to save time with AI, we can help.</div>
+        <div class="faq-a">We work with small to mid-sized businesses across any industry — restaurants, contractors, healthcare offices, real estate agents, retail, e-commerce, service businesses, and more. If you run a business and want to save time with AI, we can build the system.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q">Do I need any tech experience?</div>
-        <div class="faq-a">None at all. Our setup guides are written step-by-step — we tell you exactly which website to go to, what to click, and what to type. If you can use a smartphone, you can follow our guides.</div>
+        <div class="faq-a">None at all. Our setup guides are written step-by-step — we tell you exactly which platform to use, what to click, and what to type. If you can use a smartphone, you can follow our guides.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q">How long does it take to get my report?</div>
-        <div class="faq-a">After you submit your business details and complete payment, your custom PDF report is delivered to your email within minutes.</div>
+        <div class="faq-a">After you submit your business details and complete payment, your custom PDF playbook is delivered to your email within minutes.</div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q">What if I have more questions after I get my report?</div>
-        <div class="faq-a">Message us on WhatsApp anytime. We're happy to answer quick questions about your report.</div>
+        <div class="faq-q">What if I have questions after I get my report?</div>
+        <div class="faq-a">Message us on WhatsApp anytime. We're happy to answer quick questions about your playbook. For deeper support, the Pro and Retainer plans include direct access.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q">Are the tools you recommend expensive?</div>
-        <div class="faq-a">We only recommend tools that have free tiers or affordable pricing for small businesses. Most of the tools we recommend cost $0–$50/month and pay for themselves quickly in time saved.</div>
+        <div class="faq-a">We only recommend tools with free tiers or affordable pricing for small businesses. Most tools we recommend cost $0–$50/month and pay for themselves quickly in time saved.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q">Is this really customized for my business?</div>
-        <div class="faq-a">Yes — your playbook is generated based on your specific business type, size, challenges, and goals. A restaurant gets different recommendations than a law firm. Everything is specific to you.</div>
+        <div class="faq-a">Yes — your playbook is generated based on your specific business type, size, challenges, and goals. A restaurant gets completely different recommendations than a law firm. Everything is specific to you.</div>
       </div>
 
     </div>
@@ -241,29 +240,29 @@
 </section>
 
 <!-- ── Free Tool Banner ───────────────────────────────────── -->
-<section class="cta-banner" style="background: linear-gradient(135deg, #1a3a0a, #2D5016);">
+<section class="cta-banner">
   <div class="container" style="text-align:center;">
-    <p style="font-size:0.85rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;opacity:0.7;margin-bottom:8px;">Free Tool</p>
+    <div class="section-label">Free Tool</div>
     <h2>Not sure where to start with AI?</h2>
-    <p>Take our 2-minute AI Readiness Quiz — get a free score and your top opportunities, no email required.</p>
+    <p>Take our 2-minute AI Readiness Quiz — get a free score and your top automation opportunities. No email required.</p>
     <a href="grader.html" class="btn btn-primary btn-lg" style="margin-right:12px;">Take the Free Quiz →</a>
-    <a href="checkout.html" class="btn btn-secondary btn-lg" style="background:transparent;border:2px solid rgba(255,255,255,0.4);color:white;">Get My Custom Plan</a>
+    <a href="checkout.html" class="btn btn-outline btn-lg">Get My Custom Plan</a>
   </div>
 </section>
 
 <!-- ── CTA Banner ─────────────────────────────────────────── -->
-<section class="cta-banner">
+<section class="cta-accent">
   <div class="container">
-    <h2>Ready to put AI to work for your business?</h2>
-    <p>Join other Hawaii businesses saving time and growing with the right AI tools.</p>
-    <a href="#" class="btn btn-primary btn-lg" onclick="openModal('signup'); window._selectedPlan='starter'; return false;">Get My Custom AI Plan →</a>
+    <h2>Ready to put AI to work?</h2>
+    <p>Join other businesses saving time and closing more deals with the right AI workflows.</p>
+    <a href="#" class="btn btn-white btn-lg" onclick="openModal('signup'); window._selectedPlan='starter'; return false;">Get My Custom AI Plan →</a>
   </div>
 </section>
 
 <!-- ── Footer ─────────────────────────────────────────────── -->
 <footer class="footer">
   <div class="container footer-inner">
-    <div class="footer-logo">My Custom AI</div>
+    <div class="footer-logo">MyCustomAI</div>
     <div class="footer-links">
       <a href="#how-it-works">How It Works</a>
       <a href="#pricing">Pricing</a>
@@ -284,7 +283,7 @@
       <div class="modal-sub">Start building your custom AI plan today.</div>
       <div class="form-group">
         <label class="form-label">Business Name</label>
-        <input type="text" class="form-input" placeholder="e.g. Aloha Plumbing Co." />
+        <input type="text" class="form-input" placeholder="e.g. Acme Plumbing Co." />
       </div>
       <div class="form-group">
         <label class="form-label">Your Name</label>
