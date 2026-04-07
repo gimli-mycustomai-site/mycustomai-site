@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Business Details — My Custom AI</title>
+  <title>Start Your Buildout — My Custom AI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -18,13 +18,13 @@
   <div class="container nav-inner">
     <a href="index.html" class="nav-logo">My <span>Custom</span> AI</a>
     <div class="intake-progress-nav">
-      <span class="progress-step done">1. Account</span>
+      <span class="progress-step active">1. Your Business</span>
       <span class="progress-arrow">→</span>
-      <span class="progress-step done">2. Payment</span>
+      <span class="progress-step">2. What to Automate</span>
       <span class="progress-arrow">→</span>
-      <span class="progress-step active">3. Your Business</span>
+      <span class="progress-step">3. Account Setup</span>
       <span class="progress-arrow">→</span>
-      <span class="progress-step">4. Your Plan</span>
+      <span class="progress-step">4. We Build It</span>
     </div>
   </div>
 </nav>
@@ -36,8 +36,8 @@
 
       <div class="intake-header">
         <div class="intake-icon"><svg><use href="assets/icons.svg#icon-doc"/></svg></div>
-        <h1>Tell us about your business</h1>
-        <p>The more detail you give us, the more specific and useful your custom AI plan will be. Takes about 3–5 minutes.</p>
+        <h1>Start your buildout</h1>
+        <p>Tell us what you need automated. We'll review your answers, send you an account setup checklist, and build everything out in 48–72 hours.</p>
       </div>
 
       <form id="intakeForm" class="intake-form">
@@ -177,12 +177,34 @@
           </div>
         </div>
 
+        <!-- ── Package Selection ───────────────────────────────────── -->
+        <div class="form-section">
+          <div class="form-section-label">Select Your Package</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:8px;">
+            <label style="border:2px solid var(--border);border-radius:12px;padding:18px;cursor:pointer;transition:border-color 0.2s;">
+              <input type="radio" name="package" value="starter" style="margin-right:8px;" />
+              <strong>Starter — $297</strong>
+              <div style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">1 workflow, up to 3 tools, 48hr delivery</div>
+            </label>
+            <label style="border:2px solid var(--accent-bright);border-radius:12px;padding:18px;cursor:pointer;">
+              <input type="radio" name="package" value="pro" style="margin-right:8px;" checked />
+              <strong>Pro — $697</strong>
+              <div style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">2–3 workflows, full stack, 72hr delivery</div>
+            </label>
+            <label style="border:2px solid var(--border);border-radius:12px;padding:18px;cursor:pointer;">
+              <input type="radio" name="package" value="heavy" style="margin-right:8px;" />
+              <strong>Heavy — $1,497</strong>
+              <div style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">All 5 workflows, 1mo retainer included</div>
+            </label>
+          </div>
+        </div>
+
         <!-- ── Submit ───────────────────────────────────────── -->
         <div class="form-submit">
           <button type="submit" class="btn btn-primary btn-lg btn-full" id="submitBtn">
-            Generate My Custom AI Plan →
+            Submit My Buildout Request →
           </button>
-          <p class="submit-note">Your plan will be emailed to you within minutes after submission.</p>
+          <p class="submit-note">We'll review your request and send you an account setup checklist within 24 hours. No payment until you approve the plan.</p>
         </div>
 
       </form>
