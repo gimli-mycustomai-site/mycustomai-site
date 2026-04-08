@@ -223,7 +223,7 @@ document.getElementById('intakeForm').addEventListener('submit', function(e) {
 
   // Send intake form to Gmail via Web3Forms
   var web3payload = {
-    access_key: '9b8c1e2a-4f3d-4a7e-b5c6-2d1f0e9a8b7c',
+    access_key: 'e90d5bad-7d30-4d08-b68a-a19b04ba514d',
     subject: '🆕 New Buildout Request — ' + (payload.bizName || 'Unknown Business'),
     from_name: 'mycustomai.co Intake Form',
     email: 'gimlikazaddum@gmail.com',
