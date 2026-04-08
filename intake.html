@@ -9,7 +9,36 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/intake.css" />
-  <style>.svg-icon-hero{width:22px;height:22px;color:var(--green-mid)}.intake-icon svg{width:48px;height:48px;color:var(--green-mid)}</style>
+  <style>
+    /* ── Hard overrides for intake light theme ── */
+    body { background: #f0f4f8 !important; color: #1a1a1a !important; }
+    .nav { background: #1a2744 !important; }
+    .intake-main { background: #f0f4f8 !important; }
+    .form-section { background: #ffffff !important; border: 1px solid #d0d8e4 !important; }
+    .form-submit { background: #ffffff !important; border: 1px solid #d0d8e4 !important; }
+    .form-label { color: #1a1a1a !important; font-weight: 600 !important; }
+    .form-section-label { color: #2d7a4a !important; }
+    .form-input { background: #f8fafc !important; color: #1a1a1a !important; border: 1.5px solid #c0ccd8 !important; }
+    .form-input::placeholder { color: #888 !important; }
+    .form-input:focus { border-color: #2d7a4a !important; background: #fff !important; }
+    .intake-header h1 { color: #1a1a1a !important; }
+    .intake-header p { color: #444 !important; }
+    .check-card { background: #f8fafc !important; border: 1.5px solid #c0ccd8 !important; }
+    .check-card:hover { background: #eef6f1 !important; border-color: #2d7a4a !important; }
+    .check-card.selected { background: #eef6f1 !important; border-color: #2d7a4a !important; }
+    .check-label { color: #1a1a1a !important; }
+    .submit-note { color: #666 !important; }
+    .hint { color: #888 !important; }
+    .required { color: #2d7a4a !important; }
+    .followup-intro { color: #444 !important; }
+    .progress-step { color: #888 !important; }
+    .progress-step.active { color: #2d7a4a !important; }
+    /* Package radio buttons */
+    label[style*="border"] { color: #1a1a1a !important; }
+    label[style*="border"] strong { color: #1a1a1a !important; }
+    .svg-icon-hero{width:22px;height:22px;color:#2d7a4a}
+    .intake-icon svg{width:48px;height:48px;color:#2d7a4a}
+  </style>
 </head>
 <body>
 
