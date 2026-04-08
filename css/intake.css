@@ -1,3 +1,42 @@
+/* ── Intake-specific CSS variables (light theme override) ── */
+:root {
+  --off-white:   #f8f7f5;
+  --green-pale:  #eef6f1;
+  --green-light: #6aab82;
+  --green-mid:   #2d7a4a;
+  --green-dark:  #1a4a2e;
+  --text-dark:   #1a1a1a;
+  --text-mid:    #444444;
+  --text-light:  #777777;
+  --border:      #e0e0e0;
+  --radius:      8px;
+  --radius-lg:   14px;
+  --font:        'Inter', sans-serif;
+}
+
+/* Force light background on intake page */
+body {
+  background: #f8f7f5 !important;
+  color: #1a1a1a !important;
+}
+
+.nav {
+  background: #ffffff !important;
+  border-bottom: 1px solid #e0e0e0 !important;
+}
+
+.nav-logo, .nav-links a, .nav-logo span {
+  color: #1a1a1a !important;
+}
+
+.intake-header h1 {
+  color: #1a1a1a !important;
+}
+
+.intake-header p {
+  color: #444444 !important;
+}
+
 /* ── Intake Layout ───────────────────────────────────────── */
 .intake-main {
   min-height: calc(100vh - 65px);
