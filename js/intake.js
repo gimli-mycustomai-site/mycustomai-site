@@ -221,12 +221,35 @@ document.getElementById('intakeForm').addEventListener('submit', function(e) {
     plan:      plan,
   });
 
-  fetch('https://mycustomai-backend-1.onrender.com/api/submit', {
+  // Send intake form to Gmail via Web3Forms
+  var web3payload = {
+    access_key: '9b8c1e2a-4f3d-4a7e-b5c6-2d1f0e9a8b7c',
+    subject: '🆕 New Buildout Request — ' + (payload.bizName || 'Unknown Business'),
+    from_name: 'mycustomai.co Intake Form',
+    email: 'gimlikazaddum@gmail.com',
+    message: [
+      'BUSINESS: ' + (payload.bizName || ''),
+      'OWNER: ' + (payload.ownerName || ''),
+      'TYPE: ' + (payload.bizType || ''),
+      'EMPLOYEES: ' + (payload.employees || ''),
+      'PACKAGE: ' + (payload.plan || ''),
+      'CURRENT TOOLS: ' + (payload.currentTools || ''),
+      'PAIN POINTS: ' + (Array.isArray(payload.painPoints) ? payload.painPoints.join(', ') : ''),
+      '',
+      'DESCRIPTION:',
+      payload.description || '',
+      '',
+      'EXTRA NOTES:',
+      payload.extra || '',
+    ].join('\n')
+  };
+
+  fetch('https://api.web3forms.com/submit', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
+    body: JSON.stringify(web3payload),
   }).catch(function(err) {
-    console.warn('Backend submit error:', err.message);
+    console.warn('Form submit error:', err.message);
     // Don't block the user — continue to confirmation regardless
   });
 
@@ -240,13 +263,13 @@ function showGenerating() {
   overlay.className = 'generating-overlay show';
   overlay.innerHTML = `
     <div class="spinner"></div>
-    <div class="generating-title">Building your custom AI plan…</div>
-    <div class="generating-sub">Analyzing your business and selecting the best tools</div>
+    <div class="generating-title">Submitting your buildout request…</div>
+    <div class="generating-sub">We'll review your request and reach out within 24 hours</div>
     <div class="generating-steps">
-      <div class="gen-step active" id="gs1">✦ Reviewing your business type and challenges</div>
-      <div class="gen-step" id="gs2">✦ Matching tools to your specific needs</div>
-      <div class="gen-step" id="gs3">✦ Writing your step-by-step setup guides</div>
-      <div class="gen-step" id="gs4">✦ Assembling your PDF report</div>
+      <div class="gen-step active" id="gs1">✦ Saving your business details</div>
+      <div class="gen-step" id="gs2">✦ Sending your request to our team</div>
+      <div class="gen-step" id="gs3">✦ Preparing your account setup checklist</div>
+      <div class="gen-step" id="gs4">✦ Almost done</div>
     </div>
   `;
   document.body.appendChild(overlay);
