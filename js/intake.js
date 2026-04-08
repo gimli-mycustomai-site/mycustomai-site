@@ -221,36 +221,36 @@ document.getElementById('intakeForm').addEventListener('submit', function(e) {
     plan:      plan,
   });
 
-  // Send intake form to Gmail via Web3Forms
-  var web3payload = {
-    access_key: 'e90d5bad-7d30-4d08-b68a-a19b04ba514d',
-    subject: '🆕 New Buildout Request — ' + (payload.bizName || 'Unknown Business'),
-    from_name: 'mycustomai.co Intake Form',
-    email: 'gimlikazaddum@gmail.com',
-    message: [
-      'BUSINESS: ' + (payload.bizName || ''),
-      'OWNER: ' + (payload.ownerName || ''),
-      'TYPE: ' + (payload.bizType || ''),
-      'EMPLOYEES: ' + (payload.employees || ''),
-      'PACKAGE: ' + (payload.plan || ''),
-      'CURRENT TOOLS: ' + (payload.currentTools || ''),
-      'PAIN POINTS: ' + (Array.isArray(payload.painPoints) ? payload.painPoints.join(', ') : ''),
-      '',
-      'DESCRIPTION:',
-      payload.description || '',
-      '',
-      'EXTRA NOTES:',
-      payload.extra || '',
-    ].join('\n')
-  };
+  // Send intake form via Resend API
+  var emailHtml = [
+    '<h2>New Buildout Request</h2>',
+    '<table style="border-collapse:collapse;width:100%;font-family:sans-serif;">',
+    '<tr><td style="padding:8px;font-weight:bold;background:#f5f5f5;">Business</td><td style="padding:8px;">' + (payload.bizName || '') + '</td></tr>',
+    '<tr><td style="padding:8px;font-weight:bold;background:#f5f5f5;">Owner</td><td style="padding:8px;">' + (payload.ownerName || '') + '</td></tr>',
+    '<tr><td style="padding:8px;font-weight:bold;background:#f5f5f5;">Type</td><td style="padding:8px;">' + (payload.bizType || '') + '</td></tr>',
+    '<tr><td style="padding:8px;font-weight:bold;background:#f5f5f5;">Employees</td><td style="padding:8px;">' + (payload.employees || '') + '</td></tr>',
+    '<tr><td style="padding:8px;font-weight:bold;background:#f5f5f5;">Package</td><td style="padding:8px;">' + (payload.plan || '') + '</td></tr>',
+    '<tr><td style="padding:8px;font-weight:bold;background:#f5f5f5;">Current Tools</td><td style="padding:8px;">' + (payload.currentTools || '') + '</td></tr>',
+    '<tr><td style="padding:8px;font-weight:bold;background:#f5f5f5;">Pain Points</td><td style="padding:8px;">' + (Array.isArray(payload.painPoints) ? payload.painPoints.join(', ') : '') + '</td></tr>',
+    '</table>',
+    '<h3>Description</h3><p>' + (payload.description || '').replace(/\n/g, '<br>') + '</p>',
+    '<h3>Extra Notes</h3><p>' + (payload.extra || '').replace(/\n/g, '<br>') + '</p>',
+  ].join('');
 
-  fetch('https://api.web3forms.com/submit', {
+  fetch('https://api.resend.com/emails', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(web3payload),
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer re_9btMtALT_KtKU358beaEmovP9UtpqFdnd'
+    },
+    body: JSON.stringify({
+      from: 'mycustomai.co <onboarding@resend.dev>',
+      to: ['gimlikazaddum@gmail.com'],
+      subject: 'New Buildout Request - ' + (payload.bizName || 'Unknown Business'),
+      html: emailHtml
+    }),
   }).catch(function(err) {
-    console.warn('Form submit error:', err.message);
-    // Don't block the user — continue to confirmation regardless
+    console.warn('Email send error:', err.message);
   });
 
   setTimeout(function() {
