@@ -22,7 +22,7 @@
       <h1 style="margin-bottom: 10px;">Custom AI Potential Audit</h1>
       <p style="color: #94a3b8; margin-bottom: 30px;">Tell us about your business. We'll analyze your workflows and send a personalized ROI roadmap. No call required.</p>
       
-      <form action="https://formspree.io/f/mnjlgvqn" method="POST">
+<form action="https://audit-api.mycustomai.co/webhook/direct" method="POST">
         <div class="form-group">
           <label>Full Name</label>
           <input type="text" name="name" required placeholder="Alex Rivera">
@@ -49,6 +49,11 @@
           <textarea name="bottleneck" rows="3" placeholder="Examples: Lead follow-up is too slow, manual data entry, customer support is overwhelmed..."></textarea>
         </div>
           <!-- 1. AI Proficiency -->
+          <div class="form-group">
+            <label>Location & Timezone (State/Region)</label>
+            <input type="text" name="location" required placeholder="e.g., Honolulu, HI or New York, NY">
+          </div>
+
           <div class="form-group">
             <label>How does your team currently pulse with AI?</label>
             <select name="proficiency" required>
