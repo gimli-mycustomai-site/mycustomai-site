@@ -142,35 +142,209 @@
 </footer>
 
 <script>
-document.getElementById("auditForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-  var btn = document.getElementById("auditSubmit");
-  btn.textContent = "Submitting…";
-  btn.disabled = true;
-
-  var f = this;
-  var data = {
-    name: f.name.value, company: f.company.value, email: f.email.value,
-    size: f.size.value, bottleneck: f.bottleneck.value, location: f.location.value,
-    proficiency: f.proficiency.value, target_function: f.target_function.value,
-    data_readiness: f.data_readiness.value, stack: f.stack.value,
-    manual_hours: f.manual_hours.value, driver: f.driver.value
+// ── Audit estimate engine (inline) ──────────────────────────────────────────
+(function() {
+  var sizeMap = {
+    'solo':  '1',
+    'small': '2-5',
+    'mid':   '16-30',
+    'large': '30+',
   };
 
-  var rows = Object.entries(data).map(function(kv) {
-    return "<tr><td style='padding:8px;font-weight:bold;background:#f5f5f5;'>" + kv[0].replace(/_/g," ") + "</td><td style='padding:8px;'>" + (kv[1]||"") + "</td></tr>";
-  }).join("");
+  function normalizeProf(p) {
+    if (!p) return 'none';
+    var l = p.toLowerCase();
+    if (l === 'novice') return 'none';
+    if (l === 'intermediate') return 'intermediate';
+    if (l === 'advanced') return 'advanced';
+    return 'none';
+  }
 
-  var html = "<h2>New Audit Request — MyCustomAI.co</h2><table style='border-collapse:collapse;width:100%;'>" + rows + "</table>";
+  function normalizeDataReady(d) {
+    if (!d) return 'none';
+    var l = d.toLowerCase();
+    if (l.includes('organiz') || l.includes('ready')) return 'ready';
+    if (l.includes('scatter') || l.includes('mess')) return 'scattered';
+    return 'none';
+  }
 
-  fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: { "Content-Type": "application/json", "Authorization": "Bearer re_9btMtALT_KtKU358beaEmovP9UtpqFdnd" },
-    body: JSON.stringify({ from: "mycustomai.co <onboarding@resend.dev>", to: ["gimlikazaddum@gmail.com"], subject: "New Audit Request — " + (data.company || data.name), html: html })
-  }).catch(function(err) { console.warn("Email error:", err.message); });
+  function countTools(s) {
+    if (!s) return 0;
+    return s.split(/[,;\s\/|]+/).filter(function(t) { return t.trim().length > 1; }).length;
+  }
 
-  setTimeout(function() { window.location.href = "confirmation.html"; }, 2000);
-});
+  function fmt(n) { return '$' + n.toLocaleString('en-US'); }
+
+  function computeAuditEstimate(d) {
+    var size        = sizeMap[d.size] || '1';
+    var prof        = normalizeProf(d.proficiency);
+    var manualHours = parseInt(d.manual_hours, 10) || 0;
+    var dataReady   = normalizeDataReady(d.data_readiness);
+    var toolCount   = countTools(d.stack);
+    var driver      = (d.driver || '').toLowerCase();
+
+    // Base tier
+    var tierName, basePrice;
+    if (size === '1')      { tierName = 'Quick Launch';     basePrice = 1000;  }
+    else if (size === '2-5')   { tierName = prof !== 'none' ? 'Full Mastery' : 'Quick Launch'; basePrice = prof !== 'none' ? 2500 : 1000; }
+    else if (size === '6-15')  { tierName = 'Team Foundation';   basePrice = 5000;  }
+    else if (size === '16-30') { tierName = 'Corporate Mastery'; basePrice = 10000; }
+    else                       { tierName = 'Corporate Mastery'; basePrice = 15000; }
+
+    // Complexity flags
+    var flags = [];
+    if (manualHours > 20) flags.push('High manual workload (' + manualHours + ' hrs/week) — extended scope likely');
+    if (toolCount >= 3)   flags.push('Multi-tool stack (' + toolCount + ' tools: ' + d.stack + ') — integration complexity');
+    if (dataReady === 'none')      flags.push('No existing data infrastructure — onboarding phase required');
+    else if (dataReady === 'scattered') flags.push('Scattered data — consolidation needed before automation');
+    if (prof === 'none')  flags.push('No prior AI experience — additional training time built in');
+    if (driver.includes('compliance')) flags.push('Compliance driver — governance framework and audit trail required');
+
+    // Price adjustment
+    var tierPrices = [1000, 2500, 5000, 10000, 15000];
+    var adjustedPrice = basePrice;
+    if (manualHours > 20) {
+      var idx = tierPrices.indexOf(basePrice);
+      if (idx >= 0 && idx < tierPrices.length - 1) adjustedPrice = tierPrices[idx + 1];
+    }
+    if (tierName === 'Corporate Mastery' && (size === '30+' || flags.length >= 3)) {
+      adjustedPrice = 15000;
+    }
+
+    var priceDisplay = adjustedPrice > basePrice
+      ? (fmt(basePrice) + '–' + fmt(adjustedPrice))
+      : fmt(adjustedPrice);
+    if (tierName === 'Corporate Mastery') {
+      priceDisplay = adjustedPrice >= 15000 ? '$15,000+' : '$10,000–$15,000';
+    }
+
+    // Retainer
+    var retainerName, retainerPrice, retainerReason;
+    if (size === '1') {
+      if (prof === 'advanced') { retainerName = 'The Accelerator'; retainerPrice = '$400/mo'; retainerReason = 'Weekly sessions to accelerate advanced workflow buildout'; }
+      else                     { retainerName = 'The Pilot';       retainerPrice = '$200/mo'; retainerReason = 'Biweekly check-ins to maintain momentum'; }
+    } else if (size === '2-5') {
+      retainerName = 'The Accelerator'; retainerPrice = '$400/mo'; retainerReason = 'Weekly support during small team rollout';
+    } else {
+      retainerName = 'Team Mastery'; retainerPrice = '$1,000/mo'; retainerReason = 'Ongoing team support and monthly strategy sessions';
+    }
+
+    // Timeline
+    var timeline = tierName === 'Quick Launch' ? (flags.length > 1 ? '3–4 weeks' : '2–3 weeks')
+      : tierName === 'Full Mastery'   ? (flags.length >= 2 ? '4–6 weeks' : '3–5 weeks')
+      : tierName === 'Team Foundation' ? (flags.length >= 2 ? '6–8 weeks' : '4–6 weeks')
+      : '8–12 weeks';
+
+    // Scope
+    var scope = [];
+    if (tierName === 'Quick Launch') {
+      scope.push('1:1 AI strategy session and workflow audit');
+      scope.push('Custom AI setup for ' + (d.target_function || 'primary workflow'));
+      scope.push('Tool configuration (up to 2 tools) and SOPs/prompt library');
+      if (prof === 'none') scope.push('Foundational AI onboarding session');
+    } else if (tierName === 'Full Mastery') {
+      scope.push('Deep-dive workflow audit and full AI implementation');
+      scope.push('Multi-tool integration and automation buildout for ' + (d.target_function || 'core workflows'));
+      scope.push('Custom GPT/agent setup with hand-off documentation');
+      if (prof === 'none') scope.push('AI literacy and adoption training');
+    } else if (tierName === 'Team Foundation') {
+      scope.push('Company-wide workflow mapping and opportunity scoring');
+      scope.push('Team AI rollout across departments');
+      scope.push('Automation infrastructure setup (workflows, agents, integrations)');
+      scope.push('Manager and staff training sessions');
+      scope.push('30-day post-launch support window');
+    } else {
+      scope.push('Enterprise workflow audit and AI readiness assessment');
+      scope.push('Full departmental AI rollout with phased implementation');
+      scope.push('Custom automation architecture and integration design');
+      scope.push('Change management and cross-team training program');
+      scope.push('Executive reporting and ROI tracking setup');
+      scope.push('90-day implementation roadmap with milestones');
+    }
+    if (driver.includes('compliance')) scope.push('Compliance governance framework and audit trail setup');
+    if (dataReady === 'none') scope.push('Data centralization and source-of-truth setup');
+
+    // Review note
+    var reviewNotes = [];
+    if (adjustedPrice > basePrice && tierName !== 'Corporate Mastery') {
+      reviewNotes.push('Price bumped from ' + fmt(basePrice) + ' to ' + fmt(adjustedPrice) + ' due to high manual hours — confirm scope in discovery call');
+    }
+    if (prof === 'none') reviewNotes.push('Client has zero AI experience — budget extra onboarding/training time');
+    if (dataReady === 'none') reviewNotes.push('No data infrastructure — data setup phase may need separate pricing');
+    if (toolCount >= 5) reviewNotes.push('Large tool stack (' + toolCount + ' tools) — integration audit recommended before committing to timeline');
+    if (driver.includes('compliance')) reviewNotes.push('Compliance driver — clarify regulatory context before quoting');
+
+    return {
+      tierName: tierName, priceDisplay: priceDisplay, timeline: timeline,
+      retainerName: retainerName, retainerPrice: retainerPrice, retainerReason: retainerReason,
+      flags: flags, scope: scope,
+      reviewNote: reviewNotes.length ? reviewNotes.join(' | ') : 'No major flags — standard engagement, good to proceed.',
+      summary: (d.company || d.name || 'This client') + ' is a fit for the ' + tierName + ' package'
+        + (d.target_function ? ' with focus on ' + d.target_function : '') + '. '
+        + 'Driver: ' + (d.driver || 'not specified') + '. '
+        + (manualHours > 0 ? manualHours + ' hrs/week of manual work — clear ROI potential. ' : '')
+        + (flags.length ? 'Complexity flags noted — review before finalizing.' : 'Scope appears straightforward.'),
+    };
+  }
+
+  function buildAuditEstimateHtml(est) {
+    var flagsHtml = est.flags.length
+      ? est.flags.map(function(f) { return '<li>' + f + '</li>'; }).join('')
+      : '<li>None</li>';
+    var scopeHtml = est.scope.map(function(s) { return '<li>' + s + '</li>'; }).join('');
+    return [
+      '<hr style="margin:32px 0;border-color:#ccc;">',
+      '<h2 style="color:#1a1a1a;">&#8212;&#8212; ESTIMATE FOR REVIEW &#8212;&#8212;</h2>',
+      '<p style="color:#c0392b;font-size:0.9rem;font-weight:bold;">For Nainoa\'s review only — do not forward to client. This is a starting point, not a final price.</p>',
+      '<table style="border-collapse:collapse;width:100%;font-family:sans-serif;margin-bottom:16px;">',
+      '<tr><td style="padding:8px;font-weight:bold;background:#f0f4ff;width:200px;">Recommended Tier</td><td style="padding:8px;">' + est.tierName + ' — ' + est.priceDisplay + '</td></tr>',
+      '<tr><td style="padding:8px;font-weight:bold;background:#f0f4ff;">Retainer Recommendation</td><td style="padding:8px;">' + est.retainerName + ' — ' + est.retainerPrice + ' (' + est.retainerReason + ')</td></tr>',
+      '<tr><td style="padding:8px;font-weight:bold;background:#f0f4ff;">Estimated Timeline</td><td style="padding:8px;">' + est.timeline + '</td></tr>',
+      '</table>',
+      '<h3 style="color:#1a1a1a;">Complexity Flags</h3><ul>' + flagsHtml + '</ul>',
+      '<h3 style="color:#1a1a1a;">Scope Items</h3><ul>' + scopeHtml + '</ul>',
+      '<h3 style="color:#1a1a1a;">Summary</h3><p>' + est.summary + '</p>',
+      '<h3 style="color:#c0392b;">Review Note</h3><p>' + est.reviewNote + '</p>',
+      '<hr style="margin:32px 0;border-color:#ccc;">',
+      '<p style="color:#888;font-size:0.85rem;">&#8212;&#8212; END ESTIMATE &#8212;&#8212;</p>',
+    ].join('');
+  }
+
+  document.getElementById("auditForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    var btn = document.getElementById("auditSubmit");
+    btn.textContent = "Submitting…";
+    btn.disabled = true;
+
+    var f = this;
+    var data = {
+      name: f.name.value, company: f.company.value, email: f.email.value,
+      size: f.size.value, bottleneck: f.bottleneck.value, location: f.location.value,
+      proficiency: f.proficiency.value, target_function: f.target_function.value,
+      data_readiness: f.data_readiness.value, stack: f.stack.value,
+      manual_hours: f.manual_hours.value, driver: f.driver.value,
+      deep_dive: f.deep_dive.value
+    };
+
+    var rows = Object.entries(data).map(function(kv) {
+      return "<tr><td style='padding:8px;font-weight:bold;background:#f5f5f5;'>" + kv[0].replace(/_/g," ") + "</td><td style='padding:8px;'>" + (kv[1]||"") + "</td></tr>";
+    }).join("");
+
+    var estimate = computeAuditEstimate(data);
+
+    var html = "<h2>New Audit Request — MyCustomAI.co</h2>"
+      + "<table style='border-collapse:collapse;width:100%;'>" + rows + "</table>"
+      + buildAuditEstimateHtml(estimate);
+
+    fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Authorization": "Bearer re_9btMtALT_KtKU358beaEmovP9UtpqFdnd" },
+      body: JSON.stringify({ from: "mycustomai.co <onboarding@resend.dev>", to: ["gimlikazaddum@gmail.com"], subject: "New Audit Request — " + (data.company || data.name), html: html })
+    }).catch(function(err) { console.warn("Email error:", err.message); });
+
+    setTimeout(function() { window.location.href = "confirmation.html"; }, 2000);
+  });
+})();
 </script>
 
 </body>

@@ -169,6 +169,124 @@ function handleBizType() {
   }
 }
 
+// ── Estimate engine (inline — runs in browser) ────────────
+function computeIntakeEstimate(fd) {
+  var sizeMap = { 'solo': '1', '2-5': '2-5', '2–5': '2-5', '6-20': '6-15', '21-50': '16-30' };
+  var size = sizeMap[fd.employees] || '1';
+
+  var toolCount = (fd.currentTools || '').split(/[,;\s\/|]+/).filter(function(t) { return t.trim().length > 1; }).length;
+  var ppCount   = Array.isArray(fd.painPoints) ? fd.painPoints.length : 0;
+
+  // Base tier
+  var tierName, basePrice;
+  if (size === '1')     { tierName = 'Quick Launch';     basePrice = 1000;  }
+  else if (size === '2-5')  { tierName = 'Full Mastery';  basePrice = 2500;  }
+  else if (size === '6-15') { tierName = 'Team Foundation'; basePrice = 5000;  }
+  else                      { tierName = 'Corporate Mastery'; basePrice = 10000; }
+
+  // Complexity flags
+  var flags = [];
+  if (toolCount >= 3) flags.push('Multi-tool stack (' + toolCount + ' tools) — integration complexity');
+  if (ppCount >= 4)   flags.push('Broad scope (' + ppCount + ' pain point areas) — phased rollout recommended');
+
+  // Adjusted price — bump one tier if highly complex
+  var adjustedPrice = basePrice;
+  var tierOrder = [1000, 2500, 5000, 10000];
+  if (flags.length >= 2) {
+    var idx = tierOrder.indexOf(basePrice);
+    if (idx >= 0 && idx < tierOrder.length - 1) adjustedPrice = tierOrder[idx + 1];
+  }
+
+  var priceDisplay = adjustedPrice > basePrice
+    ? ('$' + basePrice.toLocaleString('en-US') + '–$' + adjustedPrice.toLocaleString('en-US'))
+    : ('$' + adjustedPrice.toLocaleString('en-US'));
+
+  // Retainer
+  var retainerName, retainerPrice, retainerReason;
+  if (size === '1') {
+    retainerName = 'The Pilot'; retainerPrice = '$200/mo';
+    retainerReason = 'Biweekly check-ins to maintain momentum';
+  } else if (size === '2-5') {
+    retainerName = 'The Accelerator'; retainerPrice = '$400/mo';
+    retainerReason = 'Weekly support during team rollout';
+  } else {
+    retainerName = 'Team Mastery'; retainerPrice = '$1,000/mo';
+    retainerReason = 'Ongoing team support and monthly strategy sessions';
+  }
+
+  // Timeline
+  var timeline = size === '1' ? '2–3 weeks'
+    : size === '2-5' ? '3–5 weeks'
+    : size === '6-15' ? '4–6 weeks'
+    : '8–12 weeks';
+
+  // Scope
+  var ppLabels = {
+    scheduling: 'Scheduling and booking automation', textsched: 'Text-based scheduling system',
+    accounting: 'Invoice and expense automation', customer: 'AI customer service / chatbot',
+    marketing: 'Marketing automation and content', inventory: 'Inventory tracking and reorder automation',
+    hr: 'Staff scheduling and HR workflow automation', other: 'Custom workflow automation (per description)',
+  };
+  var scope = [];
+  if (size === '1') {
+    scope.push('1:1 AI strategy session and workflow audit');
+    scope.push('Custom AI setup for primary workflow');
+    scope.push('Tool configuration (up to 2 tools) and SOPs');
+  } else if (size === '2-5') {
+    scope.push('Deep-dive workflow audit and full AI implementation');
+    scope.push('Multi-tool integration and automation buildout');
+    scope.push('Custom GPT/agent setup with hand-off documentation');
+  } else if (size === '6-15') {
+    scope.push('Company-wide workflow mapping and opportunity scoring');
+    scope.push('Team AI rollout with manager and staff training');
+    scope.push('30-day post-launch support window');
+  } else {
+    scope.push('Enterprise AI readiness assessment and phased rollout');
+    scope.push('Cross-department automation and training program');
+    scope.push('90-day implementation roadmap with milestones');
+  }
+  if (Array.isArray(fd.painPoints)) {
+    fd.painPoints.forEach(function(pp) { if (ppLabels[pp]) scope.push(ppLabels[pp]); });
+  }
+
+  var reviewNote = flags.length > 0
+    ? 'Complexity flags present — review scope before finalizing: ' + flags.join('; ')
+    : 'No major flags — standard engagement.';
+
+  return {
+    tierName: tierName, priceDisplay: priceDisplay, timeline: timeline,
+    retainerName: retainerName, retainerPrice: retainerPrice, retainerReason: retainerReason,
+    flags: flags, scope: scope, reviewNote: reviewNote,
+    summary: (fd.bizName || 'This client') + ' is a good fit for the ' + tierName + ' package. '
+      + 'They operate a ' + (fd.bizType || 'business') + ' with key needs around: '
+      + (Array.isArray(fd.painPoints) ? fd.painPoints.join(', ') : 'workflow automation') + '. '
+      + (flags.length ? 'Complexity flags noted — review before sending.' : 'Straightforward scope.'),
+  };
+}
+
+function buildEstimateHtml(est) {
+  var flagsHtml = est.flags.length
+    ? est.flags.map(function(f) { return '<li>' + f + '</li>'; }).join('')
+    : '<li>None</li>';
+  var scopeHtml = est.scope.map(function(s) { return '<li>' + s + '</li>'; }).join('');
+  return [
+    '<hr style="margin:32px 0;border-color:#ccc;">',
+    '<h2 style="color:#1a1a1a;">&#8212;&#8212; ESTIMATE FOR REVIEW &#8212;&#8212;</h2>',
+    '<p style="color:#c0392b;font-size:0.9rem;font-weight:bold;">For Nainoa\'s review only — do not forward to client.</p>',
+    '<table style="border-collapse:collapse;width:100%;font-family:sans-serif;margin-bottom:16px;">',
+    '<tr><td style="padding:8px;font-weight:bold;background:#f0f4ff;width:200px;">Recommended Tier</td><td style="padding:8px;">' + est.tierName + ' — ' + est.priceDisplay + '</td></tr>',
+    '<tr><td style="padding:8px;font-weight:bold;background:#f0f4ff;">Retainer Recommendation</td><td style="padding:8px;">' + est.retainerName + ' — ' + est.retainerPrice + ' (' + est.retainerReason + ')</td></tr>',
+    '<tr><td style="padding:8px;font-weight:bold;background:#f0f4ff;">Estimated Timeline</td><td style="padding:8px;">' + est.timeline + '</td></tr>',
+    '</table>',
+    '<h3 style="color:#1a1a1a;">Complexity Flags</h3><ul>' + flagsHtml + '</ul>',
+    '<h3 style="color:#1a1a1a;">Scope</h3><ul>' + scopeHtml + '</ul>',
+    '<h3 style="color:#1a1a1a;">Summary</h3><p>' + est.summary + '</p>',
+    '<h3 style="color:#c0392b;">Review Note</h3><p>' + est.reviewNote + '</p>',
+    '<hr style="margin:32px 0;border-color:#ccc;">',
+    '<p style="color:#888;font-size:0.85rem;">&#8212;&#8212; END ESTIMATE &#8212;&#8212;</p>',
+  ].join('');
+}
+
 // ── Form submission ───────────────────────────────────────
 document.getElementById('intakeForm').addEventListener('submit', function(e) {
   e.preventDefault();
@@ -221,6 +339,9 @@ document.getElementById('intakeForm').addEventListener('submit', function(e) {
     plan:      plan,
   });
 
+  // Compute estimate for Nainoa's review
+  var intakeEstimate = computeIntakeEstimate(payload);
+
   // Send intake form via Resend API
   var emailHtml = [
     '<h2>New Buildout Request</h2>',
@@ -235,6 +356,7 @@ document.getElementById('intakeForm').addEventListener('submit', function(e) {
     '</table>',
     '<h3>Description</h3><p>' + (payload.description || '').replace(/\n/g, '<br>') + '</p>',
     '<h3>Extra Notes</h3><p>' + (payload.extra || '').replace(/\n/g, '<br>') + '</p>',
+    buildEstimateHtml(intakeEstimate),
   ].join('');
 
   fetch('https://api.resend.com/emails', {
