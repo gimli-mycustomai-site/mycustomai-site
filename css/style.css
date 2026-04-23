@@ -522,6 +522,45 @@ p  { color: var(--text-secondary); line-height: 1.7; }
 .divider { display: flex; align-items: center; gap: 12px; margin: 18px 0; color: var(--text-muted); font-size: 0.82rem; }
 .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
+/* ── Value Accordion ──────────────────────────────────────── */
+.value-section { background: rgba(0,0,0,0.15); }
+.value-accordion { border-top: 1px solid rgba(255,255,255,0.07); }
+.value-item { border-bottom: 1px solid rgba(255,255,255,0.07); }
+.value-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 20px 4px;
+  font-family: var(--font);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.2s;
+}
+.value-btn:hover { color: var(--accent-bright); }
+.value-icon {
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--accent-bright);
+  transition: transform 0.25s;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+.value-item.open .value-icon { transform: rotate(45deg); }
+.value-body {
+  display: none;
+  padding: 0 4px 20px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+.value-item.open .value-body { display: block; }
+
 /* ── Responsive ───────────────────────────────────────────── */
 @media (max-width: 768px) {
   .hero-inner { grid-template-columns: 1fr; }

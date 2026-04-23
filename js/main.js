@@ -69,6 +69,14 @@ function handleLogin() {
   }
 }
 
+// ── Value Accordion ───────────────────────────────────────────
+function toggleValue(btn) {
+  const item = btn.closest('.value-item');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.value-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
 // ── FAQ Accordion ────────────────────────────────────────────
 document.querySelectorAll('.faq-q').forEach(function(q) {
   q.addEventListener('click', function() {
