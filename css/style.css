@@ -561,6 +561,32 @@ p  { color: var(--text-secondary); line-height: 1.7; }
 }
 .value-item.open .value-body { display: block; }
 
+
+/* ── Email Capture ────────────────────────────────────────── */
+.email-capture-section { background: rgba(99,102,241,0.04); border-top: 1px solid rgba(99,102,241,0.15); }
+.email-capture-form { width: 100%; }
+.email-capture-row { display: flex; gap: 12px; justify-content: center; }
+.email-capture-input {
+  flex: 1;
+  max-width: 360px;
+  padding: 14px 18px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+  font-family: var(--font);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.email-capture-input:focus { border-color: #6366f1; }
+.email-capture-input::placeholder { color: #475569; }
+.email-capture-btn { flex-shrink: 0; padding: 14px 24px; }
+@media (max-width: 480px) {
+  .email-capture-row { flex-direction: column; align-items: stretch; }
+  .email-capture-input { max-width: 100%; }
+}
+
 /* ── Responsive ───────────────────────────────────────────── */
 @media (max-width: 768px) {
   .hero-inner { grid-template-columns: 1fr; }

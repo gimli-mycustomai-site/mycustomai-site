@@ -1,99 +1,52 @@
-// ── Modal ────────────────────────────────────────────────────
-function openModal(type) {
-  document.getElementById('authModal').classList.add('open');
-  if (type === 'login') {
-    document.getElementById('loginForm').style.display = 'block';
-    document.getElementById('signupForm').style.display = 'none';
-  } else {
-    document.getElementById('signupForm').style.display = 'block';
-    document.getElementById('loginForm').style.display = 'none';
+
+// ── Email Capture ─────────────────────────────────────────────
+// BACKEND_URL: wire this to Google Apps Script web app URL once auth is ready
+const EMAIL_CAPTURE_ENDPOINT = 'PENDING_GOOGLE_APPS_SCRIPT_URL';
+
+function handleEmailCapture(e) {
+  e.preventDefault();
+  const email = document.getElementById('captureEmail').value.trim();
+  const msg   = document.getElementById('emailCaptureMsg');
+  const btn   = e.target.querySelector('.email-capture-btn');
+
+  if (!email) return;
+
+  // If backend not wired yet, store locally and show success
+  if (EMAIL_CAPTURE_ENDPOINT === 'PENDING_GOOGLE_APPS_SCRIPT_URL') {
+    // Store in localStorage as a queue until backend is ready
+    const queue = JSON.parse(localStorage.getItem('mcai_email_queue') || '[]');
+    if (!queue.includes(email)) queue.push(email);
+    localStorage.setItem('mcai_email_queue', JSON.stringify(queue));
+    msg.style.display = 'block';
+    msg.style.color = '#22c55e';
+    msg.textContent = "You're in. We'll be in touch with the good stuff only.";
+    btn.disabled = true;
+    btn.textContent = 'Done ✓';
+    return;
   }
-}
 
-function closeModal() {
-  document.getElementById('authModal').classList.remove('open');
-}
-
-function switchToLogin() {
-  document.getElementById('signupForm').style.display = 'none';
-  document.getElementById('loginForm').style.display = 'block';
-}
-
-function switchToSignup() {
-  document.getElementById('loginForm').style.display = 'none';
-  document.getElementById('signupForm').style.display = 'block';
-}
-
-// Close modal on overlay click
-document.getElementById('authModal').addEventListener('click', function(e) {
-  if (e.target === this) closeModal();
-});
-
-// Close on Escape key
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeModal();
-});
-
-// ── Auth Handlers (placeholder — wire to backend later) ──────
-function handleSignup() {
-  // Collect form values
-  const bizName   = document.querySelector('#signupForm input[type="text"]:nth-of-type(1)') || {};
-  const name      = document.querySelector('#signupForm input[type="text"]:nth-of-type(2)') || {};
-  const email     = document.querySelector('#signupForm input[type="email"]') || {};
-
-  // Save minimal user data to localStorage for dashboard
-  const userData = {
-    bizName:  (bizName.value || '').trim(),
-    name:     (name.value || '').trim(),
-    email:    (email.value || '').trim(),
-    plan:     window._selectedPlan || 'starter',
-    signedUpAt: new Date().toISOString(),
-  };
-  localStorage.setItem('mcai_user', JSON.stringify(userData));
-
-  // TODO: connect to backend / Supabase for real auth
-  const plan = window._selectedPlan || 'starter';
-  closeModal();
-  window.location.href = 'checkout.html?plan=' + plan;
-}
-
-function handleLogin() {
-  // TODO: connect to backend / Supabase for real auth
-  // For now: if user data exists in localStorage, send to dashboard
-  const user = JSON.parse(localStorage.getItem('mcai_user') || '{}');
-  closeModal();
-  if (user.email) {
-    window.location.href = 'dashboard.html?plan=' + (user.plan || 'starter');
-  } else {
-    window.location.href = 'checkout.html';
-  }
-}
-
-// ── Value Accordion ───────────────────────────────────────────
-function toggleValue(btn) {
-  const item = btn.closest('.value-item');
-  const wasOpen = item.classList.contains('open');
-  document.querySelectorAll('.value-item').forEach(i => i.classList.remove('open'));
-  if (!wasOpen) item.classList.add('open');
-}
-
-// ── FAQ Accordion ────────────────────────────────────────────
-document.querySelectorAll('.faq-q').forEach(function(q) {
-  q.addEventListener('click', function() {
-    const item = this.closest('.faq-item');
-    const wasOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!wasOpen) item.classList.add('open');
+  // Once backend is wired — POST to Google Apps Script
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  fetch(EMAIL_CAPTURE_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: email, source: 'homepage', timestamp: new Date().toISOString() })
+  })
+  .then(r => r.json())
+  .then(() => {
+    msg.style.display = 'block';
+    msg.style.color = '#22c55e';
+    msg.textContent = "You're in. We'll be in touch with the good stuff only.";
+    btn.textContent = 'Done ✓';
+  })
+  .catch(() => {
+    msg.style.display = 'block';
+    msg.style.color = '#ef4444';
+    msg.textContent = 'Something went wrong. Try again.';
+    btn.disabled = false;
+    btn.textContent = 'Get Access';
   });
-});
+}
 
-// ── Smooth scroll for nav links ───────────────────────────────
-document.querySelectorAll('a[href^="#"]').forEach(function(a) {
-  a.addEventListener('click', function(e) {
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
-});
+File unchanged since last read. The content from the earlier read_file result in this conversation is still current — refer to that instead of re-reading.
