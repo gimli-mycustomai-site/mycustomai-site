@@ -16,6 +16,7 @@
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "wg1b4llblz");
 </script>
+<script type="text/javascript" src="https://app.cal.com/embed/embed.js"></script>
 </head>
 <body>
 
@@ -27,6 +28,7 @@
       <a href="#how-it-works">The Method</a>
       <a href="#pricing">Pricing</a>
       <a href="about.html">About</a>
+      <a href="#book">Book a Call</a>
     </div>
   </div>
 </nav>
@@ -497,44 +499,21 @@
   </div>
 </section>
 
-<!-- ── Email Capture ─────────────────────────────────────── -->
-<section class="section email-capture-section">
-  <div class="container" style="max-width:640px; text-align:center;">
-    <div class="section-label">Stay Ahead</div>
-    <h2 class="section-title" style="font-size:clamp(1.5rem,3.5vw,2.2rem);">Get the no-hype AI playbook.</h2>
-    <p style="color:#94a3b8;margin-bottom:32px;font-size:1rem;line-height:1.7;">
-      Practical tips on building in-house AI, prompting correctly, and cutting through the noise. No spam. Unsubscribe anytime.
-    </p>
-    <form class="email-capture-form" id="emailCaptureForm" onsubmit="handleEmailCapture(event)">
-      <div class="email-capture-row">
-        <input
-          type="email"
-          id="captureEmail"
-          name="email"
-          placeholder="your@email.com"
-          required
-          class="email-capture-input"
-        />
-        <button type="submit" class="btn btn-primary email-capture-btn">Get Access</button>
-      </div>
-      <div id="emailCaptureMsg" style="display:none;margin-top:16px;font-size:0.9rem;"></div>
-    </form>
-    <p style="color:#475569;font-size:0.8rem;margin-top:16px;">No spam. No upsells. Just signal.</p>
+
+<!-- ── Book a Call ───────────────────────────────────────── -->
+<section class="section" id="book" style="background:rgba(99,102,241,0.04);border-top:1px solid rgba(99,102,241,0.15);">
+  <div class="container" style="max-width:860px;text-align:center;">
+    <div class="section-label">Book a Session</div>
+    <h2 class="section-title">Ready to talk? Pick a time.</h2>
+    <p class="section-sub">No sales call. No pitch deck. Just a focused conversation about your business and where AI can actually move the needle.</p>
+    <div style="margin-top:40px;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.07);">
+      <cal-inline
+        calLink="mycustomai"
+        style="width:100%;min-height:600px;display:block;"
+        config='{"theme":"dark"}'
+      ></cal-inline>
+    </div>
   </div>
 </section>
 
-<footer class="footer">
-  <div class="container footer-inner">
-    <div class="footer-logo">My<span>Custom</span>AI</div>
-    <div class="footer-copy">&copy; 2026 MyCustomAI. Strategic In-House AI Consulting.</div>
-    <div class="footer-copy" style="margin-top:8px;">
-      <a href="privacy.html" style="color:#64748b;font-size:0.85rem;text-decoration:none;">Privacy Policy</a>
-      &nbsp;·&nbsp;
-      <a href="about.html" style="color:#64748b;font-size:0.85rem;text-decoration:none;">About</a>
-    </div>
-  </div>
-</footer>
-
-<script src="js/main.js"></script>
-</body>
-</html>
+<!-- ── Email Capture ─────────────────────────────────────── -->
