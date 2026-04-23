@@ -597,10 +597,10 @@
     <h2 class="section-title">What clients are saying.</h2>
     <p class="section-sub">Real feedback from real business owners who stopped outsourcing and started owning their AI.</p>
 
-    <div class="testimonials-grid">
-
-      <!-- Testimonial 1 — placeholder -->
-      <div class="testimonial-card">
+    <!-- Testimonials loaded dynamically from testimonials.json -->
+    <div class="testimonials-grid" id="testimonialsGrid">
+      <!-- Placeholder cards shown until real testimonials are loaded -->
+      <div class="testimonial-card placeholder-card">
         <div class="testimonial-stars">★★★★★</div>
         <p class="testimonial-quote">"Before working with Nainoa, we were paying an agency $2,800/month for automations we didn't understand and couldn't fix when they broke. Now we run everything in-house for a fraction of the cost."</p>
         <div class="testimonial-author">
@@ -611,9 +611,7 @@
           </div>
         </div>
       </div>
-
-      <!-- Testimonial 2 — placeholder -->
-      <div class="testimonial-card">
+      <div class="testimonial-card placeholder-card">
         <div class="testimonial-stars">★★★★★</div>
         <p class="testimonial-quote">"Nainoa spent time actually understanding our workflow before recommending anything. The session paid for itself in the first week — we cut 15 hours of manual work immediately."</p>
         <div class="testimonial-author">
@@ -624,9 +622,7 @@
           </div>
         </div>
       </div>
-
-      <!-- Testimonial 3 — placeholder -->
-      <div class="testimonial-card">
+      <div class="testimonial-card placeholder-card">
         <div class="testimonial-stars">★★★★★</div>
         <p class="testimonial-quote">"I tried three different AI tools on my own and got nowhere. One session with Nainoa and I finally understood why my prompts were failing and exactly how to fix them."</p>
         <div class="testimonial-author">
@@ -637,12 +633,47 @@
           </div>
         </div>
       </div>
-
     </div>
 
-    <p style="color:#475569;font-size:0.8rem;margin-top:32px;">* Early client feedback. Names abbreviated for privacy.</p>
+    <p id="testimonialsNote" style="color:#475569;font-size:0.8rem;margin-top:32px;">* Early client feedback. Names abbreviated for privacy.</p>
   </div>
 </section>
+
+<script>
+// Load live testimonials from testimonials.json — replace placeholders when real data exists
+(function() {
+  fetch('/testimonials.json?v=' + Date.now())
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (!Array.isArray(data) || data.length === 0) return; // keep placeholders
+      var grid = document.getElementById('testimonialsGrid');
+      var note = document.getElementById('testimonialsNote');
+      if (!grid) return;
+      // Remove placeholder cards
+      grid.querySelectorAll('.placeholder-card').forEach(function(c) { c.remove(); });
+      // Render real testimonials
+      data.forEach(function(t) {
+        var stars = '★'.repeat(Math.min(5, parseInt(t.rating) || 5));
+        var initials = (t.name || '?').split(' ').map(function(w){return w[0];}).join('').slice(0,2).toUpperCase();
+        var card = document.createElement('div');
+        card.className = 'testimonial-card';
+        card.innerHTML =
+          '<div class="testimonial-stars">' + stars + '</div>' +
+          '<p class="testimonial-quote">"' + t.testimonial.replace(/"/g, '&quot;') + '"</p>' +
+          '<div class="testimonial-author">' +
+            '<div class="testimonial-avatar">' + initials + '</div>' +
+            '<div>' +
+              '<div class="testimonial-name">' + t.name + '</div>' +
+              '<div class="testimonial-title">' + (t.title || '') + '</div>' +
+            '</div>' +
+          '</div>';
+        grid.appendChild(card);
+      });
+      if (note) note.style.display = 'none'; // hide disclaimer when real data loads
+    })
+    .catch(function() {}); // silently keep placeholders on error
+})();
+</script>
 
 <!-- ── FAQ Section ──────────────────────────────────────── -->
 <section class="section" id="faq" style="background: rgba(0,0,0,0.2);">
