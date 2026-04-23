@@ -78,7 +78,7 @@
             <div class="next-icon"><svg class="svg-icon-next"><use href="assets/icons.svg#icon-phone"/></svg></div>
             <div class="next-content">
               <h3>Schedule your consult</h3>
-              <p>You purchased the Custom AI Playbook — your personalized AI action plan is being generated now.
+              <p>Your audit request has been submitted. Nainoa will personally review your answers within 24 hours and reach out with a custom proposal.
               <a href="https://wa.me/18089364170?text=Hi%2C%20I%20just%20purchased%20the%20Pro%20plan%20and%20would%20like%20to%20schedule%20my%20consult."
                  class="btn btn-primary" target="_blank" style="margin-top:14px; display:inline-flex;">
                 <svg style="width:18px;height:18px"><use href="assets/icons.svg#icon-chat"/></svg> Message to Schedule
@@ -101,12 +101,12 @@
       <div class="confirm-card order-summary">
         <h2>Order Summary</h2>
         <div class="order-row">
-          <span id="planName">Custom AI Report — Starter</span>
-          <span id="planPrice">$75</span>
+          <span id="planName">MyCustomAI Engagement</span>
+          <span id="planPrice">—</span>
         </div>
         <div class="order-row order-total">
           <span>Total paid</span>
-          <span id="totalPrice">$75</span>
+          <span id="totalPrice">—</span>
         </div>
         <p class="order-note">A receipt has been sent to your email.</p>
       </div>
@@ -118,9 +118,9 @@
             <h3>Want to actually understand how AI fits your business?</h3>
             <p>Upgrade to Pro and get a 1-hour consultation — we'll walk through your report, answer your questions, and make sure you know exactly what to do and why.</p>
           </div>
-          <a href="https://wa.me/18089364170?text=Hi%2C%20I%20just%20received%20my%20Starter%20plan%20and%20want%20to%20upgrade%20to%20Pro."
+          <a href="https://wa.me/18089364170?text=Hi%2C%20I%20just%20submitted%20my%20audit%20and%20would%20like%20to%20learn%20more."
              class="btn btn-primary" target="_blank">
-            Upgrade to Pro — $700
+            Book a Strategy Session →
           </a>
         </div>
       </div>
@@ -147,9 +147,9 @@
   if (plan === 'pro') {
     document.getElementById('consultStep').style.display = 'flex';
     document.getElementById('upgradeCard').style.display = 'none';
-    document.getElementById('planName').textContent = 'Custom AI Report + Consult — Pro';
-    document.getElementById('planPrice').textContent = '$700';
-    document.getElementById('totalPrice').textContent = '$700';
+    document.getElementById('planName').textContent = 'MyCustomAI Full Mastery Engagement';
+    document.getElementById('planPrice').textContent = 'Proposal pending';
+    document.getElementById('totalPrice').textContent = 'Proposal pending';
   }
 </script>
 

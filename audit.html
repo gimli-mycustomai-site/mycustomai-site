@@ -42,7 +42,7 @@
         <span style="color:#86efac;font-size:0.875rem;font-weight:600;">We respond within 24 hours — usually same day.</span>
       </div>
 
-      <form action="https://audit-api.mycustomai.co/webhook/direct" method="POST">
+      <form id="auditForm">
         <div class="form-group">
           <label>Full Name</label>
           <input type="text" name="name" required placeholder="Alex Rivera">
@@ -125,8 +125,8 @@
             required
           ></textarea>
         </div>
-        <input type="hidden" name="_next" value="https://mycustomai.co/index.html">
-        <button type="submit" class="btn-submit" style="margin-top:24px;">Submit Audit Request →</button>
+        
+        <button type="submit" class="btn-submit" style="margin-top:24px;" id="auditSubmit">Submit Audit Request →</button>
       </form>
     </div>
   </div>
@@ -140,5 +140,38 @@
     </div>
   </div>
 </footer>
+
+<script>
+document.getElementById("auditForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  var btn = document.getElementById("auditSubmit");
+  btn.textContent = "Submitting…";
+  btn.disabled = true;
+
+  var f = this;
+  var data = {
+    name: f.name.value, company: f.company.value, email: f.email.value,
+    size: f.size.value, bottleneck: f.bottleneck.value, location: f.location.value,
+    proficiency: f.proficiency.value, target_function: f.target_function.value,
+    data_readiness: f.data_readiness.value, stack: f.stack.value,
+    manual_hours: f.manual_hours.value, driver: f.driver.value
+  };
+
+  var rows = Object.entries(data).map(function(kv) {
+    return "<tr><td style='padding:8px;font-weight:bold;background:#f5f5f5;'>" + kv[0].replace(/_/g," ") + "</td><td style='padding:8px;'>" + (kv[1]||"") + "</td></tr>";
+  }).join("");
+
+  var html = "<h2>New Audit Request — MyCustomAI.co</h2><table style='border-collapse:collapse;width:100%;'>" + rows + "</table>";
+
+  fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Authorization": "Bearer re_9btMtALT_KtKU358beaEmovP9UtpqFdnd" },
+    body: JSON.stringify({ from: "mycustomai.co <onboarding@resend.dev>", to: ["gimlikazaddum@gmail.com"], subject: "New Audit Request — " + (data.company || data.name), html: html })
+  }).catch(function(err) { console.warn("Email error:", err.message); });
+
+  setTimeout(function() { window.location.href = "confirmation.html"; }, 2000);
+});
+</script>
+
 </body>
 </html>
