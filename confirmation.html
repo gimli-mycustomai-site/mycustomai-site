@@ -9,148 +9,203 @@
   gtag('js', new Date());
   gtag('config', 'G-9F8YW8356R');
 </script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Plan is Being Built — My Custom AI</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/confirmation.css" />
-  <style>.svg-icon-next{width:28px;height:28px;color:var(--green-mid)}</style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Payment Confirmed — Book Your Session | MyCustomAI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css?v=10" />
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "wg1b4llblz");
+</script>
+<script type="text/javascript" src="https://app.cal.com/embed/embed.js"></script>
+<style>
+  .confirm-hero {
+    text-align: center;
+    padding: 80px 20px 40px;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .confirm-check {
+    width: 72px;
+    height: 72px;
+    background: rgba(34,197,94,0.12);
+    border: 2px solid rgba(34,197,94,0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    font-size: 2rem;
+  }
+  .confirm-steps {
+    display: grid;
+    gap: 16px;
+    max-width: 600px;
+    margin: 0 auto 48px;
+  }
+  .confirm-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px;
+    padding: 20px 24px;
+    text-align: left;
+  }
+  .confirm-step-num {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    background: #6366f1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: white;
+  }
+  .confirm-step h3 { font-size: 1rem; color: #f1f5f9; margin-bottom: 4px; }
+  .confirm-step p  { font-size: 0.875rem; color: #94a3b8; line-height: 1.6; margin: 0; }
+  .email-notice {
+    background: rgba(34,197,94,0.06);
+    border: 1px solid rgba(34,197,94,0.2);
+    border-radius: 12px;
+    padding: 20px 24px;
+    max-width: 600px;
+    margin: 0 auto 48px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .email-notice-icon { font-size: 1.5rem; }
+  .email-notice p { font-size: 0.9rem; color: #86efac; margin: 0; line-height: 1.6; }
+  .cal-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+  .cal-section h2 {
+    text-align: center;
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    margin-bottom: 8px;
+    color: #f1f5f9;
+  }
+  .cal-section p {
+    text-align: center;
+    color: #94a3b8;
+    margin-bottom: 32px;
+    font-size: 0.95rem;
+  }
+  .cal-embed-wrap {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    overflow: hidden;
+    min-height: 500px;
+  }
+</style>
 </head>
 <body>
 
 <!-- ── Nav ───────────────────────────────────────────────── -->
 <nav class="nav">
   <div class="container nav-inner">
-    <a href="index.html" class="nav-logo">My <span>Custom</span> AI</a>
-    <div class="intake-progress-nav">
-      <span class="progress-step done">1. Account</span>
-      <span class="progress-arrow">→</span>
-      <span class="progress-step done">2. Payment</span>
-      <span class="progress-arrow">→</span>
-      <span class="progress-step done">3. Your Business</span>
-      <span class="progress-arrow">→</span>
-      <span class="progress-step active">4. Your Plan ✓</span>
+    <a href="index.html" class="nav-logo" style="text-decoration:none;">My<span>Custom</span>AI</a>
+    <div class="nav-links">
+      <a href="index.html#how-it-works">The Method</a>
+      <a href="index.html#pricing">Pricing</a>
     </div>
   </div>
 </nav>
 
-<main class="confirm-main">
-  <div class="container">
-    <div class="confirm-wrap">
+<!-- ── Confirmation Hero ──────────────────────────────────── -->
+<div class="confirm-hero">
+  <div class="confirm-check">✅</div>
+  <h1 style="font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:12px;">Payment confirmed.</h1>
+  <p style="color:#94a3b8;font-size:1.05rem;margin-bottom:40px;">
+    You're in. One step left — pick your session time below.
+  </p>
 
-      <!-- ── Success Header ───────────────────────────────── -->
-      <div class="confirm-header">
-        <div class="confirm-check">
-          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="26" cy="26" r="25" fill="#4A7C59"/>
-            <path d="M14 27L22 35L38 18" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <h1>You're all set!</h1>
-        <p class="confirm-sub">Your custom AI plan is being built right now. You'll receive it in your inbox shortly.</p>
+  <!-- Email notice -->
+  <div class="email-notice">
+    <div class="email-notice-icon">📩</div>
+    <p><strong style="color:#f1f5f9;">Check your email.</strong> Your free In-House AI Playbook PDF has been sent. It's your reference guide and the foundation for everything we'll build together.</p>
+  </div>
+
+  <!-- What happens next -->
+  <div class="confirm-steps">
+    <div class="confirm-step">
+      <div class="confirm-step-num">1</div>
+      <div>
+        <h3>Book your session below</h3>
+        <p>Pick a date and time that works for you. One slot per day — first come, first served.</p>
       </div>
-
-      <!-- ── What Happens Next ────────────────────────────── -->
-      <div class="confirm-card">
-        <h2>What happens next</h2>
-        <div class="next-steps">
-
-          <div class="next-step">
-            <div class="next-icon"><svg class="svg-icon-next"><use href="assets/icons.svg#icon-email"/></svg></div>
-            <div class="next-content">
-              <h3>Check your email</h3>
-              <p>Your custom AI plan PDF will be delivered to your inbox within a few minutes. Check your spam folder if you don't see it.</p>
-            </div>
-          </div>
-
-          <div class="next-step">
-            <div class="next-icon"><svg class="svg-icon-next"><use href="assets/icons.svg#icon-doc"/></svg></div>
-            <div class="next-content">
-              <h3>Review your plan</h3>
-              <p>Your report includes your hand-picked AI tools with exact step-by-step setup instructions tailored to your business.</p>
-            </div>
-          </div>
-
-          <div class="next-step" id="consultStep" style="display:none;">
-            <div class="next-icon"><svg class="svg-icon-next"><use href="assets/icons.svg#icon-phone"/></svg></div>
-            <div class="next-content">
-              <h3>Schedule your consult</h3>
-              <p>Your audit request has been submitted. Nainoa will personally review your answers within 24 hours and reach out with a custom proposal.
-              <a href="https://wa.me/18089364170?text=Hi%2C%20I%20just%20purchased%20the%20Pro%20plan%20and%20would%20like%20to%20schedule%20my%20consult."
-                 class="btn btn-primary" target="_blank" style="margin-top:14px; display:inline-flex;">
-                <svg style="width:18px;height:18px"><use href="assets/icons.svg#icon-chat"/></svg> Message to Schedule
-              </a>
-            </div>
-          </div>
-
-          <div class="next-step">
-            <div class="next-icon"><svg class="svg-icon-next"><use href="assets/icons.svg#icon-rocket"/></svg></div>
-            <div class="next-content">
-              <h3>Start using AI</h3>
-              <p>Follow the setup guides at your own pace. Most tools take less than 30 minutes to get running.</p>
-            </div>
-          </div>
-
-        </div>
+    </div>
+    <div class="confirm-step">
+      <div class="confirm-step-num">2</div>
+      <div>
+        <h3>Review your playbook before the call</h3>
+        <p>The PDF in your inbox is your pre-work. The more familiar you are with it, the more we can get done in your session.</p>
       </div>
-
-      <!-- ── Order Summary ────────────────────────────────── -->
-      <div class="confirm-card order-summary">
-        <h2>Order Summary</h2>
-        <div class="order-row">
-          <span id="planName">MyCustomAI Engagement</span>
-          <span id="planPrice">—</span>
-        </div>
-        <div class="order-row order-total">
-          <span>Total paid</span>
-          <span id="totalPrice">—</span>
-        </div>
-        <p class="order-note">A receipt has been sent to your email.</p>
+    </div>
+    <div class="confirm-step">
+      <div class="confirm-step-num">3</div>
+      <div>
+        <h3>Your session with Nainoa</h3>
+        <p>We'll map your exact workflows, identify your highest-leverage AI opportunities, and start building your in-house system.</p>
       </div>
-
-      <!-- ── Upgrade CTA (shown for Starter only) ─────────── -->
-      <div class="upgrade-card" id="upgradeCard">
-        <div class="upgrade-inner">
-          <div>
-            <h3>Want to actually understand how AI fits your business?</h3>
-            <p>Upgrade to Pro and get a 1-hour consultation — we'll walk through your report, answer your questions, and make sure you know exactly what to do and why.</p>
-          </div>
-          <a href="https://wa.me/18089364170?text=Hi%2C%20I%20just%20submitted%20my%20audit%20and%20would%20like%20to%20learn%20more."
-             class="btn btn-primary" target="_blank">
-            Book a Strategy Session →
-          </a>
-        </div>
-      </div>
-
     </div>
   </div>
-</main>
+</div>
+
+<!-- ── Cal.com Booking ────────────────────────────────────── -->
+<div class="cal-section">
+  <h2>Pick your session time</h2>
+  <p>All times shown in your local timezone. One slot available per day.</p>
+  <div class="cal-embed-wrap">
+    <div style="width:100%;height:100%;min-height:500px;"
+      data-cal-link="mycustomai"
+      data-cal-namespace="mycustomai-session"
+      data-cal-config='{"layout":"month_view"}'
+    ></div>
+  </div>
+</div>
 
 <!-- ── Footer ─────────────────────────────────────────────── -->
 <footer class="footer">
   <div class="container footer-inner">
-    <div class="footer-logo">My Custom AI</div>
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="#faq">FAQ</a>
+    <div class="footer-logo">My<span>Custom</span>AI</div>
+    <div class="footer-copy">&copy; 2026 MyCustomAI. Strategic In-House AI Consulting.</div>
+    <div class="footer-copy" style="margin-top:8px;">
+      <a href="privacy.html" style="color:#64748b;font-size:0.85rem;text-decoration:none;">Privacy Policy</a>
     </div>
-    <div>© 2026 My Custom AI. All rights reserved.</div>
   </div>
 </footer>
 
 <script>
-  // Show consult step + hide upgrade card if Pro plan
-  const plan = new URLSearchParams(window.location.search).get('plan');
-  if (plan === 'pro') {
-    document.getElementById('consultStep').style.display = 'flex';
-    document.getElementById('upgradeCard').style.display = 'none';
-    document.getElementById('planName').textContent = 'MyCustomAI Full Mastery Engagement';
-    document.getElementById('planPrice').textContent = 'Proposal pending';
-    document.getElementById('totalPrice').textContent = 'Proposal pending';
-  }
+(function() {
+  // Initialize Cal.com embed
+  Cal("init", "mycustomai-session", { origin: "https://app.cal.com" });
+  Cal.ns["mycustomai-session"]("inline", {
+    elementOrSelector: "[data-cal-link='mycustomai']",
+    calLink: "mycustomai",
+    layout: "month_view",
+    config: { theme: "dark" }
+  });
+  Cal.ns["mycustomai-session"]("ui", {
+    theme: "dark",
+    hideEventTypeDetails: false,
+    layout: "month_view"
+  });
+})();
 </script>
 
 </body>
