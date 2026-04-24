@@ -348,7 +348,7 @@ p  { color: var(--text-secondary); line-height: 1.7; }
 .pricing-card {
   background: var(--bg-card);
   border-radius: var(--radius-lg);
-  padding: 36px 32px;
+  padding: 22px 22px;
   border: 1px solid var(--border);
   position: relative;
   transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
@@ -389,11 +389,11 @@ p  { color: var(--text-secondary); line-height: 1.7; }
 }
 .pricing-price sup { font-size: 1.4rem; vertical-align: top; margin-top: 10px; }
 .pricing-desc { font-size: 0.875rem; color: var(--text-muted); margin-bottom: 28px; }
-.pricing-features { list-style: none; margin-bottom: 32px; }
+.pricing-features { list-style: none; margin-bottom: 16px; }
 .pricing-features li {
   display: flex; align-items: flex-start; gap: 10px;
-  font-size: 0.9rem; color: var(--text-secondary);
-  padding: 9px 0;
+  font-size: 0.85rem; color: var(--text-secondary);
+  padding: 6px 0;
   border-bottom: 1px solid var(--border);
 }
 .pricing-features li:last-child { border-bottom: none; }
