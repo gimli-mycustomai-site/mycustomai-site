@@ -1,11 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="description" content="Client dashboard for MyCustomAI - track your AI implementation progress and access resources.">
+
   <meta charset="UTF-8">
   <meta name="robots" content="noindex, nofollow">
   <title>Redirecting…</title>
   <script>window.location.replace("index.html");</script>
   <noscript><meta http-equiv="refresh" content="0; url=index.html"></noscript>
 </head>
-<body><p>Redirecting… <a href="index.html">Click here if not redirected.</a></p></body>
+<body><p>Redirecting… <a href="index.html">Click here if not redirected.</a></p>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Simple client auth - checks for token from purchase confirmation
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get('token') || localStorage.getItem('client_token');
+    
+    if (!token) {
+        // No token - show login prompt
+        document.body.innerHTML = `
+            <div style="display:flex; align-items:center; justify-content:center; min-height:100vh; background:#0f172a; color:white; font-family:system-ui;">
+                <div style="text-align:center; max-width:400px; padding:40px;">
+                    <h2 style="color:#6366f1; margin-bottom:20px;">Client Dashboard Access</h2>
+                    <p style="margin-bottom:30px; color:#94a3b8;">Please enter your access token from your purchase confirmation email.</p>
+                    <input type="text" id="tokenInput" placeholder="Enter your token" 
+                           style="width:100%; padding:12px; border:1px solid #374151; background:#1e293b; color:white; border-radius:6px; margin-bottom:20px;">
+                    <button onclick="checkToken()" 
+                            style="width:100%; padding:12px; background:#6366f1; color:white; border:none; border-radius:6px; cursor:pointer;">
+                        Access Dashboard
+                    </button>
+                    <p style="margin-top:20px; font-size:0.9rem; color:#64748b;">
+                        Don't have a token? <a href="index.html" style="color:#6366f1;">Purchase a service first</a>
+                    </p>
+                </div>
+            </div>
+        `;
+        
+        window.checkToken = function() {
+            const inputToken = document.getElementById('tokenInput').value.trim();
+            if (inputToken.length >= 8) { // Simple validation
+                localStorage.setItem('client_token', inputToken);
+                location.reload();
+            } else {
+                alert('Please enter a valid token');
+            }
+        };
+        return;
+    }
+    
+    // Store token if from URL
+    if (urlParams.get('token')) {
+        localStorage.setItem('client_token', token);
+    }
+    
+    // Show logout option
+    const header = document.querySelector('header') || document.body.querySelector('nav') || document.createElement('div');
+    if (!document.getElementById('logout-btn')) {
+        const logoutBtn = document.createElement('button');
+        logoutBtn.id = 'logout-btn';
+        logoutBtn.textContent = 'Logout';
+        logoutBtn.style.cssText = 'position:fixed; top:20px; right:20px; background:#ef4444; color:white; border:none; padding:8px 16px; border-radius:4px; cursor:pointer; z-index:1000;';
+        logoutBtn.onclick = function() {
+            localStorage.removeItem('client_token');
+            location.reload();
+        };
+        document.body.appendChild(logoutBtn);
+    }
+});
+</script>
+
+</body>
 </html>
