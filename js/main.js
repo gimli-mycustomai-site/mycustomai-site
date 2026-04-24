@@ -1,7 +1,7 @@
 
 // ── Email Capture ─────────────────────────────────────────────
 // BACKEND_URL: wire this to Google Apps Script web app URL once auth is ready
-const EMAIL_CAPTURE_ENDPOINT = 'PENDING_GOOGLE_APPS_SCRIPT_URL';
+const EMAIL_CAPTURE_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyyMdT5FqwYlbGoe4o4ddlpI6Jjr88UhXxE3LeRo3_y5oiQK2CD3viEw0S4-9HhSQo2/exec';
 
 function handleEmailCapture(e) {
   e.preventDefault();
