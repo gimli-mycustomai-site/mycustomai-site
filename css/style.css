@@ -359,9 +359,7 @@ p  { color: var(--text-secondary); line-height: 1.7; }
   box-shadow: 0 0 50px rgba(59,130,246,0.12);
 }
 .pricing-badge {
-  position: absolute;
-  top: -13px; left: 50%;
-  transform: translateX(-50%);
+  display: inline-block;
   background: var(--blue);
   color: var(--white);
   font-size: 0.7rem;
@@ -371,6 +369,7 @@ p  { color: var(--text-secondary); line-height: 1.7; }
   letter-spacing: 0.06em;
   text-transform: uppercase;
   white-space: nowrap;
+  margin-bottom: 8px;
 }
 .pricing-name {
   font-size: 0.75rem;
