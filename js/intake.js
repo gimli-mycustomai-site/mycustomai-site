@@ -342,37 +342,42 @@ document.getElementById('intakeForm').addEventListener('submit', function(e) {
   // Compute estimate for Nainoa's review
   var intakeEstimate = computeIntakeEstimate(payload);
 
-  // Send intake form via Resend API
-  var emailHtml = [
-    '<h2>New Buildout Request</h2>',
-    '<table style="border-collapse:collapse;width:100%;font-family:sans-serif;">',
-    '<tr><td style="padding:8px;font-weight:bold;background:#f5f5f5;">Business</td><td style="padding:8px;">' + (payload.bizName || '') + '</td></tr>',
-    '<tr><td style="padding:8px;font-weight:bold;background:#f5f5f5;">Owner</td><td style="padding:8px;">' + (payload.ownerName || '') + '</td></tr>',
-    '<tr><td style="padding:8px;font-weight:bold;background:#f5f5f5;">Type</td><td style="padding:8px;">' + (payload.bizType || '') + '</td></tr>',
-    '<tr><td style="padding:8px;font-weight:bold;background:#f5f5f5;">Employees</td><td style="padding:8px;">' + (payload.employees || '') + '</td></tr>',
-    '<tr><td style="padding:8px;font-weight:bold;background:#f5f5f5;">Package</td><td style="padding:8px;">' + (payload.plan || '') + '</td></tr>',
-    '<tr><td style="padding:8px;font-weight:bold;background:#f5f5f5;">Current Tools</td><td style="padding:8px;">' + (payload.currentTools || '') + '</td></tr>',
-    '<tr><td style="padding:8px;font-weight:bold;background:#f5f5f5;">Pain Points</td><td style="padding:8px;">' + (Array.isArray(payload.painPoints) ? payload.painPoints.join(', ') : '') + '</td></tr>',
-    '</table>',
-    '<h3>Description</h3><p>' + (payload.description || '').replace(/\n/g, '<br>') + '</p>',
-    '<h3>Extra Notes</h3><p>' + (payload.extra || '').replace(/\n/g, '<br>') + '</p>',
-    buildEstimateHtml(intakeEstimate),
-  ].join('');
-
-  fetch('https://api.resend.com/emails', {
+  // Send intake form via secure backend API
+  const BACKEND_URL = 'https://mycustomai-backend-1.onrender.com'; // Update this when deployed
+  
+  // Add estimate to payload for backend processing
+  payload.estimate = intakeEstimate;
+  
+  fetch(BACKEND_URL + '/api/intake-submit', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer re_9btMtALT_KtKU358beaEmovP9UtpqFdnd'
+      'Content-Type': 'application/json'
     },
-    body: JSON.stringify({
-      from: 'mycustomai.co <onboarding@resend.dev>',
-      to: ['gimlikazaddum@gmail.com'],
-      subject: 'New Buildout Request - ' + (payload.bizName || 'Unknown Business'),
-      html: emailHtml
-    }),
-  }).catch(function(err) {
-    console.warn('Email send error:', err.message);
+    body: JSON.stringify(payload)
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      console.log('Intake form submitted successfully');
+      if (data.redirectUrl) {
+        setTimeout(function() {
+          window.location.href = data.redirectUrl;
+        }, 2000);
+      }
+    } else {
+      console.warn('Backend error:', data.error);
+      // Still redirect on backend failure - user experience first
+      setTimeout(function() {
+        window.location.href = 'confirmation.html?plan=' + plan;
+      }, 3000);
+    }
+  })
+  .catch(function(err) {
+    console.warn('Backend request failed:', err.message);
+    // Graceful degradation - still redirect user
+    setTimeout(function() {
+      window.location.href = 'confirmation.html?plan=' + plan;
+    }, 3000);
   });
 
   setTimeout(function() {
