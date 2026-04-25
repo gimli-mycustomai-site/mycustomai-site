@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Cache bust: Updated 2026-04-25 11:28:05 -->
+<!-- Cache bust: Updated 2026-04-25 12:19:56 -->
 
 <html lang="en">
 <head>
@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=11" />
+  <link rel="stylesheet" href="css/style.css?v=12" />
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -239,7 +239,8 @@
       <div class="section-label" style="margin-bottom:8px;">One-Time Engagements</div>
     </div>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;max-width:900px;margin:0 auto 16px;text-align:left;">
+    <!-- First row: 2 tiers side by side -->
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:700px;margin:0 auto 24px;text-align:left;">
 
       <!-- TIER 1: Quick Launch $1,000 -->
       <div class="pricing-card" style="display:flex;flex-direction:column;justify-content:space-between;position:relative;">
@@ -288,33 +289,45 @@
         </div>
       </div>
 
-      <!-- TIER 3: Team Foundation $5,000 -->
-      <div class="pricing-card" style="display:flex;flex-direction:column;justify-content:space-between;position:relative;">
-        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#a855f7,transparent);"></div>
-        <div style="padding-top:8px;">
-          <div class="pricing-badge" style="background:#a855f7;">Small Teams · Up to 4 People</div>
-          <div class="pricing-name" style="margin-top:12px;">Team Foundation</div>
-          <div class="pricing-desc">Full-team AI rollout for small businesses with up to 4 people. Everyone trained, workflows rebuilt, adoption managed from day one.</div>
-          <ul class="pricing-features" style="margin-top:12px;">
-            <li>Multiple Stakeholder Consultations</li>
-            <li>Team-wide In-House AI Architecture</li>
-            <li>Change Management & Trust Building</li>
-            <li>Scalable Process Redesign</li>
-            <li>Multi-tool Synergy Workflows</li>
-          </ul>
-        </div>
-        <div style="margin-top:12px;">
-          <div style="font-size:1.8rem;font-weight:800;color:#c084fc;margin-bottom:4px;">$5,000</div>
-          <div style="font-size:0.78rem;color:#64748b;margin-bottom:8px;">One-time · Teams of up to 4</div>
-          <div style="font-size:0.78rem;color:#94a3b8;margin-bottom:0;">💡 Teams report 15–30% reduction in operational overhead within 60 days</div>
+    </div>
+
+    <!-- Second row: Centered Team Foundation tier -->
+    <div style="display:flex;justify-content:center;margin-bottom:32px;">
+      <div style="max-width:350px;width:100%;">
+        <!-- TIER 3: Team Foundation $5,000 -->
+        <div class="pricing-card" style="display:flex;flex-direction:column;justify-content:space-between;position:relative;">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#a855f7,transparent);"></div>
+          <div style="padding-top:8px;">
+            <div class="pricing-badge" style="background:#a855f7;">Small Teams · Up to 4 People</div>
+            <div class="pricing-name" style="margin-top:12px;">Team Foundation</div>
+            <div class="pricing-desc">Full-team AI rollout for small businesses with up to 4 people. Everyone trained, workflows rebuilt, adoption managed from day one.</div>
+            <ul class="pricing-features" style="margin-top:12px;">
+              <li>Multiple Stakeholder Consultations</li>
+              <li>Team-wide In-House AI Architecture</li>
+              <li>Change Management & Trust Building</li>
+              <li>Scalable Process Redesign</li>
+              <li>Multi-tool Synergy Workflows</li>
+            </ul>
+          </div>
+          <div style="margin-top:12px;">
+            <div style="font-size:1.8rem;font-weight:800;color:#c084fc;margin-bottom:4px;">$5,000</div>
+            <div style="font-size:0.78rem;color:#64748b;margin-bottom:8px;">One-time · Teams of up to 4</div>
+            <div style="font-size:0.78rem;color:#94a3b8;margin-bottom:0;">💡 Teams report 15–30% reduction in operational overhead within 60 days</div>
+          </div>
         </div>
       </div>
+    </div>
 
+    <!-- Free Audit CTA Button -->
+    <div style="text-align:center;margin-bottom:32px;">
+      <a href="audit.html" style="display:inline-block;background:linear-gradient(135deg,#6366f1 0%,#8b5cf6 100%);color:white;text-decoration:none;padding:16px 32px;border-radius:12px;font-weight:600;font-size:1.1rem;box-shadow:0 4px 14px 0 rgba(99,102,241,0.3);transition:all 0.3s ease;border:none;">
+        🔍 Get Your Free AI Audit & Quote
+      </a>
+      <p style="font-size:0.85rem;color:#64748b;margin-top:12px;">See exactly what you qualify for — takes 3 minutes</p>
+    </div>
 
-
-      <div style="margin-top:24px;text-align:center;">
-        <p style="font-size:0.78rem;color:#475569;">*All follow-up sessions are one-time calls to help you optimize and scale your AI systems. Available after any initial engagement.</p>
-      </div>
+    <div style="margin-top:24px;text-align:center;">
+      <p style="font-size:0.78rem;color:#475569;">*All pricing tiers include one-time implementation with no ongoing commitments. Follow-up sessions available separately.</p>
     </div>
 
   </div>
