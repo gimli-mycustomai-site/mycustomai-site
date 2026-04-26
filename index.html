@@ -722,3 +722,143 @@
 
 
 <!-- ── Email Capture ─────────────────────────────────────── -->
+<!-- ── Customer Support ───────────────────────────────────── -->
+<section class="section" style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-top: 1px solid #e2e8f0; padding: 48px 0;">
+  <div class="container" style="max-width: 640px; text-align: center;">
+    <div class="section-label">Need Help?</div>
+    <h2 class="section-title">Customer Support</h2>
+    <p class="section-sub" style="margin-bottom: 32px;">
+      Having issues with your AI implementation or need support? Submit a ticket and we'll get back to you quickly.
+    </p>
+
+    <form id="supportForm" style="max-width: 500px; margin: 0 auto; text-align: left; background: white; padding: 32px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+      <div style="margin-bottom: 20px;">
+        <label for="supportName" style="display: block; margin-bottom: 6px; font-weight: 600; color: #374151;">Your Name</label>
+        <input type="text" id="supportName" name="name" required 
+               style="width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px;">
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <label for="supportEmail" style="display: block; margin-bottom: 6px; font-weight: 600; color: #374151;">Email Address</label>
+        <input type="email" id="supportEmail" name="email" required 
+               style="width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px;">
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <label for="supportType" style="display: block; margin-bottom: 6px; font-weight: 600; color: #374151;">Issue Type</label>
+        <select id="supportType" name="issue_type" required 
+                style="width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px;">
+          <option value="">Select an issue type</option>
+          <option value="delivery">Not receiving briefs/reports</option>
+          <option value="technical">Technical implementation issue</option>
+          <option value="billing">Billing question</option>
+          <option value="training">Need additional training</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <label for="supportMessage" style="display: block; margin-bottom: 6px; font-weight: 600; color: #374151;">Describe Your Issue</label>
+        <textarea id="supportMessage" name="message" rows="5" required 
+                  style="width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px; resize: vertical;"
+                  placeholder="Please provide details about the issue you're experiencing..."></textarea>
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <label for="supportUrgency" style="display: block; margin-bottom: 6px; font-weight: 600; color: #374151;">Priority Level</label>
+        <select id="supportUrgency" name="urgency" required 
+                style="width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px;">
+          <option value="">Select priority</option>
+          <option value="low">Low - General question</option>
+          <option value="medium">Medium - Issue affecting workflow</option>
+          <option value="high">High - Blocking business operations</option>
+          <option value="urgent">Urgent - System completely down</option>
+        </select>
+      </div>
+
+      <button type="submit" id="supportSubmitBtn" 
+              style="width: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 16px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: transform 0.2s;">
+        Submit Support Ticket
+      </button>
+
+      <div id="supportMessage" style="margin-top: 16px; text-align: center; display: none;"></div>
+    </form>
+  </div>
+</section>
+
+<!-- ── Footer ────────────────────────────────────────────── -->
+<footer class="footer" style="background: #1a1a2e; color: #e2e8f0; padding: 40px 0; border-top: 1px solid #374151;">
+  <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+    <div style="text-align: center;">
+      <div class="footer-logo" style="font-size: 1.8rem; font-weight: 800; margin-bottom: 16px;">
+        My<span style="color: #A78BFA;">Custom</span>AI
+      </div>
+      <p style="color: #94a3b8; margin-bottom: 24px;">Strategic In-House AI Mastery</p>
+      
+      <div style="margin-bottom: 32px;">
+        <a href="#pricing" style="color: #A78BFA; text-decoration: none; margin: 0 16px;">Pricing</a>
+        <a href="about.html" style="color: #A78BFA; text-decoration: none; margin: 0 16px;">About</a>
+        <a href="privacy.html" style="color: #A78BFA; text-decoration: none; margin: 0 16px;">Privacy</a>
+        <a href="audit.html" style="color: #A78BFA; text-decoration: none; margin: 0 16px;">Free Audit</a>
+      </div>
+      
+      <div style="border-top: 1px solid #374151; padding-top: 24px; color: #64748b; font-size: 0.9rem;">
+        &copy; 2026 MyCustomAI. All rights reserved.
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('supportForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const submitBtn = document.getElementById('supportSubmitBtn');
+    const messageDiv = document.getElementById('supportMessage');
+    
+    // Disable button and show loading
+    submitBtn.textContent = 'Submitting...';
+    submitBtn.disabled = true;
+    
+    const formData = {
+        name: document.getElementById('supportName').value,
+        email: document.getElementById('supportEmail').value,
+        issue_type: document.getElementById('supportType').value,
+        message: document.getElementById('supportMessage').value,
+        urgency: document.getElementById('supportUrgency').value,
+        timestamp: new Date().toISOString(),
+        page: 'index.html'
+    };
+    
+    try {
+        // Submit to our Flask backend (to be built next)
+        const response = await fetch('/api/support-ticket', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        });
+        
+        if (response.ok) {
+            messageDiv.style.display = 'block';
+            messageDiv.style.color = '#10b981';
+            messageDiv.textContent = '✅ Support ticket submitted successfully! We\'ll get back to you within 24 hours.';
+            document.getElementById('supportForm').reset();
+        } else {
+            throw new Error('Server error');
+        }
+    } catch (error) {
+        messageDiv.style.display = 'block';
+        messageDiv.style.color = '#ef4444';
+        messageDiv.textContent = '❌ Error submitting ticket. Please try again or email us directly.';
+    }
+    
+    // Reset button
+    submitBtn.textContent = 'Submit Support Ticket';
+    submitBtn.disabled = false;
+});
+</script>
+
+</body>
+</html>
