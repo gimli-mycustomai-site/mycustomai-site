@@ -133,6 +133,7 @@
         <button type="submit" class="btn-submit" style="margin-top:24px;" id="auditSubmit">Submit Audit Request →</button>
       </form>
     </div>
+    <div id="auditResult" style="display:none;max-width:600px;margin:60px auto;padding:40px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;"></div>
   </div>
 
 <footer class="footer" style="border-top:1px solid #e5e7eb; margin-top:auto;">
@@ -152,7 +153,7 @@
     'solo':  '1',
     'small': '2-5',
     'mid':   '6-15',
-    'large': '30+',
+    'large': '50+',
   };
 
   function normalizeProf(p) {
@@ -180,101 +181,100 @@
   function fmt(n) { return '$' + n.toLocaleString('en-US'); }
 
   function computeAuditEstimate(d) {
-    var size        = sizeMap[d.size] || '1';
+    var size        = d.size; // 'solo', 'small', 'mid', 'large' — raw form value
     var prof        = normalizeProf(d.proficiency);
     var manualHours = parseInt(d.manual_hours, 10) || 0;
     var dataReady   = normalizeDataReady(d.data_readiness);
     var toolCount   = countTools(d.stack);
     var driver      = (d.driver || '').toLowerCase();
 
-    // Base tier
-    var tierName, basePrice;
-    if (size === '1')      { tierName = 'Quick Launch';     basePrice = 1000;  }
-    else if (size === '2-5')   { tierName = prof !== 'none' ? 'Full Mastery' : 'Quick Launch'; basePrice = prof !== 'none' ? 2500 : 1000; }
-    else if (size === '6-15')  { tierName = 'Team Foundation';   basePrice = 5000;  }
-    else if (size === '16-30') { tierName = 'Corporate Mastery'; basePrice = 10000; }
-    else                       { tierName = 'Corporate Mastery'; basePrice = 15000; }
+    // ── Tier selection — MATCHES LIVE SITE CONSULTING TIERS ONLY ────────────
+    // Quick Launch:    $1,000 — Solo, lighter workflow, some AI familiarity
+    // Full Mastery:    $2,500 — Solo (complex) OR Small Team (2-10, simpler)
+    // Team Foundation: $5,000 — Small Team (2-10, complex) OR Mid/Large (escalate)
+    // Mid/Large teams exceed published tiers → Team Foundation + ESCALATION FLAG
+    var tierName, basePrice, needsEscalation = false;
+    var isHighComplexity = (prof === 'none' || dataReady !== 'ready' || manualHours > 20 || toolCount >= 4);
 
-    // Complexity flags
+    if (size === 'solo') {
+      if (isHighComplexity) { tierName = 'Full Mastery';    basePrice = 2500; }
+      else                  { tierName = 'Quick Launch';    basePrice = 1000; }
+    } else if (size === 'small') {
+      // Small team (2-10): complex cases → Team Foundation, simpler → Full Mastery
+      var needsTeamTier = (manualHours > 25 || toolCount >= 4 || dataReady === 'none' || prof === 'none');
+      if (needsTeamTier) { tierName = 'Team Foundation'; basePrice = 5000; }
+      else               { tierName = 'Full Mastery';    basePrice = 2500; }
+    } else {
+      // Mid (11-50) or Large (50+): no published tier — Team Foundation as floor, escalate
+      tierName = 'Team Foundation'; basePrice = 5000; needsEscalation = true;
+    }
+
+    // Fixed price display — only show prices that actually exist on the site
+    var priceDisplay = needsEscalation ? (fmt(basePrice) + '+') : fmt(basePrice);
+
+    // ── Complexity flags ──────────────────────────────────────────────────────
     var flags = [];
     if (manualHours > 20) flags.push('High manual workload (' + manualHours + ' hrs/week) — extended scope likely');
     if (toolCount >= 3)   flags.push('Multi-tool stack (' + toolCount + ' tools: ' + d.stack + ') — integration complexity');
-    if (dataReady === 'none')      flags.push('No existing data infrastructure — onboarding phase required');
+    if (dataReady === 'none')           flags.push('No existing data infrastructure — onboarding phase required');
     else if (dataReady === 'scattered') flags.push('Scattered data — consolidation needed before automation');
     if (prof === 'none')  flags.push('No prior AI experience — additional training time built in');
-    if (driver.includes('compliance')) flags.push('Compliance driver — governance framework and audit trail required');
+    if (driver.includes('compliance'))  flags.push('Compliance driver — governance framework and audit trail required');
+    if (needsEscalation)  flags.push('Team size (mid/large) exceeds published tiers — custom scope required');
 
-    // Price adjustment
-    var tierPrices = [1000, 2500, 5000, 10000, 15000];
-    var adjustedPrice = basePrice;
-    if (manualHours > 20) {
-      var idx = tierPrices.indexOf(basePrice);
-      if (idx >= 0 && idx < tierPrices.length - 1) adjustedPrice = tierPrices[idx + 1];
-    }
-    if (tierName === 'Corporate Mastery' && (size === '30+' || flags.length >= 3)) {
-      adjustedPrice = 15000;
-    }
-
-    var priceDisplay = adjustedPrice > basePrice
-      ? (fmt(basePrice) + '–' + fmt(adjustedPrice))
-      : fmt(adjustedPrice);
-    if (tierName === 'Corporate Mastery') {
-      priceDisplay = adjustedPrice >= 15000 ? '$15,000+' : '$10,000–$15,000';
-    }
-
-    // Retainer
+    // ── Follow-up session recommendation — matches live site ($200 solo / $500 team) ──
     var retainerName, retainerPrice, retainerReason;
-    if (size === '1') {
-      if (prof === 'advanced') { retainerName = 'The Accelerator'; retainerPrice = '$400/mo'; retainerReason = 'Weekly sessions to accelerate advanced workflow buildout'; }
-      else                     { retainerName = 'The Pilot';       retainerPrice = '$200/mo'; retainerReason = 'Biweekly check-ins to maintain momentum'; }
-    } else if (size === '2-5') {
-      retainerName = 'The Accelerator'; retainerPrice = '$400/mo'; retainerReason = 'Weekly support during small team rollout';
+    if (size === 'solo') {
+      retainerName   = 'Single Owner Follow-up';
+      retainerPrice  = '$200/session';
+      retainerReason = '60-min session for strategy refinement, troubleshooting & new tool recommendations';
     } else {
-      retainerName = 'Team Mastery'; retainerPrice = '$1,000/mo'; retainerReason = 'Ongoing team support and monthly strategy sessions';
+      retainerName   = 'Team Follow-up';
+      retainerPrice  = '$500/session';
+      retainerReason = '90-min session for team workflow optimization, cross-department integration & ROI measurement';
     }
 
-    // Timeline
-    var timeline = tierName === 'Quick Launch' ? (flags.length > 1 ? '3–4 weeks' : '2–3 weeks')
-      : tierName === 'Full Mastery'   ? (flags.length >= 2 ? '4–6 weeks' : '3–5 weeks')
-      : tierName === 'Team Foundation' ? (flags.length >= 2 ? '6–8 weeks' : '4–6 weeks')
-      : '8–12 weeks';
+    // ── Timeline ──────────────────────────────────────────────────────────────
+    var timeline =
+      tierName === 'Quick Launch'   ? (flags.length > 1  ? '3–4 weeks' : '2–3 weeks')
+      : tierName === 'Full Mastery' ? (flags.length >= 2  ? '4–6 weeks' : '3–5 weeks')
+      : needsEscalation             ? 'Custom — determined in discovery call'
+      :                               (flags.length >= 2  ? '6–8 weeks' : '4–6 weeks');
 
-    // Scope
+    // ── Scope items — mirrors what's on the live site pricing cards ───────────
     var scope = [];
     if (tierName === 'Quick Launch') {
-      scope.push('1:1 AI strategy session and workflow audit');
-      scope.push('Custom AI setup for ' + (d.target_function || 'primary workflow'));
-      scope.push('Tool configuration (up to 2 tools) and SOPs/prompt library');
+      scope.push('1-on-1 Consultation Session');
+      scope.push('Custom In-House Agent Setup for ' + (d.target_function || 'primary workflow'));
+      scope.push('Interaction & Prompting Mastery');
+      scope.push('Workflow Optimization Blueprint');
+      scope.push('Avoiding AI Hallucination Training');
       if (prof === 'none') scope.push('Foundational AI onboarding session');
     } else if (tierName === 'Full Mastery') {
-      scope.push('Deep-dive workflow audit and full AI implementation');
-      scope.push('Multi-tool integration and automation buildout for ' + (d.target_function || 'core workflows'));
-      scope.push('Custom GPT/agent setup with hand-off documentation');
+      scope.push('Everything in Quick Launch');
+      scope.push('Extended 1-on-1 Coaching Sessions');
+      scope.push('Multi-workflow AI Architecture for ' + (d.target_function || 'core workflows'));
+      scope.push('Staff Training & Adoption Plan');
+      scope.push('Custom Prompt Playbooks & SOPs');
+      scope.push('30-day post-implementation support');
       if (prof === 'none') scope.push('AI literacy and adoption training');
-    } else if (tierName === 'Team Foundation') {
-      scope.push('Company-wide workflow mapping and opportunity scoring');
-      scope.push('Team AI rollout across departments');
-      scope.push('Automation infrastructure setup (workflows, agents, integrations)');
-      scope.push('Manager and staff training sessions');
-      scope.push('30-day post-launch support window');
     } else {
-      scope.push('Enterprise workflow audit and AI readiness assessment');
-      scope.push('Full departmental AI rollout with phased implementation');
-      scope.push('Custom automation architecture and integration design');
-      scope.push('Change management and cross-team training program');
-      scope.push('Executive reporting and ROI tracking setup');
-      scope.push('90-day implementation roadmap with milestones');
+      scope.push('Multiple Stakeholder Consultations');
+      scope.push('Team-wide In-House AI Architecture');
+      scope.push('Change Management & Trust Building');
+      scope.push('Scalable Process Redesign');
+      scope.push('Multi-tool Synergy Workflows');
+      scope.push('Manager and staff training sessions');
+      if (needsEscalation) scope.push('Custom enterprise scope — Nainoa to define before quoting');
     }
     if (driver.includes('compliance')) scope.push('Compliance governance framework and audit trail setup');
     if (dataReady === 'none') scope.push('Data centralization and source-of-truth setup');
 
-    // Review note
+    // ── Review notes for Nainoa's Telegram ───────────────────────────────────
     var reviewNotes = [];
-    if (adjustedPrice > basePrice && tierName !== 'Corporate Mastery') {
-      reviewNotes.push('Price bumped from ' + fmt(basePrice) + ' to ' + fmt(adjustedPrice) + ' due to high manual hours — confirm scope in discovery call');
-    }
-    if (prof === 'none') reviewNotes.push('Client has zero AI experience — budget extra onboarding/training time');
-    if (dataReady === 'none') reviewNotes.push('No data infrastructure — data setup phase may need separate pricing');
+    if (needsEscalation) reviewNotes.push('🚨 ESCALATION REQUIRED — mid/large team, custom quote needed, do NOT use published prices');
+    if (prof === 'none') reviewNotes.push('Zero AI experience — budget extra onboarding/training time');
+    if (dataReady === 'none') reviewNotes.push('No data infrastructure — data setup phase may need separate line item');
     if (toolCount >= 5) reviewNotes.push('Large tool stack (' + toolCount + ' tools) — integration audit recommended before committing to timeline');
     if (driver.includes('compliance')) reviewNotes.push('Compliance driver — clarify regulatory context before quoting');
 
@@ -302,7 +302,7 @@
       '<p style="color:#c0392b;font-size:0.9rem;font-weight:bold;">For Nainoa\'s review only — do not forward to client. This is a starting point, not a final price.</p>',
       '<table style="border-collapse:collapse;width:100%;font-family:sans-serif;margin-bottom:16px;">',
       '<tr><td style="padding:8px;font-weight:bold;background:#f0f4ff;width:200px;">Recommended Tier</td><td style="padding:8px;">' + est.tierName + ' — ' + est.priceDisplay + '</td></tr>',
-      '<tr><td style="padding:8px;font-weight:bold;background:#f0f4ff;">Retainer Recommendation</td><td style="padding:8px;">' + est.retainerName + ' — ' + est.retainerPrice + ' (' + est.retainerReason + ')</td></tr>',
+      '<tr><td style="padding:8px;font-weight:bold;background:#f0f4ff;">Follow-up Sessions</td><td style="padding:8px;">' + est.retainerName + ' — ' + est.retainerPrice + ' (' + est.retainerReason + ')</td></tr>',
       '<tr><td style="padding:8px;font-weight:bold;background:#f0f4ff;">Estimated Timeline</td><td style="padding:8px;">' + est.timeline + '</td></tr>',
       '</table>',
       '<h3 style="color:#1a1a1a;">Complexity Flags</h3><ul>' + flagsHtml + '</ul>',
@@ -313,14 +313,6 @@
       '<p style="color:#888;font-size:0.85rem;">&#8212;&#8212; END ESTIMATE &#8212;&#8212;</p>',
     ].join('');
   }
-
-  // ── Stripe payment links per tier ──────────────────────
-  var STRIPE_LINKS = {
-    'Quick Launch':      'https://buy.stripe.com/9B64gzgvf2r7525bku7EQ0k',
-    'Full Mastery':      'https://buy.stripe.com/14AcN5baV9Tz52560a7EQ0l',
-    'Team Foundation':   'https://buy.stripe.com/cNi8wP92N8Pv66974e7EQ0m',
-    'Corporate Mastery': 'https://buy.stripe.com/7sYfZhen71n31PTgEO7EQ0n'
-  };
 
   document.getElementById("auditForm").addEventListener("submit", function(e) {
     e.preventDefault();
@@ -348,21 +340,15 @@
       body: JSON.stringify({ data: data, estimate: estimate })
     }).catch(function(err) { console.warn('Audit notify error:', err.message); });
 
-    // Show estimate instantly — let customer decide and purchase right away
+    // Show confirmation screen — client sees tier name + timeline but NOT the price.
+    // Nainoa reviews the full estimate in Telegram and manually sends the final quote.
     setTimeout(function() {
       document.querySelector('.audit-form').style.display = 'none';
       var resultEl = document.getElementById('auditResult');
       resultEl.style.display = 'block';
 
-      var isCorporate = estimate.tierName === 'Corporate Mastery';
-      var payLink = STRIPE_LINKS[estimate.tierName] || STRIPE_LINKS['Quick Launch'];
-      payLink += '?prefilled_email=' + encodeURIComponent(data.email);
-
-      var ctaHtml = isCorporate
-        ? '<a href="mailto:support@mycustomai.co?subject=Enterprise%20Inquiry%20—%20' + encodeURIComponent(data.company || data.name) + '" class="btn btn-primary btn-lg" style="width:100%;display:block;text-align:center;font-size:1.1rem;padding:18px;">Contact Us for Enterprise Quote →</a>' +
-          '<p style="color:#64748b;font-size:0.78rem;text-align:center;margin-top:12px;">We'll put together a custom proposal for your team within 24 hours.</p>'
-        : '<a href="' + payLink + '" class="btn btn-primary btn-lg" style="width:100%;display:block;text-align:center;font-size:1.1rem;padding:18px;" target="_blank">Purchase — ' + estimate.priceDisplay + ' →</a>' +
-          '<p style="color:#64748b;font-size:0.78rem;text-align:center;margin-top:12px;">Secure checkout via Stripe. After payment you'll book your session.</p>';
+      var ctaHtml = '<a href="mailto:support@mycustomai.co?subject=Audit%20Submitted%20—%20' + encodeURIComponent(data.company || data.name) + '" class="btn btn-primary btn-lg" style="width:100%;display:block;text-align:center;font-size:1.1rem;padding:18px;">Questions? Reach Out →</a>' +
+          '<p style="color:#64748b;font-size:0.78rem;text-align:center;margin-top:12px;">We\'ll review your audit and reach out with a personalized proposal within 24 hours.</p>';
 
       resultEl.innerHTML =
         '<div style="text-align:center;margin-bottom:32px;">' +
@@ -373,14 +359,13 @@
         '<div style="background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.3);border-radius:14px;padding:32px;margin-bottom:24px;">' +
           '<div style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#818cf8;margin-bottom:12px;">Recommended Tier</div>' +
           '<div style="font-size:1.8rem;font-weight:800;color:#a5b4fc;margin-bottom:4px;">' + estimate.tierName + '</div>' +
-          '<div style="font-size:3rem;font-weight:900;color:#f1f5f9;margin-bottom:4px;">' + estimate.priceDisplay + '</div>' +
-          '<div style="font-size:0.85rem;color:#64748b;margin-bottom:20px;">One-time · Est. ' + estimate.timeline + '</div>' +
+          '<div style="font-size:0.85rem;color:#64748b;margin-bottom:20px;">Est. ' + estimate.timeline + '</div>' +
           '<div style="font-size:0.9rem;color:#cbd5e1;margin-bottom:24px;">' + estimate.summary + '</div>' +
           ctaHtml +
         '</div>' +
         '<div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:20px;margin-bottom:16px;">' +
           '<div style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#64748b;margin-bottom:12px;">Also Recommended</div>' +
-          '<div style="font-size:1rem;color:#a5b4fc;font-weight:600;">' + estimate.retainerName + ' — ' + estimate.retainerPrice + '</div>' +
+          '<div style="font-size:1rem;color:#a5b4fc;font-weight:600;">' + estimate.retainerName + '</div>' +
           '<div style="font-size:0.85rem;color:#94a3b8;margin-top:4px;">' + estimate.retainerReason + '</div>' +
         '</div>' +
         (estimate.flags.length ? '<div style="background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.15);border-radius:10px;padding:16px 20px;">' +
