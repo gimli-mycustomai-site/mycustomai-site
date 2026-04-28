@@ -170,16 +170,26 @@ document.getElementById('dplaModal2').addEventListener('click', function(e) {
         </div>
       </div>
 
-      <!-- Package 4 — COMING SOON -->
-      <div class="pkg-item coming-soon" data-pkg="4">
+      <!-- Package 4 — ACTIVE -->
+      <div class="pkg-item" data-pkg="4">
         <div class="pkg-header" onclick="togglePkg(this)">
-          <div class="pkg-title">AI Content Engine <span class="cs-badge">Coming Soon</span></div>
-          <div class="pkg-price">$37</div>
+          <div class="pkg-title">Industry-Specific AI Playbook Editions</div>
+          <div class="pkg-price">$130</div>
           <div class="pkg-chevron">&#8964;</div>
         </div>
         <div class="pkg-body">
-          <p class="pkg-summary">Turn one piece of content into 10 using AI repurposing across all channels.</p>
-          <button class="pkg-notify-btn" onclick="openNotifyModal('AI Content Engine')">Notify Me When Available</button>
+          <p class="pkg-summary">6 complete standalone AI playbooks — each one adapted to your exact industry with 8–12 ready-to-deploy agents, ROI benchmarks, compliance guardrails, and OpenClaw/Hermes config snippets. Built from real 2026 deployment data, not generic AI advice.</p>
+          <ul class="pkg-features">
+            <li>Edition 1: E-Commerce &amp; Retail — 12 agents including abandoned cart recovery, dynamic pricing, fraud detection</li>
+            <li>Edition 2: Real Estate &amp; Property — MLS compliance, lead qualification, listing automation</li>
+            <li>Edition 3: Coaching &amp; Consulting — client onboarding, content pipeline, session prep agents</li>
+            <li>Edition 4: Service Business &amp; Agencies — proposal generation, project management, client reporting</li>
+            <li>Edition 5: Hawaii Tourism &amp; Hospitality — seasonality agents, booking optimization, guest communication</li>
+            <li>Edition 6: Health &amp; Wellness — intake automation, appointment management, follow-up sequences</li>
+            <li>Every agent includes OpenClaw/Hermes config snippet and monthly ROI estimate</li>
+            <li>Plug-and-play import into Agent Starter Kit and Notion AI OS</li>
+          </ul>
+          <button class="pkg-buy-btn" onclick="openDplaModal4()">Buy Now — $130</button>
         </div>
       </div>
 
@@ -320,6 +330,27 @@ document.getElementById('dplaModal2').addEventListener('click', function(e) {
   </div>
 </div>
 
+
+<!-- ── DPLA Modal 4 (Package 4) ──────────────────────────── -->
+<div id="dplaModal4" style="display:none;position:fixed;inset:0;z-index:2000;align-items:center;justify-content:center;background:rgba(0,0,0,0.75);padding:16px;">
+  <div style="background:#0d1117;border:1px solid rgba(212,168,67,0.3);border-radius:14px;max-width:520px;width:100%;padding:32px;position:relative;">
+    <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#d4a843;margin-bottom:12px;">Before You Purchase</div>
+    <h3 style="color:#f1f5f9;font-size:1.2rem;font-weight:700;margin:0 0 10px;">Digital Product License Agreement</h3>
+    <p style="color:#94a3b8;font-size:0.88rem;margin-bottom:24px;">This package is licensed for personal use only. Redistribution, resale, or sharing is strictly prohibited and may result in legal action.</p>
+    <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;margin-bottom:24px;">
+      <input type="checkbox" id="dplaCheck4" onchange="updateDplaBtn4()" style="margin-top:3px;width:18px;height:18px;accent-color:#d4a843;flex-shrink:0;">
+      <span style="font-size:0.88rem;color:#cbd5e1;">I have read and agree to the <a href="/license.html" target="_blank" style="color:#d4a843;text-decoration:underline;">Digital Product License Agreement</a></span>
+    </label>
+    <button id="dplaAgreeBtn4" disabled onclick="dplaPurchase4()"
+      style="width:100%;padding:13px;border-radius:8px;border:none;background:#10b981;color:white;font-weight:700;font-size:1rem;cursor:not-allowed;opacity:0.45;transition:all 0.2s;margin-bottom:10px;">
+      Agree &amp; Purchase — $130
+    </button>
+    <button onclick="closeDplaModal4()"
+      style="width:100%;padding:11px;border-radius:8px;border:1px solid #334155;background:transparent;color:#94a3b8;font-weight:600;font-size:0.9rem;cursor:pointer;">
+      Cancel
+    </button>
+  </div>
+</div>
 <!-- ── Notify Me Modal ────────────────────────────────────── -->
 <div id="notifyModal" style="display:none;position:fixed;inset:0;z-index:2000;align-items:center;justify-content:center;background:rgba(0,0,0,0.75);padding:16px;">
   <div style="background:#0d1117;border:1px solid rgba(212,168,67,0.35);border-radius:16px;padding:36px 32px;max-width:460px;width:100%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.6);">
@@ -447,6 +478,35 @@ function dplaPurchase3() {
 }
 document.getElementById('dplaModal3').addEventListener('click', function(e) {
   if (e.target === this) closeDplaModal3();
+});
+// DPLA Modal 4 (Package 4 — Industry-Specific AI Playbook Editions)
+function openDplaModal4() {
+  document.getElementById('dplaModal4').style.display = 'flex';
+}
+function closeDplaModal4() {
+  document.getElementById('dplaModal4').style.display = 'none';
+  document.getElementById('dplaCheck4').checked = false;
+  updateDplaBtn4();
+}
+function updateDplaBtn4() {
+  var btn = document.getElementById('dplaAgreeBtn4');
+  var checked = document.getElementById('dplaCheck4').checked;
+  btn.disabled = !checked;
+  btn.style.opacity = checked ? '1' : '0.45';
+  btn.style.cursor = checked ? 'pointer' : 'not-allowed';
+}
+function dplaPurchase4() {
+  try {
+    fetch('https://mycustomai-backend-1.onrender.com/api/license-acceptance', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ product: 'Industry-Specific AI Playbook Editions', timestamp: new Date().toISOString() })
+    }).catch(function(){});
+  } catch(e) {}
+  window.location.href = 'https://buy.stripe.com/7sY14ndj35Dj9il60a7EQ0r';
+}
+document.getElementById('dplaModal4').addEventListener('click', function(e) {
+  if (e.target === this) closeDplaModal4();
 });
 
 // Notify Me Modal
