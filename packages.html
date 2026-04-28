@@ -148,16 +148,25 @@ document.getElementById('dplaModal2').addEventListener('click', function(e) {
         </div>
       </div>
 
-      <!-- Package 3 — COMING SOON -->
-      <div class="pkg-item coming-soon" data-pkg="3">
+      <!-- Package 3 — ACTIVE -->
+      <div class="pkg-item active" data-pkg="3">
         <div class="pkg-header" onclick="togglePkg(this)">
-          <div class="pkg-title">AI Sales Outreach System <span class="cs-badge">Coming Soon</span></div>
-          <div class="pkg-price">$47</div>
+          <div class="pkg-title">Agent Starter Kit: Ready-to-Deploy Open-Source Agents</div>
+          <div class="pkg-price">$77</div>
           <div class="pkg-chevron">&#8964;</div>
         </div>
         <div class="pkg-body">
-          <p class="pkg-summary">Cold outreach framework using AI to research prospects and personalize messages.</p>
-          <button class="pkg-notify-btn" onclick="openNotifyModal('AI Sales Outreach System')">Notify Me When Available</button>
+          <p class="pkg-summary">Pre-configured, battle-tested open-source agent stack that actually works on first run. Ships with everything you need to go from zero to a running OpenClaw + Hermes + Qwen hybrid setup — without the 5–20 hours of config hell most people hit.</p>
+          <ul class="pkg-features">
+            <li>Pre-configured SOUL.md, HEARTBEAT.md, and IDENTITY.md files</li>
+            <li>Battle-tested .env templates for OpenClaw + Hermes + Ollama</li>
+            <li>Custom skills library with No-Assumption Protocol, Primer Phase, and 4-Step Debugging pre-loaded</li>
+            <li>One-click setup scripts for macOS and Linux</li>
+            <li>Hybrid routing guide: when to use OpenClaw vs Hermes vs local Qwen</li>
+            <li>Safety rollback protocols so upgrades never break your live agents</li>
+            <li>Real production configs from actual deployments — not AI-generated templates</li>
+          </ul>
+          <button class="pkg-buy-btn" onclick="openDplaModal3()">Buy Now — $77</button>
         </div>
       </div>
 
@@ -290,6 +299,27 @@ document.getElementById('dplaModal2').addEventListener('click', function(e) {
   </div>
 </div>
 
+<!-- ── DPLA Modal 3 (Package 3) ──────────────────────────── -->
+<div id="dplaModal3" style="display:none;position:fixed;inset:0;z-index:2000;align-items:center;justify-content:center;background:rgba(0,0,0,0.75);padding:16px;">
+  <div style="background:#0d1117;border:1px solid rgba(212,168,67,0.3);border-radius:14px;max-width:520px;width:100%;padding:32px;position:relative;">
+    <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#d4a843;margin-bottom:12px;">Before You Purchase</div>
+    <h3 style="color:#f1f5f9;font-size:1.2rem;font-weight:700;margin:0 0 10px;">Digital Product License Agreement</h3>
+    <p style="color:#94a3b8;font-size:0.88rem;margin-bottom:24px;">This package is licensed for personal use only. Redistribution, resale, or sharing is strictly prohibited and may result in legal action.</p>
+    <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;margin-bottom:24px;">
+      <input type="checkbox" id="dplaCheck3" onchange="updateDplaBtn3()" style="margin-top:3px;width:18px;height:18px;accent-color:#d4a843;flex-shrink:0;">
+      <span style="font-size:0.88rem;color:#cbd5e1;">I have read and agree to the <a href="/license.html" target="_blank" style="color:#d4a843;text-decoration:underline;">Digital Product License Agreement</a></span>
+    </label>
+    <button id="dplaAgreeBtn3" disabled onclick="dplaPurchase3()"
+      style="width:100%;padding:13px;border-radius:8px;border:none;background:#10b981;color:white;font-weight:700;font-size:1rem;cursor:not-allowed;opacity:0.45;transition:all 0.2s;margin-bottom:10px;">
+      Agree &amp; Purchase — $77
+    </button>
+    <button onclick="closeDplaModal3()"
+      style="width:100%;padding:11px;border-radius:8px;border:1px solid #334155;background:transparent;color:#94a3b8;font-weight:600;font-size:0.9rem;cursor:pointer;">
+      Cancel
+    </button>
+  </div>
+</div>
+
 <!-- ── Notify Me Modal ────────────────────────────────────── -->
 <div id="notifyModal" style="display:none;position:fixed;inset:0;z-index:2000;align-items:center;justify-content:center;background:rgba(0,0,0,0.75);padding:16px;">
   <div style="background:#0d1117;border:1px solid rgba(212,168,67,0.35);border-radius:16px;padding:36px 32px;max-width:460px;width:100%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.6);">
@@ -387,6 +417,36 @@ function dplaPurchase() {
 }
 document.getElementById('dplaModal').addEventListener('click', function(e) {
   if (e.target === this) closeDplaModal();
+});
+
+// DPLA Modal 3 (Package 3 — Agent Starter Kit)
+function openDplaModal3() {
+  document.getElementById('dplaModal3').style.display = 'flex';
+}
+function closeDplaModal3() {
+  document.getElementById('dplaModal3').style.display = 'none';
+  document.getElementById('dplaCheck3').checked = false;
+  updateDplaBtn3();
+}
+function updateDplaBtn3() {
+  var btn = document.getElementById('dplaAgreeBtn3');
+  var checked = document.getElementById('dplaCheck3').checked;
+  btn.disabled = !checked;
+  btn.style.opacity = checked ? '1' : '0.45';
+  btn.style.cursor = checked ? 'pointer' : 'not-allowed';
+}
+function dplaPurchase3() {
+  try {
+    fetch('https://mycustomai-backend-1.onrender.com/api/license-acceptance', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ product: 'Agent Starter Kit: Ready-to-Deploy Open-Source Agents', timestamp: new Date().toISOString() })
+    }).catch(function(){});
+  } catch(e) {}
+  window.location.href = 'https://buy.stripe.com/7sY00j2Ep0iZ2TXdsC7EQ0q';
+}
+document.getElementById('dplaModal3').addEventListener('click', function(e) {
+  if (e.target === this) closeDplaModal3();
 });
 
 // Notify Me Modal
