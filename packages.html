@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9F8YW8356R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9F8YW8356R');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DIY AI Packages — My Custom AI</title>
+  <meta name="description" content="Pre-built AI frameworks you can implement yourself. No consultation needed — download and implement." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=13" />
+  <style>
+    .pkg-accordion { display: flex; flex-direction: column; gap: 12px; max-width: 760px; margin: 0 auto; }
+    .pkg-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; overflow: hidden; transition: border-color 0.2s; }
+    .pkg-item.active { border-color: rgba(99,102,241,0.4); }
+    .pkg-item.coming-soon { opacity: 0.65; }
+    .pkg-header { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; cursor: pointer; user-select: none; gap: 16px; }
+    .pkg-title { font-size: 1rem; font-weight: 700; color: #e2e8f0; flex: 1; }
+    .pkg-price { font-size: 1rem; font-weight: 800; color: #34d399; white-space: nowrap; }
+    .pkg-item.coming-soon .pkg-price { color: #94a3b8; }
+    .pkg-chevron { font-size: 1.1rem; color: #6366f1; transition: transform 0.25s; flex-shrink: 0; }
+    .pkg-item.open .pkg-chevron { transform: rotate(180deg); }
+    .pkg-body { display: none; padding: 0 24px 24px; border-top: 1px solid rgba(255,255,255,0.05); }
+    .pkg-item.open .pkg-body { display: block; }
+    .pkg-summary { color: #94a3b8; font-size: 0.92rem; line-height: 1.75; margin-bottom: 16px; margin-top: 16px; }
+    .pkg-features { list-style: none; padding: 0; margin: 0 0 20px; display: flex; flex-direction: column; gap: 8px; }
+    .pkg-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; color: #cbd5e1; }
+    .pkg-features li::before { content: "✓"; color: #10b981; flex-shrink: 0; font-weight: 700; }
+    .pkg-buy-btn { display: inline-block; background: #10b981; color: white; border: none; cursor: pointer; padding: 11px 28px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: background 0.2s; }
+    .pkg-buy-btn:hover { background: #059669; }
+    .pkg-notify-btn { display: inline-block; background: transparent; color: #d4a843; border: 2px solid #d4a843; cursor: pointer; padding: 10px 24px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; transition: background 0.2s; }
+    .pkg-notify-btn:hover { background: rgba(212,168,67,0.1); }
+    .cs-badge { display: inline-block; background: rgba(212,168,67,0.12); color: #d4a843; border: 1px solid rgba(212,168,67,0.3); border-radius: 20px; padding: 2px 10px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-left: 10px; }
+  </style>
+</head>
+<body>
+
+<!-- ── Nav ───────────────────────────────────────────────── -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <div class="nav-logo"><a href="/" style="text-decoration:none;color:inherit;">My<span>Custom</span>AI</a></div>
+    <div class="nav-links">
+      <a href="/#how-it-works">The Method</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Header ────────────────────────────────────────────── -->
+<section class="hero" style="padding: 80px 0 60px;">
+  <div class="container" style="text-align:center;max-width:720px;">
+    <div class="section-label">Self-Guided</div>
+    <h1 style="font-size:2.4rem;line-height:1.25;margin-bottom:16px;">Do It Yourself AI Packages</h1>
+    <p style="font-size:1.1rem;color:#94a3b8;line-height:1.7;">Full ready-to-integrate frameworks. No consultation needed — download and implement.</p>
+  </div>
+</section>
+
+<!-- ── Package Accordion ─────────────────────────────────── -->
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="pkg-accordion" id="pkgAccordion">
+
+      <!-- Package 1 — ACTIVE -->
+      <div class="pkg-item active" data-pkg="1">
+        <div class="pkg-header" onclick="togglePkg(this)">
+          <div class="pkg-title">Building AI In-House: The Complete Playbook</div>
+          <div class="pkg-price">$37</div>
+          <div class="pkg-chevron">&#8964;</div>
+        </div>
+        <div class="pkg-body">
+          <p class="pkg-summary">The foundational framework for implementing AI tools inside your business. Covers setup, prompting strategy, workflow automation blueprints, and common pitfalls — all in one 25-page guide.</p>
+          <ul class="pkg-features">
+            <li>Complete 25-page AI implementation guide</li>
+            <li>Step-by-step setup instructions</li>
+            <li>Prompting templates and strategies</li>
+            <li>Workflow automation blueprints</li>
+            <li>Common pitfalls and how to avoid them</li>
+          </ul>
+          <button class="pkg-buy-btn" onclick="openDplaModal()">Buy Now — $37</button>
+        </div>
+      </div>
+
+      <!-- Package 2 — COMING SOON -->
+      <div class="pkg-item coming-soon" data-pkg="2">
+        <div class="pkg-header" onclick="togglePkg(this)">
+          <div class="pkg-title">AI Customer Support Playbook <span class="cs-badge">Coming Soon</span></div>
+          <div class="pkg-price">$47</div>
+          <div class="pkg-chevron">&#8964;</div>
+        </div>
+        <div class="pkg-body">
+          <p class="pkg-summary">Build an AI-powered support system handling FAQs and tickets 24/7.</p>
+          <button class="pkg-notify-btn" onclick="openNotifyModal('AI Customer Support Playbook')">Notify Me When Available</button>
+        </div>
+      </div>
+
+      <!-- Package 3 — COMING SOON -->
+      <div class="pkg-item coming-soon" data-pkg="3">
+        <div class="pkg-header" onclick="togglePkg(this)">
+          <div class="pkg-title">AI Sales Outreach System <span class="cs-badge">Coming Soon</span></div>
+          <div class="pkg-price">$47</div>
+          <div class="pkg-chevron">&#8964;</div>
+        </div>
+        <div class="pkg-body">
+          <p class="pkg-summary">Cold outreach framework using AI to research prospects and personalize messages.</p>
+          <button class="pkg-notify-btn" onclick="openNotifyModal('AI Sales Outreach System')">Notify Me When Available</button>
+        </div>
+      </div>
+
+      <!-- Package 4 — COMING SOON -->
+      <div class="pkg-item coming-soon" data-pkg="4">
+        <div class="pkg-header" onclick="togglePkg(this)">
+          <div class="pkg-title">AI Content Engine <span class="cs-badge">Coming Soon</span></div>
+          <div class="pkg-price">$37</div>
+          <div class="pkg-chevron">&#8964;</div>
+        </div>
+        <div class="pkg-body">
+          <p class="pkg-summary">Turn one piece of content into 10 using AI repurposing across all channels.</p>
+          <button class="pkg-notify-btn" onclick="openNotifyModal('AI Content Engine')">Notify Me When Available</button>
+        </div>
+      </div>
+
+      <!-- Package 5 — COMING SOON -->
+      <div class="pkg-item coming-soon" data-pkg="5">
+        <div class="pkg-header" onclick="togglePkg(this)">
+          <div class="pkg-title">AI Operations and SOPs Package <span class="cs-badge">Coming Soon</span></div>
+          <div class="pkg-price">$57</div>
+          <div class="pkg-chevron">&#8964;</div>
+        </div>
+        <div class="pkg-body">
+          <p class="pkg-summary">Document, optimize, and automate core business processes with AI-generated SOPs.</p>
+          <button class="pkg-notify-btn" onclick="openNotifyModal('AI Operations and SOPs Package')">Notify Me When Available</button>
+        </div>
+      </div>
+
+      <!-- Package 6 — COMING SOON -->
+      <div class="pkg-item coming-soon" data-pkg="6">
+        <div class="pkg-header" onclick="togglePkg(this)">
+          <div class="pkg-title">AI Hiring and Onboarding System <span class="cs-badge">Coming Soon</span></div>
+          <div class="pkg-price">$47</div>
+          <div class="pkg-chevron">&#8964;</div>
+        </div>
+        <div class="pkg-body">
+          <p class="pkg-summary">Screen candidates, generate job descriptions, and onboard using AI.</p>
+          <button class="pkg-notify-btn" onclick="openNotifyModal('AI Hiring and Onboarding System')">Notify Me When Available</button>
+        </div>
+      </div>
+
+      <!-- Package 7 — COMING SOON -->
+      <div class="pkg-item coming-soon" data-pkg="7">
+        <div class="pkg-header" onclick="togglePkg(this)">
+          <div class="pkg-title">AI Finance and Reporting Toolkit <span class="cs-badge">Coming Soon</span></div>
+          <div class="pkg-price">$57</div>
+          <div class="pkg-chevron">&#8964;</div>
+        </div>
+        <div class="pkg-body">
+          <p class="pkg-summary">Automate financial summaries and reporting for small business owners.</p>
+          <button class="pkg-notify-btn" onclick="openNotifyModal('AI Finance and Reporting Toolkit')">Notify Me When Available</button>
+        </div>
+      </div>
+
+      <!-- Package 8 — COMING SOON -->
+      <div class="pkg-item coming-soon" data-pkg="8">
+        <div class="pkg-header" onclick="togglePkg(this)">
+          <div class="pkg-title">AI Project Management Framework <span class="cs-badge">Coming Soon</span></div>
+          <div class="pkg-price">$37</div>
+          <div class="pkg-chevron">&#8964;</div>
+        </div>
+        <div class="pkg-body">
+          <p class="pkg-summary">AI-assisted planning, task breakdown, and progress tracking.</p>
+          <button class="pkg-notify-btn" onclick="openNotifyModal('AI Project Management Framework')">Notify Me When Available</button>
+        </div>
+      </div>
+
+      <!-- Package 9 — COMING SOON -->
+      <div class="pkg-item coming-soon" data-pkg="9">
+        <div class="pkg-header" onclick="togglePkg(this)">
+          <div class="pkg-title">AI Marketing Intelligence Suite <span class="cs-badge">Coming Soon</span></div>
+          <div class="pkg-price">$67</div>
+          <div class="pkg-chevron">&#8964;</div>
+        </div>
+        <div class="pkg-body">
+          <p class="pkg-summary">Competitive analysis and campaign ideation automated with AI agents.</p>
+          <button class="pkg-notify-btn" onclick="openNotifyModal('AI Marketing Intelligence Suite')">Notify Me When Available</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:48px;">
+      <a href="/" style="color:#6366f1;text-decoration:none;font-size:0.9rem;font-weight:600;">&#8592; Back to Home</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── DPLA Modal ────────────────────────────────────────── -->
+<div id="dplaModal" style="display:none;position:fixed;inset:0;z-index:2000;align-items:center;justify-content:center;background:rgba(0,0,0,0.75);padding:16px;">
+  <div style="background:#0d1117;border:1px solid rgba(212,168,67,0.3);border-radius:14px;max-width:520px;width:100%;padding:32px;position:relative;">
+    <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#d4a843;margin-bottom:12px;">Before You Purchase</div>
+    <h3 style="color:#f1f5f9;font-size:1.2rem;font-weight:700;margin:0 0 10px;">Digital Product License Agreement</h3>
+    <p style="color:#94a3b8;font-size:0.88rem;margin-bottom:24px;">This package is licensed for personal use only. Redistribution, resale, or sharing is strictly prohibited and may result in legal action.</p>
+    <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;margin-bottom:24px;">
+      <input type="checkbox" id="dplaCheck" onchange="updateDplaBtn()" style="margin-top:3px;width:18px;height:18px;accent-color:#d4a843;flex-shrink:0;">
+      <span style="font-size:0.88rem;color:#cbd5e1;">I have read and agree to the <a href="/license.html" target="_blank" style="color:#d4a843;text-decoration:underline;">Digital Product License Agreement</a></span>
+    </label>
+    <button id="dplaAgreeBtn" disabled onclick="dplaPurchase()"
+      style="width:100%;padding:13px;border-radius:8px;border:none;background:#10b981;color:white;font-weight:700;font-size:1rem;cursor:not-allowed;opacity:0.45;transition:all 0.2s;margin-bottom:10px;">
+      Agree &amp; Purchase — $37
+    </button>
+    <button onclick="closeDplaModal()"
+      style="width:100%;padding:11px;border-radius:8px;border:1px solid #334155;background:transparent;color:#94a3b8;font-weight:600;font-size:0.9rem;cursor:pointer;">
+      Cancel
+    </button>
+  </div>
+</div>
+
+<!-- ── Notify Me Modal ────────────────────────────────────── -->
+<div id="notifyModal" style="display:none;position:fixed;inset:0;z-index:2000;align-items:center;justify-content:center;background:rgba(0,0,0,0.75);padding:16px;">
+  <div style="background:#0d1117;border:1px solid rgba(212,168,67,0.35);border-radius:16px;padding:36px 32px;max-width:460px;width:100%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.6);">
+    <button onclick="closeNotifyModal()"
+      style="position:absolute;top:14px;right:18px;background:none;border:none;color:#94a3b8;font-size:1.4rem;cursor:pointer;line-height:1;">&times;</button>
+    <div style="text-align:center;margin-bottom:20px;">
+      <div style="font-size:1.4rem;margin-bottom:6px;">&#128276;</div>
+      <h3 style="margin:0 0 6px;color:#f1f5f9;font-size:1.2rem;font-weight:700;">Get Notified</h3>
+      <p id="notifyPackageName" style="margin:0;color:#d4a843;font-size:0.9rem;font-weight:600;"></p>
+      <p style="margin:6px 0 0;color:#94a3b8;font-size:0.85rem;">We'll email you the moment this package launches.</p>
+    </div>
+    <div id="notifySuccess" style="display:none;text-align:center;padding:20px 0;">
+      <div style="font-size:2rem;margin-bottom:10px;">&#10003;</div>
+      <p style="color:#34d399;font-weight:600;font-size:1rem;margin:0 0 6px;">You're on the list!</p>
+      <p style="color:#94a3b8;font-size:0.88rem;margin:0;">We'll notify you when this package is available.</p>
+    </div>
+    <form id="notifyForm" onsubmit="submitNotify(event)" style="display:flex;flex-direction:column;gap:14px;">
+      <input type="hidden" id="notifyTier" value="">
+      <div>
+        <label style="display:block;font-size:0.8rem;font-weight:600;color:#cbd5e1;margin-bottom:6px;">Email Address *</label>
+        <input type="email" id="notifyEmail" required placeholder="you@example.com"
+          style="width:100%;box-sizing:border-box;background:#161b22;border:1px solid #334155;border-radius:8px;padding:10px 14px;color:#f1f5f9;font-size:0.9rem;outline:none;transition:border-color 0.2s;"
+          onfocus="this.style.borderColor='#d4a843'" onblur="this.style.borderColor='#334155'">
+      </div>
+      <div id="notifyError" style="display:none;color:#f87171;font-size:0.82rem;text-align:center;"></div>
+      <button type="submit" id="notifySubmitBtn"
+        style="width:100%;background:linear-gradient(135deg,#d4a843 0%,#b8862e 100%);color:#0d1117;border:none;border-radius:10px;padding:12px;font-weight:700;font-size:0.95rem;cursor:pointer;">
+        Notify Me
+      </button>
+      <button type="button" onclick="closeNotifyModal()"
+        style="width:100%;background:transparent;color:#64748b;border:1px solid #334155;border-radius:10px;padding:10px;font-weight:500;font-size:0.88rem;cursor:pointer;">
+        Cancel
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- ── Footer ────────────────────────────────────────────── -->
+<footer class="footer" style="background: #1a1a2e; color: #e2e8f0; padding: 40px 0; border-top: 1px solid #374151;">
+  <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+    <div style="text-align: center;">
+      <div class="footer-logo" style="font-size: 1.8rem; font-weight: 800; margin-bottom: 16px;">
+        My<span style="color: #A78BFA;">Custom</span>AI
+      </div>
+      <p style="color: #94a3b8; margin-bottom: 24px;">Strategic In-House AI Mastery</p>
+      <div style="margin-bottom: 32px;">
+        <a href="/#pricing" style="color: #A78BFA; text-decoration: none; margin: 0 16px;">Pricing</a>
+        <a href="about.html" style="color: #A78BFA; text-decoration: none; margin: 0 16px;">About</a>
+        <a href="privacy.html" style="color: #A78BFA; text-decoration: none; margin: 0 16px;">Privacy</a>
+        <a href="audit.html" style="color: #A78BFA; text-decoration: none; margin: 0 16px;">Free Audit</a>
+      </div>
+      <div style="border-top: 1px solid #374151; padding-top: 24px; color: #64748b; font-size: 0.9rem;">
+        &copy; 2026 MyCustomAI. All rights reserved.
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Accordion — only one open at a time
+function togglePkg(header) {
+  var item = header.parentElement;
+  var wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.pkg-item.open').forEach(function(el) {
+    el.classList.remove('open');
+  });
+  if (!wasOpen) item.classList.add('open');
+}
+
+// DPLA Modal
+function openDplaModal() {
+  document.getElementById('dplaModal').style.display = 'flex';
+}
+function closeDplaModal() {
+  document.getElementById('dplaModal').style.display = 'none';
+  document.getElementById('dplaCheck').checked = false;
+  updateDplaBtn();
+}
+function updateDplaBtn() {
+  var btn = document.getElementById('dplaAgreeBtn');
+  var checked = document.getElementById('dplaCheck').checked;
+  btn.disabled = !checked;
+  btn.style.opacity = checked ? '1' : '0.45';
+  btn.style.cursor = checked ? 'pointer' : 'not-allowed';
+}
+function dplaPurchase() {
+  try {
+    fetch('https://mycustomai-backend-1.onrender.com/api/license-acceptance', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ product: 'Building AI In-House: The Complete Playbook', timestamp: new Date().toISOString() })
+    }).catch(function(){});
+  } catch(e) {}
+  window.location.href = 'https://buy.stripe.com/5kQcN53ItfdT5252NY7EQ0o';
+}
+document.getElementById('dplaModal').addEventListener('click', function(e) {
+  if (e.target === this) closeDplaModal();
+});
+
+// Notify Me Modal
+function openNotifyModal(packageTitle) {
+  document.getElementById('notifyTier').value = packageTitle;
+  document.getElementById('notifyPackageName').textContent = packageTitle;
+  document.getElementById('notifyForm').style.display = 'flex';
+  document.getElementById('notifySuccess').style.display = 'none';
+  document.getElementById('notifyEmail').value = '';
+  document.getElementById('notifyError').style.display = 'none';
+  document.getElementById('notifyModal').style.display = 'flex';
+}
+function closeNotifyModal() {
+  document.getElementById('notifyModal').style.display = 'none';
+}
+document.getElementById('notifyModal').addEventListener('click', function(e) {
+  if (e.target === this) closeNotifyModal();
+});
+async function submitNotify(e) {
+  e.preventDefault();
+  var btn = document.getElementById('notifySubmitBtn');
+  var errEl = document.getElementById('notifyError');
+  errEl.style.display = 'none';
+  btn.disabled = true;
+  btn.textContent = 'Submitting…';
+  var data = {
+    name: 'Package Waitlist',
+    email: document.getElementById('notifyEmail').value.trim(),
+    tier: document.getElementById('notifyTier').value,
+    timeline: 'Immediately'
+  };
+  try {
+    var res = await fetch('https://mycustomai-backend-1.onrender.com/api/interest-list', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    if (!res.ok) throw new Error('Server error ' + res.status);
+    document.getElementById('notifyForm').style.display = 'none';
+    document.getElementById('notifySuccess').style.display = 'block';
+  } catch(err) {
+    errEl.textContent = 'Could not reach server. Please try again.';
+    errEl.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Notify Me';
+  }
+}
+</script>
+
+</body>
+</html>
