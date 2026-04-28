@@ -286,15 +286,44 @@ document.getElementById('dplaModal2').addEventListener('click', function(e) {
       </div>
 
 <!-- Package 9 — COMING SOON -->
-      <div class="pkg-item coming-soon" data-pkg="9">
+      <div class="pkg-item active" data-pkg="9">
         <div class="pkg-header" onclick="togglePkg(this)">
-          <div class="pkg-title">AI Marketing Intelligence Suite <span class="cs-badge">Coming Soon</span></div>
-          <div class="pkg-price">$67</div>
+          <div class="pkg-title">Build Your Own AI Employee Blueprint Bundle</div>
+          <div class="pkg-price">$127</div>
           <div class="pkg-chevron">&#8964;</div>
         </div>
         <div class="pkg-body">
-          <p class="pkg-summary">Competitive analysis and campaign ideation automated with AI agents.</p>
-          <button class="pkg-notify-btn" onclick="openNotifyModal('AI Marketing Intelligence Suite')">Notify Me When Available</button>
+          <p class="pkg-summary">Turn any agent into a full-time virtual employee. 75+ page PDF + Notion Workspace + 8 job description templates + KPI dashboards + escalation matrix + onboarding SOPs. Built from McKinsey/HBR 2026 agentic AI research.</p>
+          <ul class="pkg-features">
+            <li>8 Ready-to-use job description templates (CS Rep, Content Manager, Lead Qualifier, Scheduler, Research Analyst, Accounting Clerk, Ops Coordinator, Competitor Intel)</li>
+            <li>4 Autonomy Levels with guardrails and promotion criteria</li>
+            <li>10 KPIs with exact formulas, benchmarks, and remediation steps</li>
+            <li>AI Employee vs. Human Employee Cost Comparison Calculator</li>
+            <li>Complete Onboarding SOP (6-step activation, Day 1 prompt)</li>
+            <li>Weekly Review SOP (self-review prompt, human sign-off template)</li>
+            <li>Escalation Matrix — configure triggers for every agent's SOUL.md</li>
+            <li>Offboarding SOP — knowledge transfer, dependency audit, handoff protocol</li>
+            <li>Legal & Compliance Checklist (GDPR/CCPA/HIPAA, EU AI Act 2026)</li>
+            <li>Scaling to Multi-Agent Departments (org chart design, coordination methods)</li>
+            <li>Duplicatable Notion Workspace — AI Employee Hub with KPI rollups and review archive</li>
+            <li>No-Assumption Protocol embedded in every job description template</li>
+          </ul>
+          <button class="pkg-buy-btn" onclick="openDplaModal9()">Get Instant Access — $127</button>
+        </div>
+      </div>
+
+      <div id="dplaModal9" style="display:none;position:fixed;inset:0;z-index:2000;align-items:center;justify-content:center;background:rgba(0,0,0,0.82);padding:16px;">
+        <div style="background:#0d1117;border:1px solid rgba(212,168,67,0.35);border-radius:14px;max-width:520px;width:100%;padding:32px;box-shadow:0 8px 40px rgba(0,0,0,0.7);">
+          <h3 style="color:#d4a843;margin:0 0 8px;font-size:1.2rem;">Before You Purchase</h3>
+          <p style="color:#c0cfe0;font-size:0.9rem;margin:0 0 20px;">Please review and accept the Digital Product License Agreement to continue.</p>
+          <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;margin-bottom:20px;">
+            <input type="checkbox" id="dplaCheck9" onchange="updateDplaBtn9()" style="margin-top:3px;accent-color:#d4a843;">
+            <span style="color:#c0cfe0;font-size:0.88rem;">I agree to the <a href="/license.html" target="_blank" style="color:#d4a843;text-decoration:underline;">Digital Product License Agreement</a>. I understand this is a non-refundable digital product.</span>
+          </label>
+          <div style="display:flex;gap:12px;">
+            <button id="dplaAgreeBtn9" disabled onclick="dplaPurchase9()" style="flex:1;padding:12px;background:#d4a843;color:#0d1117;border:none;border-radius:8px;font-weight:700;font-size:0.95rem;cursor:pointer;opacity:0.45;transition:opacity 0.2s;">Agree &amp; Purchase</button>
+            <button onclick="closeDplaModal9()" style="padding:12px 20px;background:transparent;border:1px solid rgba(192,207,224,0.25);color:#c0cfe0;border-radius:8px;cursor:pointer;font-size:0.9rem;">Cancel</button>
+          </div>
         </div>
       </div>
 
@@ -740,6 +769,32 @@ function closeDplaModal8() { document.getElementById('dplaModal8').style.display
 function updateDplaBtn8() { var ok=document.getElementById('dplaCheck8').checked; var btn=document.getElementById('dplaAgreeBtn8'); btn.disabled=!ok; btn.style.opacity=ok?'1':'0.45'; btn.style.cursor=ok?'pointer':'not-allowed'; }
 function dplaPurchase8() { try { fetch('https://mycustomai-backend-1.onrender.com/api/license-acceptance',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({product:'Team Training and Adoption Kit',timestamp:new Date().toISOString()})}).catch(function(){}); } catch(e){} window.location.href='https://buy.stripe.com/3cI5kD5QB3vb0LP1JU7EQ0v'; }
 document.getElementById('dplaModal8').addEventListener('click',function(e){if(e.target===this)closeDplaModal8();});
+
+  function openDplaModal9() {
+    document.getElementById('dplaModal9').style.display = 'flex';
+  }
+  function closeDplaModal9() {
+    document.getElementById('dplaModal9').style.display = 'none';
+    document.getElementById('dplaCheck9').checked = false;
+    updateDplaBtn9();
+  }
+  function updateDplaBtn9() {
+    var btn = document.getElementById('dplaAgreeBtn9');
+    var checked = document.getElementById('dplaCheck9').checked;
+    btn.disabled = !checked;
+    btn.style.opacity = checked ? '1' : '0.45';
+    btn.style.cursor = checked ? 'pointer' : 'not-allowed';
+  }
+  function dplaPurchase9() {
+    try {
+      fetch('https://mycustomai-backend-1.onrender.com/api/license-acceptance', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({product: 'Build Your Own AI Employee Blueprint Bundle', timestamp: new Date().toISOString()})
+      }).catch(function(){});
+    } catch(e) {}
+    window.location.href = 'https://buy.stripe.com/6oU6oHen71n35253S27EQ0w';
+  }
 </script>
 
 </body>
