@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9F8YW8356R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9F8YW8356R');
+</script>
+  <meta name="description" content="AI Agent Lab - Explore our custom AI solutions and automation tools designed for small businesses.">
+
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Redirecting…</title>
+  <script>window.location.replace("index.html#pricing");</script>
+  <noscript><meta http-equiv="refresh" content="0; url=index.html#pricing"></noscript>
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body><p>Redirecting… <a href="index.html#pricing">Click here if not redirected.</a></p></body>
+</html>

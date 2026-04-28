@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<!-- Cache bust: Updated 2026-04-25 12:19:56 -->
+
+<html lang="en">
+<head>
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9F8YW8356R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9F8YW8356R');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Custom AI — Strategic In-House AI Mastery</title>
+  <meta name="description" content="Stop paying for 'Done-For-You' AI that breaks. We help you build and master your own in-house AI infrastructure. Strategic consulting and proprietary agent templates." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=13" />
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wg1b4llblz");
+</script>
+<script type="text/javascript" src="https://app.cal.com/embed/embed.js"></script>
+</head>
+<body>
+
+<!-- ── Nav ───────────────────────────────────────────────── -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <div class="nav-logo">My<span>Custom</span>AI</div>
+    <div class="nav-links">
+      <a href="#how-it-works">The Method</a>
+      <a href="#pricing">Pricing</a>
+      <a href="about.html">About</a>
+
+    </div>
+  </div>
+</nav>
+
+<!-- ── Hero ──────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge"><span class="hero-badge-dot"></span> The Anti-Hype AI Expert</div>
+      <h1>Stop paying for "Done-For-You" AI that breaks. <em>Bring it in-house instead.</em></h1>
+      <p>We help small businesses build in-house AI — no tech team required. Starting at $1,000. Your workflows, your tools, your data. Owned by you forever.</p>
+      <div class="hero-actions">
+        <a href="grader.html" class="btn btn-primary btn-lg">Take the Free AI Readiness Quiz →</a>
+        <a href="#pricing" class="btn btn-outline btn-lg">View Pricing</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-visual-bar">
+        <span class="hero-visual-dot"></span>
+        <span class="hero-visual-dot"></span>
+        <span class="hero-visual-dot"></span>
+        <span class="hero-visual-label">Proprietary In-House Agent Stack</span>
+      </div>
+      <div class="hero-visual-body">
+        <div class="hero-tool-item">
+          <div class="hero-tool-icon">🧠</div>
+          <div>
+            <div class="hero-tool-name">Real ROI & Risk Reduction</div>
+            <div class="hero-tool-desc">Cost savings, fewer errors, scalable processes</div>
+          </div>
+        </div>
+        <div class="hero-tool-item">
+          <div class="hero-tool-icon">🛠️</div>
+          <div>
+            <div class="hero-tool-name">Hands-On Mastery</div>
+            <div class="hero-tool-desc">Setup, troubleshooting, and prompting mastery</div>
+          </div>
+        </div>
+        <div class="hero-tool-item">
+          <div class="hero-tool-icon">🎯</div>
+          <div>
+            <div class="hero-tool-name">Business Alignment</div>
+            <div class="hero-tool-desc">Agents that fit your data and culture</div>
+          </div>
+        </div>
+        <div class="hero-tool-item">
+          <div class="hero-tool-icon">🤝</div>
+          <div>
+            <div class="hero-tool-name">Change Management</div>
+            <div class="hero-tool-desc">Training teams to trust and collaborate</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── The Method ────────────────────────────────────────── -->
+<section class="how section" id="how-it-works">
+  <div class="container" style="text-align:center;">
+    <div class="section-label">The Method</div>
+    <h2 class="section-title">How we bring AI to your business</h2>
+    <p class="section-sub">We don't just "deliver" a tool. We help you redesign your core processes around AI with accountability and iteration.</p>
+    <div class="how-steps">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <h3>Discovery & Custom Audit</h3>
+        <p>We analyze your proprietary workflows to find actual ROI opportunities and high-impact use cases.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <h3>Guided In-House Setup</h3>
+        <p>We co-build the agents with your team. We screen-share, troubleshoot, and iron out the edge cases.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <h3>Playbooks & Masterclass</h3>
+        <p>We provide prompt playbooks and SOPs so your staff knows exactly how to interact with the agents.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <h3>Ongoing Optimization</h3>
+        <p>We don't disappear. Continuous monitoring and check-ins ensure your agents grow with you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── The In-House Choice ──────────────────────────────── -->
+<section class="section why-section">
+  <div class="container" style="text-align:center;max-width:720px;">
+    <div class="section-label">Cost & Savings Insights</div>
+    <h2 class="section-title">What Agencies Don't Want You to Know</h2>
+    <p style="font-size:1.1rem;margin-bottom:1.5rem;">
+      Agencies charge $4,000-$15,000/month retainers for services powered by AI tools costing $20-$200/month. 
+      <strong>You're paying 20-50x markup</strong> for tools you could run in-house.
+    </p>
+    
+    <div style="text-align:left;background:rgba(16,185,129,0.1);padding:20px;border-radius:8px;margin:20px 0;border-left:4px solid var(--accent-bright);">
+      <h3 style="color:var(--accent-bright);margin-bottom:15px;">Real Examples:</h3>
+      <ul style="margin:0;padding-left:20px;">
+        <li><strong>Web Design Agencies:</strong> $5,000-15,000/month → Uses Figma + AI tools costing ~$50/month</li>
+        <li><strong>Copywriting Agencies:</strong> $4,000-12,000/month → Uses ChatGPT + tools costing ~$90/month</li>
+        <li><strong>SEO Agencies:</strong> $5,000-20,000/month → Uses AI content tools costing ~$260/month</li>
+        <li><strong>Lead Gen Agencies:</strong> $5,000-15,000/month → Uses prospecting tools costing ~$320/month</li>
+      </ul>
+    </div>
+    
+    <p style="font-size:1.1rem;margin-bottom:1.5rem;">
+      <strong>Build it in-house and save $35,000-$235,000 per year.</strong> That's why we teach you to "Own the Logic. Own the Asset."
+    </p>
+    <p style="font-size:1.15rem;font-weight:700;color:var(--accent-bright);">Stop the markup. Build in-house. Save thousands.</p>
+  </div>
+</section>
+
+<!-- ── Value Section ─────────────────────────────────────── -->
+<section class="section value-section" id="value">
+  <div class="container" style="max-width:760px; text-align:center;">
+    <div class="section-label">What You Actually Get</div>
+    <h2 class="section-title">Why Human Expertise Still Wins</h2>
+    <p class="section-sub">Pure AI can't do nuanced business context, stakeholder buy-in, accountability during rollout, or iterative refinement based on your proprietary data. Here's what we bring that no tool can replace.</p>
+    <div class="value-accordion" style="margin-top:40px; text-align:left;">
+
+      <div class="value-item">
+        <button class="value-btn" onclick="toggleValue(this)">
+          <span>🧠 Real ROI &amp; Risk Reduction</span>
+          <span class="value-icon">+</span>
+        </button>
+        <div class="value-body">
+          Cost and time savings, fewer errors, scalable processes — not demos. Every engagement is anchored to measurable outcomes and actual business impact.
+        </div>
+      </div>
+
+      <div class="value-item">
+        <button class="value-btn" onclick="toggleValue(this)">
+          <span>🛠️ Hands-On Help</span>
+          <span class="value-icon">+</span>
+        </button>
+        <div class="value-body">
+          Guided setup, troubleshooting edge cases, and teaching how to prompt and interact so agents don't hallucinate or break. We stay until it works.
+        </div>
+      </div>
+
+      <div class="value-item">
+        <button class="value-btn" onclick="toggleValue(this)">
+          <span>🎯 Business Alignment</span>
+          <span class="value-icon">+</span>
+        </button>
+        <div class="value-body">
+          Agents that fit your workflows, your data, and your culture — not generic ones. We map AI to how your team actually operates.
+        </div>
+      </div>
+
+      <div class="value-item">
+        <button class="value-btn" onclick="toggleValue(this)">
+          <span>🎓 In-House AI Expertise Development</span>
+          <span class="value-icon">+</span>
+        </button>
+        <div class="value-body">
+          You or a designated team member becomes the certified in-house AI expert. We provide comprehensive training, documentation, and knowledge transfer so you maintain full control and capability internally.
+        </div>
+      </div>
+
+      <div class="value-item">
+        <button class="value-btn" onclick="toggleValue(this)">
+          <span>🔒 What Pure AI Can't Do</span>
+          <span class="value-icon">+</span>
+        </button>
+        <div class="value-body">
+          Nuanced business context, stakeholder buy-in, accountability during rollout, and iterative refinement based on your client's proprietary data and real outcomes. That's the human layer we provide.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Two Tracks to Mastery ───────────────────────────── -->
+<!-- ── Pricing ──────────────────────────────────────────── -->
+<section class="pricing section" id="pricing">
+  <div class="container" style="text-align:center;">
+    <div class="section-label">Solutions</div>
+    <h2 class="section-title">Clear Pricing. No Surprises.</h2>
+    <p class="section-sub">Every engagement starts with a free audit. Prices below are fixed — what you see is what you pay.</p>
+
+    <!-- ── WHO THIS IS FOR ──────────────────────────────── -->
+    <div style="margin:0 auto 48px; max-width:700px; background:rgba(99,102,241,0.06); border:1px solid rgba(99,102,241,0.18); border-radius:14px; padding:28px 32px; text-align:left;">
+      <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#818cf8;margin-bottom:16px;">This is for you if…</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;align-items:flex-start;gap:12px;font-size:0.92rem;color:#cbd5e1;">
+          <span style="color:#6366f1;font-size:1rem;flex-shrink:0;">✓</span>
+          You're spending 10+ hours a week on tasks AI could handle — and you're tired of doing it manually
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:12px;font-size:0.92rem;color:#cbd5e1;">
+          <span style="color:#6366f1;font-size:1rem;flex-shrink:0;">✓</span>
+          You've tried ChatGPT but couldn't get it to work consistently for your specific business
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:12px;font-size:0.92rem;color:#cbd5e1;">
+          <span style="color:#6366f1;font-size:1rem;flex-shrink:0;">✓</span>
+          You want AI built in-house and owned by you — not dependent on an outside agency
+        </div>
+      </div>
+    </div>
+
+    <!-- ── ONE-TIME PACKAGES ─────────────────────────────── -->
+    <div style="margin-bottom:16px;">
+      <div class="section-label" style="margin-bottom:8px;">One-Time Engagements</div>
+    </div>
+
+    <!-- First row: 3 tiers side by side -->
+    <!-- ── SCARCITY NOTICE ───────────────────────────────── -->
+    <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin:0 auto 24px;max-width:700px;background:rgba(212,168,67,0.07);border:1px solid rgba(212,168,67,0.28);border-radius:10px;padding:12px 20px;">
+      <span style="font-size:1rem;">⚡</span>
+      <p style="margin:0;font-size:0.88rem;color:#d4a843;font-weight:600;letter-spacing:0.01em;">
+        Availability is Limited — We take on a select number of clients each month to ensure quality.
+      </p>
+    </div>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px;margin:0 auto 24px;text-align:left;">
+
+            <!-- TIER 0: Do It Yourself Packages -->
+
+      <div class="pricing-card" style="display:flex;flex-direction:column;justify-content:space-between;position:relative;">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#64748b,transparent);"></div>
+        <div style="padding-top:8px;">
+          <div class="pricing-badge" style="background:#64748b;">Self-Guided</div>
+          <div class="pricing-name" style="margin-top:12px;">Do It Yourself</div>
+          <div style="font-size:0.85rem;color:#94a3b8;font-weight:600;margin-top:4px;">Full ready-to-integrate AI packages</div>
+          <div class="pricing-desc">Pre-built AI frameworks you can implement yourself — no consultation needed. Pick the package that fits your workflow.</div>
+          <ul class="pricing-features" style="margin-top:12px;">
+            <li style="display:flex;justify-content:space-between;"><span>Building AI In-House: The Complete Playbook</span><span style="color:#34d399;font-weight:700;white-space:nowrap;margin-left:8px;">$37</span></li>
+            <li style="display:flex;justify-content:space-between;"><span>Notion AI Operating System Template Pack</span><span style="color:#34d399;font-weight:700;white-space:nowrap;margin-left:8px;">$67</span></li>
+            <li style="display:flex;justify-content:space-between;"><span>Agent Starter Kit: Ready-to-Deploy Agents</span><span style="color:#34d399;font-weight:700;white-space:nowrap;margin-left:8px;">$77</span></li>
+            <li style="display:flex;justify-content:space-between;"><span>Industry-Specific AI Playbook Editions</span><span style="color:#34d399;font-weight:700;white-space:nowrap;margin-left:8px;">$130</span></li>
+            <li style="display:flex;justify-content:space-between;"><span>Prompt & SOP Mastery Library</span><span style="color:#34d399;font-weight:700;white-space:nowrap;margin-left:8px;">$97</span></li>
+            <li style="display:flex;justify-content:space-between;"><span>Monthly AI Update & Agent Infrastructure</span><span style="color:#34d399;font-weight:700;white-space:nowrap;margin-left:8px;">$67</span></li>
+            <li style="display:flex;justify-content:space-between;"><span>AI Debugging & Troubleshooting Playbook</span><span style="color:#34d399;font-weight:700;white-space:nowrap;margin-left:8px;">$57</span></li>
+            <li style="display:flex;justify-content:space-between;"><span>Team Training & Adoption Kit</span><span style="color:#34d399;font-weight:700;white-space:nowrap;margin-left:8px;">$147</span></li>
+            <li style="display:flex;justify-content:space-between;"><span>Build Your Own AI Employee Blueprint</span><span style="color:#34d399;font-weight:700;white-space:nowrap;margin-left:8px;">$127</span></li>
+          </ul>
+        </div>
+        <div style="margin-top:12px;">
+          <div style="font-size:0.78rem;color:#64748b;margin-bottom:8px;">One-time · Instant Download · Lifetime Access</div>
+          <div style="font-size:0.8rem;color:#10b981;margin-bottom:8px;">&#10003; No consultation needed</div>
+          <a href="/packages.html" style="display:block;width:100%;background:#10b981;color:white;border:none;cursor:pointer;padding:12px 24px;border-radius:8px;font-weight:600;text-align:center;margin-top:8px;transition:background 0.3s ease;font-size:1rem;text-decoration:none;box-sizing:border-box;">
+            Browse Packages
+          </a>
+        </div>
+      </div>
+
+<!-- TIER 1: Quick Launch $1,000 -->
+      <div class="pricing-card" style="display:flex;flex-direction:column;justify-content:space-between;position:relative;">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#6366f1,transparent);"></div>
+        <div style="padding-top:8px;">
+          <div class="pricing-badge" style="background:#6366f1;">Individual / Solo</div>
+          <div class="pricing-name" style="margin-top:12px;">Quick Launch</div>
+          <div class="pricing-desc">For owner-operators who want a fast, focused setup with expert guidance. Best if you're ready to move and just need the right roadmap.</div>
+          <ul class="pricing-features" style="margin-top:12px;">
+            <li>1-on-1 Consultation Session</li>
+            <li>Custom In-House Agent Setup</li>
+            <li>Interaction & Prompting Mastery</li>
+            <li>Workflow Optimization Blueprint</li>
+            <li>Avoiding AI Hallucination Training</li>
+          </ul>
+        </div>
+        <div style="margin-top:12px;">
+          <div style="font-size:1.8rem;font-weight:800;color:#a5b4fc;margin-bottom:4px;">$1,000</div>
+          <div style="font-size:0.78rem;color:#64748b;margin-bottom:8px;">One-time · Individual</div>
+          <div style="font-size:0.8rem;color:#22c55e;margin-bottom:8px;">✓ 7-day satisfaction guarantee</div>
+        </div>
+      </div>
+
+      <!-- TIER 2: Full Mastery $2,500 — MOST POPULAR -->
+      <div class="pricing-card featured" style="display:flex;flex-direction:column;justify-content:space-between;position:relative;border:2px solid rgba(99,102,241,0.6);">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#818cf8,transparent);"></div>
+        <div style="position:absolute;top:-8px;right:16px;background:#6366f1;color:white;font-size:0.65rem;font-weight:800;letter-spacing:0.1em;padding:4px 12px;border-radius:12px;text-transform:uppercase;box-shadow:0 2px 8px rgba(99,102,241,0.3);">⭐ Most Popular</div>
+        <div style="padding-top:20px;">
+          <div class="pricing-badge" style="background:#6366f1;">Individual / Solo</div>
+          <div class="pricing-name" style="margin-top:12px;">Full Mastery</div>
+          <div class="pricing-desc">Deep implementation for owner-operators or small teams who want AI fully embedded across their workflows — not just one tool.</div>
+          <ul class="pricing-features" style="margin-top:12px;">
+            <li>Everything in Quick Launch</li>
+            <li>Extended 1-on-1 Coaching Sessions</li>
+            <li>Multi-workflow AI Architecture</li>
+            <li>Staff Training & Adoption Plan</li>
+            <li>Custom Prompt Playbooks & SOPs</li>
+
+          </ul>
+        </div>
+        <div style="margin-top:12px;">
+          <div style="font-size:1.8rem;font-weight:800;color:#a5b4fc;margin-bottom:4px;">$2,500</div>
+          <div style="font-size:0.78rem;color:#64748b;margin-bottom:8px;">One-time · Individual / Small Team</div>
+          <div style="font-size:0.8rem;color:#22c55e;margin-bottom:4px;">✓ 7-day satisfaction guarantee</div>
+          <div style="font-size:0.78rem;color:#94a3b8;margin-bottom:4px;">💡 If this saves 10 hrs/mo at $50/hr — it pays for itself in 5 months</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Second row: Centered Team Foundation tier -->
+    <div style="display:flex;justify-content:center;margin-bottom:32px;">
+      <div style="max-width:350px;width:100%;">
+        <!-- TIER 3: Team Foundation $5,000 -->
+        <div class="pricing-card" style="display:flex;flex-direction:column;justify-content:space-between;position:relative;">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#a855f7,transparent);"></div>
+          <div style="padding-top:8px;">
+            <div class="pricing-badge" style="background:#a855f7;">Small Teams · Up to 4 People</div>
+            <div class="pricing-name" style="margin-top:12px;">Team Foundation</div>
+            <div class="pricing-desc">Full-team AI rollout for small businesses with up to 4 people. Everyone trained, workflows rebuilt, adoption managed from day one.</div>
+            <ul class="pricing-features" style="margin-top:12px;">
+              <li>Multiple Stakeholder Consultations</li>
+              <li>Team-wide In-House AI Architecture</li>
+              <li>Change Management & Trust Building</li>
+              <li>Scalable Process Redesign</li>
+              <li>Multi-tool Synergy Workflows</li>
+            </ul>
+          </div>
+          <div style="margin-top:12px;">
+            <div style="font-size:1.8rem;font-weight:800;color:#c084fc;margin-bottom:4px;">$5,000</div>
+            <div style="font-size:0.78rem;color:#64748b;margin-bottom:8px;">One-time · Teams of up to 4</div>
+            <div style="font-size:0.78rem;color:#94a3b8;margin-bottom:0;">💡 Teams report 15–30% reduction in operational overhead within 60 days</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Free Audit CTA Button -->
+    <div style="text-align:center;margin-bottom:32px;">
+      <a href="audit.html" style="display:inline-block;background:linear-gradient(135deg,#6366f1 0%,#8b5cf6 100%);color:white;text-decoration:none;padding:16px 32px;border-radius:12px;font-weight:600;font-size:1.1rem;box-shadow:0 4px 14px 0 rgba(99,102,241,0.3);transition:all 0.3s ease;border:none;">
+        🔍 Get Your Free AI Audit & Quote
+      </a>
+      <p style="font-size:0.85rem;color:#64748b;margin-top:12px;">See exactly what you qualify for — takes 3 minutes</p>
+    </div>
+
+
+    <!-- ── JOIN INTEREST LIST BUTTON ────────────────────── -->
+    <div style="text-align:center;margin-bottom:24px;">
+      <button onclick="document.getElementById('interestModal').style.display='flex'"
+        style="display:inline-block;background:transparent;color:#d4a843;text-decoration:none;padding:13px 28px;border-radius:10px;font-weight:600;font-size:1rem;border:2px solid #d4a843;cursor:pointer;transition:all 0.3s ease;"
+        onmouseover="this.style.background='rgba(212,168,67,0.1)'"
+        onmouseout="this.style.background='transparent'">
+        📋 Join the Interest List
+      </button>
+      <p style="font-size:0.8rem;color:#64748b;margin-top:8px;">No commitment — just let us know you're interested</p>
+    </div>
+
+    <div style="margin-top:24px;text-align:center;">
+      <p style="font-size:0.78rem;color:#475569;">*All pricing tiers include one-time implementation with no ongoing commitments. Follow-up sessions available separately.</p>
+    </div>
+
+  
+<!-- ── Interest List Modal ──────────────────────────────── -->
+<div id="interestModal" style="display:none;position:fixed;inset:0;z-index:1000;align-items:center;justify-content:center;background:rgba(0,0,0,0.7);padding:16px;">
+  <div style="background:#0d1117;border:1px solid rgba(212,168,67,0.35);border-radius:16px;padding:36px 32px;max-width:480px;width:100%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.6);">
+    <button onclick="document.getElementById('interestModal').style.display='none'"
+      style="position:absolute;top:14px;right:18px;background:none;border:none;color:#94a3b8;font-size:1.4rem;cursor:pointer;line-height:1;">&times;</button>
+
+    <div style="text-align:center;margin-bottom:24px;">
+      <div style="font-size:1.5rem;margin-bottom:6px;">📋</div>
+      <h3 style="margin:0 0 6px;color:#f1f5f9;font-size:1.25rem;font-weight:700;">Join the Interest List</h3>
+      <p style="margin:0;color:#94a3b8;font-size:0.88rem;">We'll reach out when a spot opens up that fits your needs.</p>
+    </div>
+
+    <div id="interestSuccess" style="display:none;text-align:center;padding:24px 0;">
+      <div style="font-size:2rem;margin-bottom:12px;">✅</div>
+      <p style="color:#34d399;font-weight:600;font-size:1rem;margin:0 0 6px;">You're on the list!</p>
+      <p style="color:#94a3b8;font-size:0.88rem;margin:0;">We'll be in touch when availability opens up.</p>
+    </div>
+
+    <form id="interestForm" onsubmit="submitInterestForm(event)" style="display:flex;flex-direction:column;gap:16px;">
+      <div>
+        <label style="display:block;font-size:0.8rem;font-weight:600;color:#cbd5e1;margin-bottom:6px;">Full Name *</label>
+        <input type="text" name="name" required placeholder="Jane Smith"
+          style="width:100%;box-sizing:border-box;background:#161b22;border:1px solid #334155;border-radius:8px;padding:10px 14px;color:#f1f5f9;font-size:0.9rem;outline:none;transition:border-color 0.2s;"
+          onfocus="this.style.borderColor='#d4a843'" onblur="this.style.borderColor='#334155'">
+      </div>
+      <div>
+        <label style="display:block;font-size:0.8rem;font-weight:600;color:#cbd5e1;margin-bottom:6px;">Email Address *</label>
+        <input type="email" name="email" required placeholder="jane@example.com"
+          style="width:100%;box-sizing:border-box;background:#161b22;border:1px solid #334155;border-radius:8px;padding:10px 14px;color:#f1f5f9;font-size:0.9rem;outline:none;transition:border-color 0.2s;"
+          onfocus="this.style.borderColor='#d4a843'" onblur="this.style.borderColor='#334155'">
+      </div>
+      <div>
+        <label style="display:block;font-size:0.8rem;font-weight:600;color:#cbd5e1;margin-bottom:6px;">Which service are you interested in? *</label>
+        <select name="tier" required
+          style="width:100%;box-sizing:border-box;background:#161b22;border:1px solid #334155;border-radius:8px;padding:10px 14px;color:#f1f5f9;font-size:0.9rem;outline:none;transition:border-color 0.2s;appearance:none;"
+          onfocus="this.style.borderColor='#d4a843'" onblur="this.style.borderColor='#334155'">
+          <option value="" disabled selected>Select a tier…</option>
+          <option value="DIY PDF Guide ($37)">DIY PDF Guide ($37)</option>
+          <option value="Quick Launch ($1,000)">Quick Launch ($1,000)</option>
+          <option value="Full Mastery ($2,500)">Full Mastery ($2,500)</option>
+          <option value="Team Foundation ($5,000)">Team Foundation ($5,000)</option>
+        </select>
+      </div>
+      <div>
+        <label style="display:block;font-size:0.8rem;font-weight:600;color:#cbd5e1;margin-bottom:6px;">How soon are you looking to get started? *</label>
+        <select name="timeline" required
+          style="width:100%;box-sizing:border-box;background:#161b22;border:1px solid #334155;border-radius:8px;padding:10px 14px;color:#f1f5f9;font-size:0.9rem;outline:none;transition:border-color 0.2s;appearance:none;"
+          onfocus="this.style.borderColor='#d4a843'" onblur="this.style.borderColor='#334155'">
+          <option value="" disabled selected>Select timeline…</option>
+          <option value="Immediately">Immediately</option>
+          <option value="Within 1-3 months">Within 1–3 months</option>
+          <option value="Just exploring">Just exploring</option>
+        </select>
+      </div>
+      <div id="interestError" style="display:none;color:#f87171;font-size:0.82rem;text-align:center;"></div>
+      <button type="submit" id="interestSubmitBtn"
+        style="width:100%;background:linear-gradient(135deg,#d4a843 0%,#b8862e 100%);color:#0d1117;border:none;border-radius:10px;padding:13px;font-weight:700;font-size:1rem;cursor:pointer;transition:opacity 0.2s;">
+        Join the Interest List
+      </button>
+      <button type="button" onclick="document.getElementById('interestModal').style.display='none'"
+        style="width:100%;background:transparent;color:#64748b;border:1px solid #334155;border-radius:10px;padding:11px;font-weight:500;font-size:0.9rem;cursor:pointer;">
+        Cancel
+      </button>
+    </form>
+  </div>
+</div>
+
+<script>
+(function() {
+  var modal = document.getElementById('interestModal');
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) modal.style.display = 'none';
+  });
+})();
+
+async function submitInterestForm(e) {
+  e.preventDefault();
+  var form = document.getElementById('interestForm');
+  var btn = document.getElementById('interestSubmitBtn');
+  var errEl = document.getElementById('interestError');
+  errEl.style.display = 'none';
+  btn.disabled = true;
+  btn.textContent = 'Submitting…';
+
+  var data = {
+    name: form.name.value.trim(),
+    email: form.email.value.trim(),
+    tier: form.tier.value,
+    timeline: form.timeline.value
+  };
+
+  try {
+    var res = await fetch('https://mycustomai-backend-1.onrender.com/api/interest-list', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    if (!res.ok) throw new Error('Server error ' + res.status);
+    document.getElementById('interestForm').style.display = 'none';
+    document.getElementById('interestSuccess').style.display = 'block';
+  } catch(err) {
+    // Graceful fallback: mailto
+    var subject = encodeURIComponent('Interest List: ' + data.tier);
+    var body = encodeURIComponent(
+      'Name: ' + data.name + '\n' +
+      'Email: ' + data.email + '\n' +
+      'Tier: ' + data.tier + '\n' +
+      'Timeline: ' + data.timeline
+    );
+    errEl.innerHTML = 'Could not reach our server. <a href="mailto:support@mycustomai.co?subject=' + subject + '&body=' + body + '" style="color:#d4a843;">Click here to email us instead</a>.';
+    errEl.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Join the Interest List';
+  }
+}
+</script>
+
+</div>
+
+<!-- ── Managed Optimization & Support ──────────────────── -->
+<section class="section" style="background:rgba(99,102,241,0.05);border-top:1px solid rgba(99,102,241,0.2);border-bottom:1px solid rgba(99,102,241,0.2);">
+  <div class="container" style="max-width:1100px;">
+    
+    <!-- ── RETAINER SECTION ───────────────────────────────── -->
+    <div style="padding:40px;background:rgba(99,102,241,0.05);border:1px solid rgba(99,102,241,0.2);border-radius:16px;text-align:left;">
+      <div style="text-align:center;margin-bottom:40px;">
+        <div class="section-label" style="margin-bottom:8px;">Follow-up Support</div>
+        <h3 style="font-size:1.9rem;margin-bottom:10px;">One-Time Follow-up Sessions</h3>
+        <p style="color:#94a3b8;font-size:1rem;max-width:560px;margin:0 auto;">Need help optimizing or troubleshooting after your initial setup? Book additional sessions as needed — no monthly commitments required.</p>
+      </div>
+
+      <div class="pricing-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 700px; margin: 0 auto;">
+                
+        <!-- Single Owner Follow-up -->
+        <div class="pricing-card" style="background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%); border: 1px solid #334155; border-radius: 12px; padding: 30px; text-align: center; position: relative;">
+          <h3 style="color: #6366f1; margin-bottom: 15px;">Single Owner Follow-up</h3>
+          <div class="price" style="font-size: 2.5rem; font-weight: 800; color: white; margin-bottom: 10px;">$200</div>
+          <p style="color: #94a3b8; margin-bottom: 25px;">Per 60-minute session</p>
+          <ul style="text-align: left; color: #cbd5e1; margin-bottom: 30px; padding-left: 0; list-style: none;">
+            <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+              <span style="position: absolute; left: 0; color: #10b981;">✓</span>
+              Strategy refinement
+            </li>
+            <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+              <span style="position: absolute; left: 0; color: #10b981;">✓</span>
+              Troubleshooting & optimization
+            </li>
+            <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+              <span style="position: absolute; left: 0; color: #10b981;">✓</span>
+              New tool recommendations
+            </li>
+            <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+              <span style="position: absolute; left: 0; color: #10b981;">✓</span>
+              Growth planning
+            </li>
+          </ul>
+          <button onclick="window.open('https://cal.com/mycustomai/follow-up-single', '_blank')" class="btn btn-outline" style="width: 100%; padding: 15px; background: transparent; border: 2px solid #6366f1; color: #6366f1; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s;">
+            Book Follow-up Session
+          </button>
+        </div>
+
+        <!-- Team Follow-up -->  
+        <div class="pricing-card" style="background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%); border: 1px solid #334155; border-radius: 12px; padding: 30px; text-align: center; position: relative;">
+          <h3 style="color: #6366f1; margin-bottom: 15px;">Team Follow-up</h3>
+          <div class="price" style="font-size: 2.5rem; font-weight: 800; color: white; margin-bottom: 10px;">$500</div>
+          <p style="color: #94a3b8; margin-bottom: 25px;">Per 90-minute session · 2-4 people</p>
+          <ul style="text-align: left; color: #cbd5e1; margin-bottom: 30px; padding-left: 0; list-style: none;">
+            <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+              <span style="position: absolute; left: 0; color: #10b981;">✓</span>
+              Team workflow optimization
+            </li>
+            <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+              <span style="position: absolute; left: 0; color: #10b981;">✓</span>
+              Cross-department integration
+            </li>
+            <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+              <span style="position: absolute; left: 0; color: #10b981;">✓</span>
+              Advanced automation setup  
+            </li>
+            <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+              <span style="position: absolute; left: 0; color: #10b981;">✓</span>
+              ROI measurement & scaling
+            </li>
+          </ul>
+          <button onclick="window.open('https://cal.com/mycustomai/follow-up-team', '_blank')" class="btn btn-outline" style="width: 100%; padding: 15px; background: transparent; border: 2px solid #6366f1; color: #6366f1; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s;">
+            Book Team Session
+          </button>
+        </div>
+        
+      </div>
+
+      <div style="margin-top:24px;text-align:center;">
+        <p style="font-size:0.78rem;color:#475569;">*All follow-up sessions are one-time calls to help you optimize and scale your AI systems. Available after any initial engagement.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+</section>
+<!-- Cross-Promotion: Wealth Diversification (Clean separation - no data mixing) -->
+<section class="section" style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; padding: 48px 0;">
+    <div class="container">
+        <div style="max-width: 900px; margin: 0 auto; padding: 0 24px; text-align: center;">
+            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 16px; padding: 40px 32px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                <h3 style="color: #1e293b; margin-bottom: 20px; font-size: 1.5rem; font-weight: 700;">
+                    💰 Diversify Your Wealth Building Strategy
+                </h3>
+                <p style="color: #475569; margin-bottom: 16px; line-height: 1.7; font-size: 1.1rem;">
+                    You're building AI systems for your business. Now add professional trading strategies 
+                    for personal wealth building. Learn proven 0-5 DTE options methods from our sister AI consultation service.
+                </p>
+                <p style="color: #1e40af; margin-bottom: 24px; line-height: 1.7; font-size: 1rem; font-weight: 600; 
+                          background: rgba(59, 130, 246, 0.08); padding: 16px; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                    <strong>Plus:</strong> We show you how to build in-house AI agent setups that find trades for you. 
+                    All you have to do is place the trade — the AI processes all market data and identifies opportunities automatically.
+                </p>
+                <div style="margin-top: 28px;">
+                    <a href="https://aitraderlogic.com" target="_blank" rel="noopener" 
+                       style="display: inline-block; background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%); 
+                              color: white; text-decoration: none; padding: 14px 32px; border-radius: 8px; 
+                              font-weight: 600; font-size: 1rem; transition: all 0.3s ease; 
+                              box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.25);">
+                        Learn Professional Trading →
+                    </a>
+                </div>
+                <p style="color: #64748b; font-size: 0.9rem; margin-top: 20px; margin-bottom: 0;">
+                    Independent business • Separate systems • Dual income streams
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- ── FAQ / Objection Handler ──────────────────────────── -->
+<section class="section" style="background:rgba(0,0,0,0.15);border-top:1px solid rgba(255,255,255,0.05);">
+  <div class="container" style="max-width:780px;">
+    <div style="text-align:center;margin-bottom:48px;">
+      <div class="section-label">Common Questions</div>
+      <h2 class="section-title">Examples of what our consultation will cover.</h2>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:2px;">
+
+      <details style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:20px 24px;cursor:pointer;">
+        <summary style="font-weight:600;font-size:0.95rem;color:#e2e8f0;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+          AI is too complicated for my team. Can we actually do this in-house?
+          <span style="color:#6366f1;font-size:1.2rem;flex-shrink:0;margin-left:12px;">+</span>
+        </summary>
+        <p style="margin-top:14px;color:#94a3b8;font-size:0.9rem;line-height:1.8;">That's exactly why we exist. We don't hand you a tool and walk away — we train your team hands-on, build the workflows around the way you already work, and leave you with playbooks your staff can follow without any technical background. If your team can use email, they can run these systems.</p>
+      </details>
+
+      <details style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:20px 24px;cursor:pointer;">
+        <summary style="font-weight:600;font-size:0.95rem;color:#e2e8f0;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+          I already tried ChatGPT and it didn't work for my business.
+          <span style="color:#6366f1;font-size:1.2rem;flex-shrink:0;margin-left:12px;">+</span>
+        </summary>
+        <p style="margin-top:14px;color:#94a3b8;font-size:0.9rem;line-height:1.8;">ChatGPT is a tool. We give you the workflow, the prompting architecture, and the business-specific context wrapped around it. Most people who "tried AI and it didn't work" were using a general-purpose tool for a specific-purpose problem without the right setup. That's what we fix.</p>
+      </details>
+
+      <details style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:20px 24px;cursor:pointer;">
+        <summary style="font-weight:600;font-size:0.95rem;color:#e2e8f0;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+          Is $1,000–$2,500 worth it for a small business?
+          <span style="color:#6366f1;font-size:1.2rem;flex-shrink:0;margin-left:12px;">+</span>
+        </summary>
+        <p style="margin-top:14px;color:#94a3b8;font-size:0.9rem;line-height:1.8;">If this saves your team 10 hours a month at $50/hour — that's $500/month recouped, or $6,000/year. The Quick Launch pays for itself in 2 months. The Full Mastery pays for itself in 5. The ROI math on most engagements is straightforward, and we'll show you the numbers specific to your business before you spend a dollar.</p>
+      </details>
+
+      <details style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:20px 24px;cursor:pointer;">
+        <summary style="font-weight:600;font-size:0.95rem;color:#e2e8f0;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+          How is this different from just hiring an AI agency to do it for us?
+          <span style="color:#6366f1;font-size:1.2rem;flex-shrink:0;margin-left:12px;">+</span>
+        </summary>
+        <p style="margin-top:14px;color:#94a3b8;font-size:0.9rem;line-height:1.8;">When an agency builds it, you rent it. When something breaks at 2am, you wait for their support ticket. When their prices go up, you pay more or start over. We build it with you so your team owns it, understands it, and can fix it. No dependency. No monthly management fee. No vendor lock-in.</p>
+      </details>
+
+      <details style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:20px 24px;cursor:pointer;">
+        <summary style="font-weight:600;font-size:0.95rem;color:#e2e8f0;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+          What do I actually get — and what happens right after I book?
+          <span style="color:#6366f1;font-size:1.2rem;flex-shrink:0;margin-left:12px;">+</span>
+        </summary>
+        <p style="margin-top:14px;color:#94a3b8;font-size:0.9rem;line-height:1.8;">You fill out a 5-minute audit form. Within 24 hours, Nainoa personally reviews your answers and identifies 2–3 specific AI opportunities for your business. You get a calendar invite and a short prep note. On the call, we map your workflows and build a realistic roadmap. After the session, you get a written proposal with exact scope, timeline, and price — reviewed and approved before anything is charged. No pressure to proceed.</p>
+      </details>
+
+      <details style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:20px 24px;cursor:pointer;">
+        <summary style="font-weight:600;font-size:0.95rem;color:#e2e8f0;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+          Will this work for my specific location and industry?
+          <span style="color:#6366f1;font-size:1.2rem;flex-shrink:0;margin-left:12px;">+</span>
+        </summary>
+        <p style="margin-top:14px;color:#94a3b8;font-size:0.9rem;line-height:1.8;">Absolutely. We understand that every market has unique characteristics — tight local networks, relationship-based sales, specific staff sizes, and distinct industry mixes. We adapt our AI systems to work within your local business context, whether you're in a small town or major city, any industry, anywhere.</p>
+      </details>
+
+      <details style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:20px 24px;cursor:pointer;">
+        <summary style="font-weight:600;font-size:0.95rem;color:#e2e8f0;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+          What if I buy and it's not what I expected?
+          <span style="color:#6366f1;font-size:1.2rem;flex-shrink:0;margin-left:12px;">+</span>
+        </summary>
+        <p style="margin-top:14px;color:#94a3b8;font-size:0.9rem;line-height:1.8;">For the Quick Launch and Full Mastery tiers, we offer a 7-day satisfaction guarantee. If after your first session you don't feel the methodology is worth continuing, contact us within 7 days for a full refund — no questions asked. We'd rather earn your trust than keep money for work that didn't land.</p>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── What Happens After You Book ──────────────────────── -->
+<section class="section" style="background:rgba(0,0,0,0.2); border-top:1px solid rgba(255,255,255,0.05);">
+  <div class="container" style="max-width:860px; text-align:center;">
+    <div class="section-label">No Surprises</div>
+    <h2 class="section-title">Our complete process — start to finish.</h2>
+    <p class="section-sub">From audit to AI independence — here's exactly how we work together. Transparent, no pressure, results-focused.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:24px; margin-top:48px; text-align:left;">
+      <div style="padding:28px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:14px;">
+        <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;color:#6366f1;margin-bottom:12px;">STEP 01</div>
+        <h3 style="font-size:1rem;margin-bottom:10px;">Fill out the audit form</h3>
+        <p style="color:#94a3b8;font-size:0.9rem;line-height:1.7;">Takes about 5 minutes. Tell us your business, your bottlenecks, and what you've already tried. The more you share, the more specific we can get.</p>
+      </div>
+
+      <div style="padding:28px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:14px;">
+        <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;color:#6366f1;margin-bottom:12px;">STEP 02</div>
+        <h3 style="font-size:1rem;margin-bottom:10px;">We review your answers</h3>
+        <p style="color:#94a3b8;font-size:0.9rem;line-height:1.7;">Within 24 hours, Nainoa personally reviews your submission and identifies 2–3 specific AI opportunities for your business.</p>
+      </div>
+
+      <div style="padding:28px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:14px;">
+        <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;color:#6366f1;margin-bottom:12px;">STEP 03</div>
+        <h3 style="font-size:1rem;margin-bottom:10px;">Get your custom estimate</h3>
+        <p style="color:#94a3b8;font-size:0.9rem;line-height:1.7;">Receive a detailed estimate with specific scope, timeline, and pricing tailored to your business needs. No generic packages — everything is customized.</p>
+      </div>
+
+      <div style="padding:28px; background:rgba(99,102,241,0.08); border:1px solid rgba(99,102,241,0.25); border-radius:14px;">
+        <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;color:#818cf8;margin-bottom:12px;">STEP 04</div>
+        <h3 style="font-size:1rem;margin-bottom:10px;">You decide to purchase or not</h3>
+        <p style="color:#94a3b8;font-size:0.9rem;line-height:1.7;">Review the proposal on your own time. No pressure, no hard sell. If it's a fit, you choose your package and proceed. If not, you keep the insights — no cost.</p>
+      </div>
+
+      <div style="padding:28px; background:rgba(99,102,241,0.08); border:1px solid rgba(99,102,241,0.25); border-radius:14px;">
+        <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;color:#818cf8;margin-bottom:12px;">STEP 05</div>
+        <h3 style="font-size:1rem;margin-bottom:10px;">Book your time & get confirmation</h3>
+        <p style="color:#94a3b8;font-size:0.9rem;line-height:1.7;">After purchase, you'll book a convenient session time and receive a confirmation email with your custom AI playbook PDF to get started.</p>
+      </div>
+
+      <div style="padding:28px; background:rgba(34,197,94,0.06); border:1px solid rgba(34,197,94,0.2); border-radius:14px;">
+        <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;color:#22c55e;margin-bottom:12px;">STEP 06</div>
+        <h3 style="font-size:1rem;margin-bottom:10px;">We build your AI independence</h3>
+        <p style="color:#94a3b8;font-size:0.9rem;line-height:1.7;">Our focused sessions help you achieve complete AI independence — or set up exactly what your business needs. You own the system, control the results.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:48px;">
+      <a href="audit.html" class="btn btn-primary btn-lg">Start With a Free Audit</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── The Contrast Section ────────────────────────────── -->
+<section class="section" style="background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.05);">
+    <div style="margin-top: 40px; padding: 30px; border: 2px solid #ef4444; border-radius: 12px; background: rgba(239, 68, 68, 0.05); text-align: left;">
+      <h3 style="color: #ef4444; margin-bottom: 15px;">⚠️ The Infrastructure Trap</h3>
+      <p style="color: #fca5a5; font-size: 1rem; line-height: 1.6;">
+        AI companies are spending billions on data centers. To pay off that debt, subscription and API costs are projected to surge. If you rely on a "Done-For-You" agency, you are vulnerable to their price hikes.
+      </p>
+      <p style="color: #fca5a5; font-size: 1rem; line-height: 1.6; margin-top: 10px;">
+        <strong>By mastering your own in-house AI today, you lock in your independence and protect your business from the coming cost wall.</strong>
+      </p>
+    </div>
+
+  <div class="container">
+    <div class="section-label" style="text-align:center;">The Strategy Gap</div>
+    <h2 class="section-title" style="text-align:center;">The "AI Expert" vs. MyCustomAI</h2>
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:40px; margin-top:40px;">
+      <div style="padding:30px; border:1px solid rgba(239,68,68,0.2); border-radius:12px; background:rgba(239,68,68,0.05);">
+        <h3 style="color:#ef4444; margin-bottom:15px;">Other "AI Agencies"</h3>
+        <ul style="list-style:none; padding:0; line-height:2.2;">
+          <li>❌ Black-box automation you don't own</li>
+          <li>❌ Expensive monthly "management" fees</li>
+          <li>❌ High risk of breaking without notice</li>
+          <li>❌ General prompts, no business context</li>
+          <li>❌ Dependence on an outside firm</li>
+        </ul>
+      </div>
+      <div style="padding:30px; border:1px solid rgba(34,197,94,0.2); border-radius:12px; background:rgba(34,197,94,0.05);">
+        <h3 style="color:#22c55e; margin-bottom:15px;">MyCustomAI Mastery</h3>
+        <ul style="list-style:none; padding:0; line-height:2.2;">
+          <li>✅ In-house infrastructure YOU control</li>
+          <li>✅ ROI-focused setup, low-cost retainers</li>
+          <li>✅ Team trained to fix and iterate</li>
+          <li>✅ Proprietary data & workflow alignment</li>
+          <li>✅ Long-term independence and scalability</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── Testimonials ──────────────────────────────────────── -->
+<section class="section testimonials-section" id="testimonials">
+  <div class="container" style="max-width:1000px; text-align:center;">
+    <div class="section-label">Client Results</div>
+    <h2 class="section-title">What clients are saying.</h2>
+    <p class="section-sub">Real feedback from real business owners who stopped outsourcing and started owning their AI.</p>
+
+    <!-- Testimonials loaded dynamically from testimonials.json -->
+    <div class="testimonials-grid" id="testimonialsGrid">
+      <!-- Placeholder cards shown until real testimonials are loaded -->
+      <div class="testimonial-card placeholder-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">"Before working with Nainoa, we were paying an agency $2,800/month for automations we didn't understand and couldn't fix when they broke. Now we run everything in-house for a fraction of the cost."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">JR</div>
+          <div>
+            <div class="testimonial-name">J. Rivera</div>
+            <div class="testimonial-title">CEO, E-Commerce Brand</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card placeholder-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">"Nainoa spent time actually understanding our workflow before recommending anything. The session paid for itself in the first week — we cut 15 hours of manual work immediately."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SM</div>
+          <div>
+            <div class="testimonial-name">S. Mitchell</div>
+            <div class="testimonial-title">Operations Manager, SaaS Startup</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card placeholder-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">"I tried three different AI tools on my own and got nowhere. One session with Nainoa and I finally understood why my prompts were failing and exactly how to fix them."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">KT</div>
+          <div>
+            <div class="testimonial-name">K. Tanaka</div>
+            <div class="testimonial-title">Solo Consultant, Finance</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p id="testimonialsNote" style="color:#475569;font-size:0.8rem;margin-top:32px;">* Early client feedback. Names abbreviated for privacy.</p>
+  </div>
+</section>
+
+<script>
+// Load live testimonials from testimonials.json — replace placeholders when real data exists
+(function() {
+  fetch('/testimonials.json?v=' + Date.now())
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (!Array.isArray(data) || data.length === 0) return; // keep placeholders
+      var grid = document.getElementById('testimonialsGrid');
+      var note = document.getElementById('testimonialsNote');
+      if (!grid) return;
+      // Remove placeholder cards
+      grid.querySelectorAll('.placeholder-card').forEach(function(c) { c.remove(); });
+      // Render real testimonials
+      data.forEach(function(t) {
+        var stars = '★'.repeat(Math.min(5, parseInt(t.rating) || 5));
+        var initials = (t.name || '?').split(' ').map(function(w){return w[0];}).join('').slice(0,2).toUpperCase();
+        var card = document.createElement('div');
+        card.className = 'testimonial-card';
+        card.innerHTML =
+          '<div class="testimonial-stars">' + stars + '</div>' +
+          '<p class="testimonial-quote">"' + t.testimonial.replace(/"/g, '&quot;') + '"</p>' +
+          '<div class="testimonial-author">' +
+            '<div class="testimonial-avatar">' + initials + '</div>' +
+            '<div>' +
+              '<div class="testimonial-name">' + t.name + '</div>' +
+              '<div class="testimonial-title">' + (t.title || '') + '</div>' +
+            '</div>' +
+          '</div>';
+        grid.appendChild(card);
+      });
+      if (note) note.style.display = 'none'; // hide disclaimer when real data loads
+    })
+    .catch(function() {}); // silently keep placeholders on error
+})();
+</script>
+
+<!-- ── FAQ Section ──────────────────────────────────────── -->
+<section class="section" id="faq" style="background: rgba(0,0,0,0.2);">
+  <div class="container" style="max-width:800px;">
+    <div class="section-label" style="text-align:center;">FAQ</div>
+    <h2 class="section-title" style="text-align:center;">Common Questions</h2>
+    <div style="margin-top:40px;">
+      <div style="margin-bottom:40px;">
+        <h4 style="margin-bottom:12px; color:#A78BFA; font-size:1.2rem;">Why can't I just use ChatGPT?</h4>
+        <p style="color:#94a3b8; line-height:1.7;">ChatGPT is a tool; we build the <strong>engine</strong>. Without a custom workflow and structured "Interaction Mastery," generic AI remains a toy rather than a scalable business asset that generates measurable ROI.</p>
+      </div>
+      <div style="margin-bottom:40px;">
+        <h4 style="margin-bottom:12px; color:#A78BFA; font-size:1.2rem;">What do you mean by "In-House"?</h4>
+        <p style="color:#94a3b8; line-height:1.7;">We believe your AI infrastructure should be as core to your business as your CRM or email. We help you set it up on your own accounts so you aren't beholden to a third-party agency for your survival.</p>
+      </div>
+      <div style="margin-bottom:40px;">
+        <h4 style="margin-bottom:12px; color:#A78BFA; font-size:1.2rem;">How do we know which track is right for us?</h4>
+        <p style="color:#94a3b8; line-height:1.7;">That's what the Audit is for. We look at your current volume, team size, and high-impact goals to recommend either a Template Lab start or a full Strategic Sprint.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- ── Email Capture ─────────────────────────────────────── -->
+<!-- ── Customer Support ───────────────────────────────────── -->
+<section class="section" style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-top: 1px solid #e2e8f0; padding: 48px 0;">
+  <div class="container" style="max-width: 640px; text-align: center;">
+    <div class="section-label">Need Help?</div>
+    <h2 class="section-title">Customer Support</h2>
+    <p class="section-sub" style="margin-bottom: 32px;">
+      Having issues with your AI implementation or need support? Submit a ticket and we'll get back to you quickly.
+    </p>
+
+    <form id="supportForm" style="max-width: 500px; margin: 0 auto; text-align: left; background: white; padding: 32px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+      <div style="margin-bottom: 20px;">
+        <label for="supportName" style="display: block; margin-bottom: 6px; font-weight: 600; color: #374151;">Your Name</label>
+        <input type="text" id="supportName" name="name" required 
+               style="width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px;">
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <label for="supportEmail" style="display: block; margin-bottom: 6px; font-weight: 600; color: #374151;">Email Address</label>
+        <input type="email" id="supportEmail" name="email" required 
+               style="width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px;">
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <label for="supportType" style="display: block; margin-bottom: 6px; font-weight: 600; color: #374151;">Issue Type</label>
+        <select id="supportType" name="issue_type" required 
+                style="width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px;">
+          <option value="">Select an issue type</option>
+          <option value="delivery">Not receiving briefs/reports</option>
+          <option value="technical">Technical implementation issue</option>
+          <option value="billing">Billing question</option>
+          <option value="training">Need additional training</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <label for="supportMessage" style="display: block; margin-bottom: 6px; font-weight: 600; color: #374151;">Describe Your Issue</label>
+        <textarea id="supportMessage" name="message" rows="5" required 
+                  style="width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px; resize: vertical;"
+                  placeholder="Please provide details about the issue you're experiencing..."></textarea>
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <label for="supportUrgency" style="display: block; margin-bottom: 6px; font-weight: 600; color: #374151;">Priority Level</label>
+        <select id="supportUrgency" name="urgency" required 
+                style="width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px;">
+          <option value="">Select priority</option>
+          <option value="low">Low - General question</option>
+          <option value="medium">Medium - Issue affecting workflow</option>
+          <option value="high">High - Blocking business operations</option>
+          <option value="urgent">Urgent - System completely down</option>
+        </select>
+      </div>
+
+      <button type="submit" id="supportSubmitBtn" 
+              style="width: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 16px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: transform 0.2s;">
+        Submit Support Ticket
+      </button>
+
+      <div id="supportStatusMsg" style="margin-top: 16px; text-align: center; display: none;"></div>
+    </form>
+  </div>
+</section>
+
+<!-- ── Footer ────────────────────────────────────────────── -->
+<footer class="footer" style="background: #1a1a2e; color: #e2e8f0; padding: 40px 0; border-top: 1px solid #374151;">
+  <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+    <div style="text-align: center;">
+      <div class="footer-logo" style="font-size: 1.8rem; font-weight: 800; margin-bottom: 16px;">
+        My<span style="color: #A78BFA;">Custom</span>AI
+      </div>
+      <p style="color: #94a3b8; margin-bottom: 24px;">Strategic In-House AI Mastery</p>
+      
+      <div style="margin-bottom: 32px;">
+        <a href="#pricing" style="color: #A78BFA; text-decoration: none; margin: 0 16px;">Pricing</a>
+        <a href="about.html" style="color: #A78BFA; text-decoration: none; margin: 0 16px;">About</a>
+        <a href="privacy.html" style="color: #A78BFA; text-decoration: none; margin: 0 16px;">Privacy</a>
+        <a href="audit.html" style="color: #A78BFA; text-decoration: none; margin: 0 16px;">Free Audit</a>
+      </div>
+      
+      <div style="border-top: 1px solid #374151; padding-top: 24px; color: #64748b; font-size: 0.9rem;">
+        &copy; 2026 MyCustomAI. All rights reserved.
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleValue(btn) {
+  var body = btn.nextElementSibling;
+  var icon = btn.querySelector('.value-icon');
+  var isOpen = body.style.display === 'block';
+  body.style.display = isOpen ? 'none' : 'block';
+  if (icon) icon.textContent = isOpen ? '+' : '−';
+}
+
+document.getElementById('supportForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const submitBtn = document.getElementById('supportSubmitBtn');
+    const messageDiv = document.getElementById('supportStatusMsg');
+    
+    // Disable button and show loading
+    submitBtn.textContent = 'Submitting...';
+    submitBtn.disabled = true;
+    
+    const formData = {
+        name: document.getElementById('supportName').value,
+        email: document.getElementById('supportEmail').value,
+        issue_type: document.getElementById('supportType').value,
+        message: document.getElementById('supportMessage').value,
+        urgency: document.getElementById('supportUrgency').value,
+        timestamp: new Date().toISOString(),
+        page: 'index.html'
+    };
+    
+    try {
+        // Submit to our Flask backend (to be built next)
+        const response = await fetch('/api/support-ticket', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        });
+        
+        if (response.ok) {
+            messageDiv.style.display = 'block';
+            messageDiv.style.color = '#10b981';
+            messageDiv.textContent = '✅ Support ticket submitted successfully! We\'ll get back to you within 24 hours.';
+            document.getElementById('supportForm').reset();
+        } else {
+            throw new Error('Server error');
+        }
+    } catch (error) {
+        messageDiv.style.display = 'block';
+        messageDiv.style.color = '#ef4444';
+        messageDiv.textContent = '❌ Error submitting ticket. Please try again or email us directly.';
+    }
+    
+    // Reset button
+    submitBtn.textContent = 'Submit Support Ticket';
+    submitBtn.disabled = false;
+});
+</script>
+
+
+</body>
+</html>

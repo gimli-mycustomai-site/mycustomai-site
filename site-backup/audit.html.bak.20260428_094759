@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9F8YW8356R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9F8YW8356R');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom AI Potential Audit — MyCustomAI</title>
+  <meta name="description" content="Get a free custom AI audit for your business. Answer a few questions and receive an instant estimate for your in-house AI implementation.">
+  <link rel="stylesheet" href="css/style.css?v=10">
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wg1b4llblz");
+  </script>
+  <style>
+    .audit-form { max-width: 600px; margin: 60px auto; padding: 40px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; }
+    .form-group { margin-bottom: 25px; }
+    label { display: block; margin-bottom: 10px; font-weight: 600; color: #a5b4fc; }
+    input, textarea, select { width: 100%; padding: 12px; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; color: white; font-size: 1rem; }
+    .btn-submit { width: 100%; padding: 15px; background: #6366f1; color: white; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; font-size: 1.1rem; }
+    .btn-submit:hover { background: #4f46e5; }
+  </style>
+</head>
+<body>
+  <nav class="nav"><div class="container"><div class="nav-logo" onclick="window.location.href='index.html'" style="cursor:pointer;">My<span>Custom</span>AI</div></div></nav>
+
+  <div class="container">
+    <div class="audit-form">
+      <h1 style="margin-bottom: 10px;">Custom AI Potential Audit</h1>
+      <p style="color: #94a3b8; margin-bottom: 20px;">Tell us about your business. We'll analyze your workflows and send a personalized ROI roadmap. No call required.</p>
+
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:8px;padding:10px 16px;margin-bottom:28px;">
+        <span style="color:#22c55e;font-size:1rem;">⚡</span>
+        <span style="color:#86efac;font-size:0.875rem;font-weight:600;">We respond within 24 hours — usually same day.</span>
+      </div>
+
+      <form id="auditForm">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" name="name" required placeholder="Alex Rivera">
+        </div>
+        <div class="form-group">
+          <label>Company Name / Industry</label>
+          <input type="text" name="company" required placeholder="Rivera Consulting / Real Estate">
+        </div>
+        <div class="form-group">
+          <label>Business Email</label>
+          <input type="email" name="email" required placeholder="alex@company.com">
+        </div>
+        <div class="form-group">
+          <label>Company Size</label>
+          <select name="size">
+            <option value="solo">Solo Entrepreneur</option>
+            <option value="small">Small Team (2-10)</option>
+            <option value="mid">Scaling Team (11-50)</option>
+            <option value="large">Enterprise (50+)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>What is your biggest operational bottleneck?</label>
+          <textarea name="bottleneck" rows="3" placeholder="Examples: Lead follow-up is too slow, manual data entry, customer support is overwhelmed..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Location &amp; Timezone (State/Region)</label>
+          <input type="text" name="location" required placeholder="e.g., Austin, TX or Chicago, IL">
+        </div>
+        <div class="form-group">
+          <label>How does your team currently pulse with AI?</label>
+          <select name="proficiency" required>
+            <option value="" disabled selected>Select level...</option>
+            <option value="Novice">Novice: Just starting to explore</option>
+            <option value="Intermediate">Intermediate: Occasional ChatGPT/Tool use</option>
+            <option value="Advanced">Advanced: Some integrated API/Auto workflows</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>In your ideal Mastery scenario, which function needs the most automation?</label>
+          <input type="text" name="target_function" required placeholder="e.g., Sales, Ops, Fulfillment...">
+        </div>
+        <div class="form-group">
+          <label>Data Readiness: Do you have a centralized Source of Truth (CRM, Notion, Drive)?</label>
+          <select name="data_readiness" required>
+            <option value="" disabled selected>Select readiness...</option>
+            <option value="Organized">Yes - Organized and ready</option>
+            <option value="Scattered">Yes - But it's scattered/messy</option>
+            <option value="None">No - We need to build one</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>List your top 3-5 Must-Have software tools:</label>
+          <input type="text" name="stack" required placeholder="e.g., Shopify, Slack, Gmail, HubSpot...">
+        </div>
+        <div class="form-group">
+          <label>Est. weekly hours spent on repetitive tasks (copy-pasting, routine emails)?</label>
+          <input type="number" name="manual_hours" required placeholder="e.g., 20">
+        </div>
+        <div class="form-group">
+          <label>What is your primary driver for this audit?</label>
+          <select name="driver" required>
+            <option value="" disabled selected>Select driver...</option>
+            <option value="Growth">Scale output without hiring</option>
+            <option value="Time">Reclaim my personal time</option>
+            <option value="Efficiency">Internal team efficiency</option>
+          </select>
+        </div>
+        <div class="audit-textarea-container" style="margin-top: 2rem;">
+          <label class="audit-header-prompt">
+            <h3 style="color: #fff; margin-bottom: 0.5rem;">Tell Us Everything</h3>
+            <p style="color: #a0a0a0; font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.5;">
+              To build a sovereign architecture, we need to see the full picture. Don't hold back — describe your current bottlenecks, your vision for automation, and what mastery looks like for your specific business.
+            </p>
+          </label>
+          <textarea
+            name="deep_dive"
+            placeholder="Describe your workflows, the software you love (or hate), and exactly where you feel the friction..."
+            style="width: 100%; min-height: 350px; padding: 1.5rem; background-color: #1a1a1a; border: 2px solid #333; border-radius: 8px; color: #fff; font-size: 1rem; line-height: 1.6; resize: vertical;"
+            required
+          ></textarea>
+        </div>
+        
+        <button type="submit" class="btn-submit" style="margin-top:24px;" id="auditSubmit">Submit Audit Request →</button>
+      </form>
+    </div>
+    <div id="auditResult" style="display:none;max-width:600px;margin:60px auto;padding:40px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;"></div>
+  </div>
+
+<footer class="footer" style="border-top:1px solid #e5e7eb; margin-top:auto;">
+  <div class="container footer-inner">
+    <div class="footer-logo">My<span>Custom</span>AI</div>
+    <div class="footer-copy">&copy; 2026 MyCustomAI. Strategic In-House AI Consulting.</div>
+    <div class="footer-copy" style="margin-top:8px;">
+      <a href="privacy.html" style="color:#64748b;font-size:0.85rem;text-decoration:none;">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── Audit estimate engine (inline) ──────────────────────────────────────────
+(function() {
+  var sizeMap = {
+    'solo':  '1',
+    'small': '2-5',
+    'mid':   '6-15',
+    'large': '50+',
+  };
+
+  function normalizeProf(p) {
+    if (!p) return 'none';
+    var l = p.toLowerCase();
+    if (l === 'novice') return 'none';
+    if (l === 'intermediate') return 'intermediate';
+    if (l === 'advanced') return 'advanced';
+    return 'none';
+  }
+
+  function normalizeDataReady(d) {
+    if (!d) return 'none';
+    var l = d.toLowerCase();
+    if (l.includes('organiz') || l.includes('ready')) return 'ready';
+    if (l.includes('scatter') || l.includes('mess')) return 'scattered';
+    return 'none';
+  }
+
+  function countTools(s) {
+    if (!s) return 0;
+    return s.split(/[,;\s\/|]+/).filter(function(t) { return t.trim().length > 1; }).length;
+  }
+
+  function fmt(n) { return '$' + n.toLocaleString('en-US'); }
+
+  function computeAuditEstimate(d) {
+    var size        = d.size; // 'solo', 'small', 'mid', 'large' — raw form value
+    var prof        = normalizeProf(d.proficiency);
+    var manualHours = parseInt(d.manual_hours, 10) || 0;
+    var dataReady   = normalizeDataReady(d.data_readiness);
+    var toolCount   = countTools(d.stack);
+    var driver      = (d.driver || '').toLowerCase();
+
+    // ── Tier selection — MATCHES LIVE SITE CONSULTING TIERS ONLY ────────────
+    // Quick Launch:    $1,000 — Solo, lighter workflow, some AI familiarity
+    // Full Mastery:    $2,500 — Solo (complex) OR Small Team (2-10, simpler)
+    // Team Foundation: $5,000 — Small Team (2-10, complex) OR Mid/Large (escalate)
+    // Mid/Large teams exceed published tiers → Team Foundation + ESCALATION FLAG
+    var tierName, basePrice, needsEscalation = false;
+    var isHighComplexity = (prof === 'none' || dataReady !== 'ready' || manualHours > 20 || toolCount >= 4);
+
+    if (size === 'solo') {
+      if (isHighComplexity) { tierName = 'Full Mastery';    basePrice = 2500; }
+      else                  { tierName = 'Quick Launch';    basePrice = 1000; }
+    } else if (size === 'small') {
+      // Small team (2-10): complex cases → Team Foundation, simpler → Full Mastery
+      var needsTeamTier = (manualHours > 25 || toolCount >= 4 || dataReady === 'none' || prof === 'none');
+      if (needsTeamTier) { tierName = 'Team Foundation'; basePrice = 5000; }
+      else               { tierName = 'Full Mastery';    basePrice = 2500; }
+    } else {
+      // Mid (11-50) or Large (50+): no published tier — Team Foundation as floor, escalate
+      tierName = 'Team Foundation'; basePrice = 5000; needsEscalation = true;
+    }
+
+    // Fixed price display — only show prices that actually exist on the site
+    var priceDisplay = needsEscalation ? (fmt(basePrice) + '+') : fmt(basePrice);
+
+    // ── Complexity flags ──────────────────────────────────────────────────────
+    var flags = [];
+    if (manualHours > 20) flags.push('High manual workload (' + manualHours + ' hrs/week) — extended scope likely');
+    if (toolCount >= 3)   flags.push('Multi-tool stack (' + toolCount + ' tools: ' + d.stack + ') — integration complexity');
+    if (dataReady === 'none')           flags.push('No existing data infrastructure — onboarding phase required');
+    else if (dataReady === 'scattered') flags.push('Scattered data — consolidation needed before automation');
+    if (prof === 'none')  flags.push('No prior AI experience — additional training time built in');
+    if (driver.includes('compliance'))  flags.push('Compliance driver — governance framework and audit trail required');
+    if (needsEscalation)  flags.push('Team size (mid/large) exceeds published tiers — custom scope required');
+
+    // ── Follow-up session recommendation — matches live site ($200 solo / $500 team) ──
+    var retainerName, retainerPrice, retainerReason;
+    if (size === 'solo') {
+      retainerName   = 'Single Owner Follow-up';
+      retainerPrice  = '$200/session';
+      retainerReason = '60-min session for strategy refinement, troubleshooting & new tool recommendations';
+    } else {
+      retainerName   = 'Team Follow-up';
+      retainerPrice  = '$500/session';
+      retainerReason = '90-min session for team workflow optimization, cross-department integration & ROI measurement';
+    }
+
+    // ── Timeline ──────────────────────────────────────────────────────────────
+    var timeline =
+      tierName === 'Quick Launch'   ? (flags.length > 1  ? '3–4 weeks' : '2–3 weeks')
+      : tierName === 'Full Mastery' ? (flags.length >= 2  ? '4–6 weeks' : '3–5 weeks')
+      : needsEscalation             ? 'Custom — determined in discovery call'
+      :                               (flags.length >= 2  ? '6–8 weeks' : '4–6 weeks');
+
+    // ── Scope items — mirrors what's on the live site pricing cards ───────────
+    var scope = [];
+    if (tierName === 'Quick Launch') {
+      scope.push('1-on-1 Consultation Session');
+      scope.push('Custom In-House Agent Setup for ' + (d.target_function || 'primary workflow'));
+      scope.push('Interaction & Prompting Mastery');
+      scope.push('Workflow Optimization Blueprint');
+      scope.push('Avoiding AI Hallucination Training');
+      if (prof === 'none') scope.push('Foundational AI onboarding session');
+    } else if (tierName === 'Full Mastery') {
+      scope.push('Everything in Quick Launch');
+      scope.push('Extended 1-on-1 Coaching Sessions');
+      scope.push('Multi-workflow AI Architecture for ' + (d.target_function || 'core workflows'));
+      scope.push('Staff Training & Adoption Plan');
+      scope.push('Custom Prompt Playbooks & SOPs');
+
+      if (prof === 'none') scope.push('AI literacy and adoption training');
+    } else {
+      scope.push('Multiple Stakeholder Consultations');
+      scope.push('Team-wide In-House AI Architecture');
+      scope.push('Change Management & Trust Building');
+      scope.push('Scalable Process Redesign');
+      scope.push('Multi-tool Synergy Workflows');
+      scope.push('Manager and staff training sessions');
+      if (needsEscalation) scope.push('Custom enterprise scope — Nainoa to define before quoting');
+    }
+    if (driver.includes('compliance')) scope.push('Compliance governance framework and audit trail setup');
+    if (dataReady === 'none') scope.push('Data centralization and source-of-truth setup');
+
+    // ── Review notes for Nainoa's Telegram ───────────────────────────────────
+    var reviewNotes = [];
+    if (needsEscalation) reviewNotes.push('🚨 ESCALATION REQUIRED — mid/large team, custom quote needed, do NOT use published prices');
+    if (prof === 'none') reviewNotes.push('Zero AI experience — budget extra onboarding/training time');
+    if (dataReady === 'none') reviewNotes.push('No data infrastructure — data setup phase may need separate line item');
+    if (toolCount >= 5) reviewNotes.push('Large tool stack (' + toolCount + ' tools) — integration audit recommended before committing to timeline');
+    if (driver.includes('compliance')) reviewNotes.push('Compliance driver — clarify regulatory context before quoting');
+
+    return {
+      tierName: tierName, priceDisplay: priceDisplay, timeline: timeline,
+      retainerName: retainerName, retainerPrice: retainerPrice, retainerReason: retainerReason,
+      flags: flags, scope: scope,
+      reviewNote: reviewNotes.length ? reviewNotes.join(' | ') : 'No major flags — standard engagement, good to proceed.',
+      summary: (d.company || d.name || 'This client') + ' is a fit for the ' + tierName + ' package'
+        + (d.target_function ? ' with focus on ' + d.target_function : '') + '. '
+        + 'Driver: ' + (d.driver || 'not specified') + '. '
+        + (manualHours > 0 ? manualHours + ' hrs/week of manual work — clear ROI potential. ' : '')
+        + (flags.length ? 'Complexity flags noted — review before finalizing.' : 'Scope appears straightforward.'),
+    };
+  }
+
+  function buildAuditEstimateHtml(est) {
+    var flagsHtml = est.flags.length
+      ? est.flags.map(function(f) { return '<li>' + f + '</li>'; }).join('')
+      : '<li>None</li>';
+    var scopeHtml = est.scope.map(function(s) { return '<li>' + s + '</li>'; }).join('');
+    return [
+      '<hr style="margin:32px 0;border-color:#ccc;">',
+      '<h2 style="color:#1a1a1a;">&#8212;&#8212; ESTIMATE FOR REVIEW &#8212;&#8212;</h2>',
+      '<p style="color:#c0392b;font-size:0.9rem;font-weight:bold;">For Nainoa\'s review only — do not forward to client. This is a starting point, not a final price.</p>',
+      '<table style="border-collapse:collapse;width:100%;font-family:sans-serif;margin-bottom:16px;">',
+      '<tr><td style="padding:8px;font-weight:bold;background:#f0f4ff;width:200px;">Recommended Tier</td><td style="padding:8px;">' + est.tierName + ' — ' + est.priceDisplay + '</td></tr>',
+      '<tr><td style="padding:8px;font-weight:bold;background:#f0f4ff;">Follow-up Sessions</td><td style="padding:8px;">' + est.retainerName + ' — ' + est.retainerPrice + ' (' + est.retainerReason + ')</td></tr>',
+      '<tr><td style="padding:8px;font-weight:bold;background:#f0f4ff;">Estimated Timeline</td><td style="padding:8px;">' + est.timeline + '</td></tr>',
+      '</table>',
+      '<h3 style="color:#1a1a1a;">Complexity Flags</h3><ul>' + flagsHtml + '</ul>',
+      '<h3 style="color:#1a1a1a;">Scope Items</h3><ul>' + scopeHtml + '</ul>',
+      '<h3 style="color:#1a1a1a;">Summary</h3><p>' + est.summary + '</p>',
+      '<h3 style="color:#c0392b;">Review Note</h3><p>' + est.reviewNote + '</p>',
+      '<hr style="margin:32px 0;border-color:#ccc;">',
+      '<p style="color:#888;font-size:0.85rem;">&#8212;&#8212; END ESTIMATE &#8212;&#8212;</p>',
+    ].join('');
+  }
+
+  document.getElementById("auditForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    var btn = document.getElementById("auditSubmit");
+    btn.textContent = "Analyzing your business…";
+    btn.disabled = true;
+
+    var f = this;
+    var data = {
+      name: f.name.value, company: f.company.value, email: f.email.value,
+      size: f.size.value, bottleneck: f.bottleneck.value, location: f.location.value,
+      proficiency: f.proficiency.value, target_function: f.target_function.value,
+      data_readiness: f.data_readiness.value, stack: f.stack.value,
+      manual_hours: f.manual_hours.value, driver: f.driver.value,
+      deep_dive: f.deep_dive.value
+    };
+
+    // Compute estimate
+    var estimate = computeAuditEstimate(data);
+
+    // Send raw audit form to Nainoa via backend (Telegram)
+    fetch('https://mycustomai-backend-1.onrender.com/api/audit-notify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ data: data, estimate: estimate })
+    }).catch(function(err) { console.warn('Audit notify error:', err.message); });
+
+    // Show confirmation screen — client sees tier name + timeline but NOT the price.
+    // Nainoa reviews the full estimate in Telegram and manually sends the final quote.
+    setTimeout(function() {
+      document.querySelector('.audit-form').style.display = 'none';
+      var resultEl = document.getElementById('auditResult');
+      resultEl.style.display = 'block';
+
+      var ctaHtml = '<a href="mailto:support@mycustomai.co?subject=Audit%20Submitted%20—%20' + encodeURIComponent(data.company || data.name) + '" class="btn btn-primary btn-lg" style="width:100%;display:block;text-align:center;font-size:1.1rem;padding:18px;">Questions? Reach Out →</a>' +
+          '<p style="color:#64748b;font-size:0.78rem;text-align:center;margin-top:12px;">We\'ll review your audit and reach out with a personalized proposal within 24 hours.</p>';
+
+      resultEl.innerHTML =
+        '<div style="text-align:center;margin-bottom:32px;">' +
+          '<div style="font-size:2.5rem;margin-bottom:8px;">✅</div>' +
+          '<h2 style="color:#f1f5f9;margin-bottom:8px;">Your Estimate is Ready</h2>' +
+          '<p style="color:#94a3b8;">Based on your workflow, here's what we recommend:</p>' +
+        '</div>' +
+        '<div style="background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.3);border-radius:14px;padding:32px;margin-bottom:24px;">' +
+          '<div style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#818cf8;margin-bottom:12px;">Recommended Tier</div>' +
+          '<div style="font-size:1.8rem;font-weight:800;color:#a5b4fc;margin-bottom:4px;">' + estimate.tierName + '</div>' +
+          '<div style="font-size:0.85rem;color:#64748b;margin-bottom:20px;">Est. ' + estimate.timeline + '</div>' +
+          '<div style="font-size:0.9rem;color:#cbd5e1;margin-bottom:24px;">' + estimate.summary + '</div>' +
+          ctaHtml +
+        '</div>' +
+        '<div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:20px;margin-bottom:16px;">' +
+          '<div style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#64748b;margin-bottom:12px;">Also Recommended</div>' +
+          '<div style="font-size:1rem;color:#a5b4fc;font-weight:600;">' + estimate.retainerName + '</div>' +
+          '<div style="font-size:0.85rem;color:#94a3b8;margin-top:4px;">' + estimate.retainerReason + '</div>' +
+        '</div>' +
+        (estimate.flags.length ? '<div style="background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.15);border-radius:10px;padding:16px 20px;">' +
+          '<div style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#f59e0b;margin-bottom:10px;">Scope Flags</div>' +
+          estimate.flags.map(function(flag){ return '<div style="font-size:0.85rem;color:#cbd5e1;margin-bottom:6px;">• ' + flag + '</div>'; }).join('') +
+        '</div>' : '');
+    }, 800);
+  });
+})();
+</script>
+
+</body>
+</html>
