@@ -348,29 +348,45 @@
       body: JSON.stringify({ data: data, estimate: estimate })
     }).catch(function(err) { console.warn('Audit notify error:', err.message); });
 
-    // Show confirmation to customer — estimate goes to Nainoa only
+    // Show estimate instantly — let customer decide and purchase right away
     setTimeout(function() {
       document.querySelector('.audit-form').style.display = 'none';
       var resultEl = document.getElementById('auditResult');
       resultEl.style.display = 'block';
+
+      var isCorporate = estimate.tierName === 'Corporate Mastery';
+      var payLink = STRIPE_LINKS[estimate.tierName] || STRIPE_LINKS['Quick Launch'];
+      payLink += '?prefilled_email=' + encodeURIComponent(data.email);
+
+      var ctaHtml = isCorporate
+        ? '<a href="mailto:support@mycustomai.co?subject=Enterprise%20Inquiry%20—%20' + encodeURIComponent(data.company || data.name) + '" class="btn btn-primary btn-lg" style="width:100%;display:block;text-align:center;font-size:1.1rem;padding:18px;">Contact Us for Enterprise Quote →</a>' +
+          '<p style="color:#64748b;font-size:0.78rem;text-align:center;margin-top:12px;">We'll put together a custom proposal for your team within 24 hours.</p>'
+        : '<a href="' + payLink + '" class="btn btn-primary btn-lg" style="width:100%;display:block;text-align:center;font-size:1.1rem;padding:18px;" target="_blank">Purchase — ' + estimate.priceDisplay + ' →</a>' +
+          '<p style="color:#64748b;font-size:0.78rem;text-align:center;margin-top:12px;">Secure checkout via Stripe. After payment you'll book your session.</p>';
+
       resultEl.innerHTML =
-        '<div style="text-align:center;padding:40px 20px;">' +
-          '<div style="font-size:3rem;margin-bottom:16px;">✅</div>' +
-          '<h2 style="color:#f1f5f9;font-size:1.6rem;margin-bottom:12px;">Audit Submitted!</h2>' +
-          '<p style="color:#94a3b8;font-size:1rem;line-height:1.7;margin-bottom:24px;">' +
-            'Nainoa personally reviews every audit and responds with a custom estimate — ' +
-            'tailored specifically to your business.' +
-          '</p>' +
-          '<div style="background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.25);border-radius:12px;padding:20px 24px;margin-bottom:28px;text-align:left;max-width:420px;margin-left:auto;margin-right:auto;">' +
-            '<div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#818cf8;margin-bottom:10px;">What happens next</div>' +
-            '<div style="font-size:0.9rem;color:#cbd5e1;line-height:1.9;">' +
-              '📬 Your estimate arrives at <strong style="color:#f1f5f9;">' + data.email + '</strong><br>' +
-              '⏱ Within 24 hours — usually the same day<br>' +
-              '📞 We may reach out directly if we have questions' +
-            '</div>' +
-          '</div>' +
-          '<p style="color:#64748b;font-size:0.85rem;">While you wait — <a href="/#process" style="color:#a5b4fc;text-decoration:underline;">explore how we work</a>.</p>' +
-        '</div>';
+        '<div style="text-align:center;margin-bottom:32px;">' +
+          '<div style="font-size:2.5rem;margin-bottom:8px;">✅</div>' +
+          '<h2 style="color:#f1f5f9;margin-bottom:8px;">Your Estimate is Ready</h2>' +
+          '<p style="color:#94a3b8;">Based on your workflow, here's what we recommend:</p>' +
+        '</div>' +
+        '<div style="background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.3);border-radius:14px;padding:32px;margin-bottom:24px;">' +
+          '<div style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#818cf8;margin-bottom:12px;">Recommended Tier</div>' +
+          '<div style="font-size:1.8rem;font-weight:800;color:#a5b4fc;margin-bottom:4px;">' + estimate.tierName + '</div>' +
+          '<div style="font-size:3rem;font-weight:900;color:#f1f5f9;margin-bottom:4px;">' + estimate.priceDisplay + '</div>' +
+          '<div style="font-size:0.85rem;color:#64748b;margin-bottom:20px;">One-time · Est. ' + estimate.timeline + '</div>' +
+          '<div style="font-size:0.9rem;color:#cbd5e1;margin-bottom:24px;">' + estimate.summary + '</div>' +
+          ctaHtml +
+        '</div>' +
+        '<div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:20px;margin-bottom:16px;">' +
+          '<div style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#64748b;margin-bottom:12px;">Also Recommended</div>' +
+          '<div style="font-size:1rem;color:#a5b4fc;font-weight:600;">' + estimate.retainerName + ' — ' + estimate.retainerPrice + '</div>' +
+          '<div style="font-size:0.85rem;color:#94a3b8;margin-top:4px;">' + estimate.retainerReason + '</div>' +
+        '</div>' +
+        (estimate.flags.length ? '<div style="background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.15);border-radius:10px;padding:16px 20px;">' +
+          '<div style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#f59e0b;margin-bottom:10px;">Scope Flags</div>' +
+          estimate.flags.map(function(flag){ return '<div style="font-size:0.85rem;color:#cbd5e1;margin-bottom:6px;">• ' + flag + '</div>'; }).join('') +
+        '</div>' : '');
     }, 800);
   });
 })();
