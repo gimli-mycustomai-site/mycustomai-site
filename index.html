@@ -292,9 +292,9 @@
           <div style="font-size:1.8rem;font-weight:800;color:#34d399;margin-bottom:4px;">$37</div>
           <div style="font-size:0.78rem;color:#64748b;margin-bottom:8px;">One-time · Instant Download</div>
           <div style="font-size:0.8rem;color:#10b981;margin-bottom:8px;">✓ Immediate PDF delivery</div>
-          <a href="https://buy.stripe.com/5kQcN53ItfdT5252NY7EQ0o" style="display:block;background:#10b981;color:white;text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:600;text-align:center;margin-top:8px;transition:background 0.3s ease;">
+          <button onclick="document.getElementById('dplaModal').style.display='flex'" style="display:block;width:100%;background:#10b981;color:white;border:none;cursor:pointer;padding:12px 24px;border-radius:8px;font-weight:600;text-align:center;margin-top:8px;transition:background 0.3s ease;font-size:1rem;">
             Get PDF Guide
-          </a>
+          </button>
         </div>
       </div>
 
@@ -1044,6 +1044,64 @@ document.getElementById('supportForm').addEventListener('submit', async function
     submitBtn.textContent = 'Submit Support Ticket';
     submitBtn.disabled = false;
 });
+</script>
+
+
+<!-- ── DPLA AGREEMENT MODAL ──────────────────────────────── -->
+<div id="dplaModal" style="display:none;position:fixed;inset:0;z-index:2000;align-items:center;justify-content:center;background:rgba(0,0,0,0.75);padding:16px;">
+  <div style="background:#0d1117;border:1px solid rgba(212,168,67,0.3);border-radius:14px;max-width:520px;width:100%;padding:32px;position:relative;">
+    <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#d4a843;margin-bottom:12px;">Before You Purchase</div>
+    <h3 style="color:#f1f5f9;font-size:1.2rem;font-weight:700;margin:0 0 10px;">Digital Product License Agreement</h3>
+    <p style="color:#94a3b8;font-size:0.88rem;margin-bottom:24px;">This PDF is licensed for personal use only. Redistribution, resale, or sharing is strictly prohibited and may result in legal action.</p>
+
+    <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;margin-bottom:24px;">
+      <input type="checkbox" id="dplaCheck" onchange="updateDplaBtn()" style="margin-top:3px;width:18px;height:18px;accent-color:#d4a843;flex-shrink:0;">
+      <span style="font-size:0.88rem;color:#cbd5e1;">I have read and agree to the <a href="/license.html" target="_blank" style="color:#d4a843;text-decoration:underline;">Digital Product License Agreement</a></span>
+    </label>
+
+    <button id="dplaAgreeBtn" disabled onclick="dplaPurchase()"
+      style="width:100%;padding:13px;border-radius:8px;border:none;background:#10b981;color:white;font-weight:700;font-size:1rem;cursor:not-allowed;opacity:0.45;transition:all 0.2s;margin-bottom:10px;">
+      Agree &amp; Purchase — $37
+    </button>
+    <button onclick="closeDplaModal()"
+      style="width:100%;padding:11px;border-radius:8px;border:1px solid #334155;background:transparent;color:#94a3b8;font-weight:600;font-size:0.9rem;cursor:pointer;">
+      Cancel
+    </button>
+  </div>
+</div>
+
+<script>
+  function updateDplaBtn() {
+    var btn = document.getElementById('dplaAgreeBtn');
+    var checked = document.getElementById('dplaCheck').checked;
+    btn.disabled = !checked;
+    btn.style.opacity = checked ? '1' : '0.45';
+    btn.style.cursor = checked ? 'pointer' : 'not-allowed';
+  }
+
+  function closeDplaModal() {
+    document.getElementById('dplaModal').style.display = 'none';
+    document.getElementById('dplaCheck').checked = false;
+    updateDplaBtn();
+  }
+
+  function dplaPurchase() {
+    // Fire-and-forget acceptance log
+    try {
+      fetch('https://mycustomai-backend-1.onrender.com/api/license-acceptance', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ product: 'DIY AI Setup Guide PDF', timestamp: new Date().toISOString() })
+      }).catch(function(){});
+    } catch(e) {}
+    // Redirect to Stripe
+    window.location.href = 'https://buy.stripe.com/5kQcN53ItfdT5252NY7EQ0o';
+  }
+
+  // Close on overlay click
+  document.getElementById('dplaModal').addEventListener('click', function(e) {
+    if (e.target === this) closeDplaModal();
+  });
 </script>
 
 </body>
