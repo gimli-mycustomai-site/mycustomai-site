@@ -193,16 +193,25 @@ document.getElementById('dplaModal2').addEventListener('click', function(e) {
         </div>
       </div>
 
-      <!-- Package 5 — COMING SOON -->
-      <div class="pkg-item coming-soon" data-pkg="5">
+      <!-- Package 5 — ACTIVE -->
+      <div class="pkg-item" data-pkg="5">
         <div class="pkg-header" onclick="togglePkg(this)">
-          <div class="pkg-title">AI Operations and SOPs Package <span class="cs-badge">Coming Soon</span></div>
-          <div class="pkg-price">$57</div>
+          <div class="pkg-title">Prompt &amp; SOP Mastery Library</div>
+          <div class="pkg-price">$97</div>
           <div class="pkg-chevron">&#8964;</div>
         </div>
         <div class="pkg-body">
-          <p class="pkg-summary">Document, optimize, and automate core business processes with AI-generated SOPs.</p>
-          <button class="pkg-notify-btn" onclick="openNotifyModal('AI Operations and SOPs Package')">Notify Me When Available</button>
+          <p class="pkg-summary">The only prompt library built from thousands of real deployment hours — not AI-generated slop. 120+ fully tested prompts and 25 complete SOPs, all pre-loaded with the No-Assumption Protocol, Primer Phase, and 4-Step Debugging. Includes effectiveness scores from real clients and direct import instructions for the Notion OS and Agent Starter Kit.</p>
+          <ul class="pkg-features">
+            <li>120+ battle-tested prompts with effectiveness ratings and real-world test data</li>
+            <li>25 complete SOPs for repeatable AI workflows</li>
+            <li>No-Assumption Protocol, Primer Phase, and 4-Step Debugging pre-embedded in every prompt</li>
+            <li>Full version history — roll back any prompt that breaks an agent</li>
+            <li>Industry variations for E-Commerce, Real Estate, Coaching, Service Business, and more</li>
+            <li>Delivered as PDF + duplicatable Notion database (search, filter, rate, version forever)</li>
+            <li>Direct import instructions for Notion AI OS and Agent Starter Kit</li>
+          </ul>
+          <button class="pkg-buy-btn" onclick="openDplaModal5()">Buy Now — $97</button>
         </div>
       </div>
 
@@ -351,6 +360,27 @@ document.getElementById('dplaModal2').addEventListener('click', function(e) {
     </button>
   </div>
 </div>
+<!-- ── DPLA Modal 5 (Package 5) ──────────────────────────── -->
+<div id="dplaModal5" style="display:none;position:fixed;inset:0;z-index:2000;align-items:center;justify-content:center;background:rgba(0,0,0,0.75);padding:16px;">
+  <div style="background:#0d1117;border:1px solid rgba(212,168,67,0.3);border-radius:14px;max-width:520px;width:100%;padding:32px;position:relative;">
+    <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#d4a843;margin-bottom:12px;">Before You Purchase</div>
+    <h3 style="color:#f1f5f9;font-size:1.2rem;font-weight:700;margin:0 0 10px;">Digital Product License Agreement</h3>
+    <p style="color:#94a3b8;font-size:0.88rem;margin-bottom:24px;">This package is licensed for personal use only. Redistribution, resale, or sharing is strictly prohibited and may result in legal action.</p>
+    <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;margin-bottom:24px;">
+      <input type="checkbox" id="dplaCheck5" onchange="updateDplaBtn5()" style="margin-top:3px;width:18px;height:18px;accent-color:#d4a843;flex-shrink:0;">
+      <span style="font-size:0.88rem;color:#cbd5e1;">I have read and agree to the <a href="/license.html" target="_blank" style="color:#d4a843;text-decoration:underline;">Digital Product License Agreement</a></span>
+    </label>
+    <button id="dplaAgreeBtn5" disabled onclick="dplaPurchase5()"
+      style="width:100%;padding:13px;border-radius:8px;border:none;background:#10b981;color:white;font-weight:700;font-size:1rem;cursor:not-allowed;opacity:0.45;transition:all 0.2s;margin-bottom:10px;">
+      Agree &amp; Purchase — $97
+    </button>
+    <button onclick="closeDplaModal5()"
+      style="width:100%;padding:11px;border-radius:8px;border:1px solid #334155;background:transparent;color:#94a3b8;font-weight:600;font-size:0.9rem;cursor:pointer;">
+      Cancel
+    </button>
+  </div>
+</div>
+
 <!-- ── Notify Me Modal ────────────────────────────────────── -->
 <div id="notifyModal" style="display:none;position:fixed;inset:0;z-index:2000;align-items:center;justify-content:center;background:rgba(0,0,0,0.75);padding:16px;">
   <div style="background:#0d1117;border:1px solid rgba(212,168,67,0.35);border-radius:16px;padding:36px 32px;max-width:460px;width:100%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.6);">
@@ -507,6 +537,35 @@ function dplaPurchase4() {
 }
 document.getElementById('dplaModal4').addEventListener('click', function(e) {
   if (e.target === this) closeDplaModal4();
+});
+// DPLA Modal 5 (Package 5 — Prompt & SOP Mastery Library)
+function openDplaModal5() {
+  document.getElementById('dplaModal5').style.display = 'flex';
+}
+function closeDplaModal5() {
+  document.getElementById('dplaModal5').style.display = 'none';
+  document.getElementById('dplaCheck5').checked = false;
+  updateDplaBtn5();
+}
+function updateDplaBtn5() {
+  var btn = document.getElementById('dplaAgreeBtn5');
+  var checked = document.getElementById('dplaCheck5').checked;
+  btn.disabled = !checked;
+  btn.style.opacity = checked ? '1' : '0.45';
+  btn.style.cursor = checked ? 'pointer' : 'not-allowed';
+}
+function dplaPurchase5() {
+  try {
+    fetch('https://mycustomai-backend-1.onrender.com/api/license-acceptance', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ product: 'Prompt and SOP Mastery Library', timestamp: new Date().toISOString() })
+    }).catch(function(){});
+  } catch(e) {}
+  window.location.href = 'https://buy.stripe.com/4gM4gza6R1n3dyB4W67EQ0s';
+}
+document.getElementById('dplaModal5').addEventListener('click', function(e) {
+  if (e.target === this) closeDplaModal5();
 });
 
 // Notify Me Modal
