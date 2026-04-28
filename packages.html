@@ -215,16 +215,25 @@ document.getElementById('dplaModal2').addEventListener('click', function(e) {
         </div>
       </div>
 
-      <!-- Package 6 — COMING SOON -->
-      <div class="pkg-item coming-soon" data-pkg="6">
+      <!-- Package 6 — ACTIVE -->
+      <div class="pkg-item active" data-pkg="6">
         <div class="pkg-header" onclick="togglePkg(this)">
-          <div class="pkg-title">AI Hiring and Onboarding System <span class="cs-badge">Coming Soon</span></div>
-          <div class="pkg-price">$47</div>
+          <div class="pkg-title">Monthly AI Update &amp; Agent Self-Maintenance Infrastructure</div>
+          <div class="pkg-price">$67</div>
           <div class="pkg-chevron">&#8964;</div>
         </div>
         <div class="pkg-body">
-          <p class="pkg-summary">Screen candidates, generate job descriptions, and onboard using AI.</p>
-          <button class="pkg-notify-btn" onclick="openNotifyModal('AI Hiring and Onboarding System')">Notify Me When Available</button>
+          <p class="pkg-summary">The only complete, battle-tested self-maintenance system that turns your AI agents into semi-autonomous updaters. Built from real deployment data — covers every failure mode, rollback scenario, and update protocol so your agents never break silently again.</p>
+          <ul class="pkg-features">
+            <li>Step-by-step monthly maintenance protocol with search-first and test-before-apply enforcement</li>
+            <li>Version pinning and rollback system — instantly revert any agent to last known good state</li>
+            <li>Safety guardrails: No-Assumption Protocol and 4-Step Debugging embedded in every update cycle</li>
+            <li>Persistent memory maintenance — keeps agent context, SOUL.md, and HEARTBEAT.md current</li>
+            <li>Human escalation triggers — know exactly when to step in vs let the agent self-correct</li>
+            <li>Plugin conflict detection and resolution protocols</li>
+            <li>Delivered as PDF + editable Notion duplicate + copy-paste agent configs</li>
+          </ul>
+          <button class="pkg-buy-btn" onclick="openDplaModal6()">Buy Now — $67</button>
         </div>
       </div>
 
@@ -375,6 +384,27 @@ document.getElementById('dplaModal2').addEventListener('click', function(e) {
       Agree &amp; Purchase — $97
     </button>
     <button onclick="closeDplaModal5()"
+      style="width:100%;padding:11px;border-radius:8px;border:1px solid #334155;background:transparent;color:#94a3b8;font-weight:600;font-size:0.9rem;cursor:pointer;">
+      Cancel
+    </button>
+  </div>
+</div>
+
+<!-- ── DPLA Modal 6 (Package 6) ──────────────────────────── -->
+<div id="dplaModal6" style="display:none;position:fixed;inset:0;z-index:2000;align-items:center;justify-content:center;background:rgba(0,0,0,0.75);padding:16px;">
+  <div style="background:#0d1117;border:1px solid rgba(212,168,67,0.3);border-radius:14px;max-width:520px;width:100%;padding:32px;position:relative;">
+    <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#d4a843;margin-bottom:12px;">Before You Purchase</div>
+    <h3 style="color:#f1f5f9;font-size:1.2rem;font-weight:700;margin:0 0 10px;">Digital Product License Agreement</h3>
+    <p style="color:#94a3b8;font-size:0.88rem;margin-bottom:24px;">This package is licensed for personal use only. Redistribution, resale, or sharing is strictly prohibited and may result in legal action.</p>
+    <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;margin-bottom:24px;">
+      <input type="checkbox" id="dplaCheck6" onchange="updateDplaBtn6()" style="margin-top:3px;width:18px;height:18px;accent-color:#d4a843;flex-shrink:0;">
+      <span style="font-size:0.88rem;color:#cbd5e1;">I have read and agree to the <a href="/license.html" target="_blank" style="color:#d4a843;text-decoration:underline;">Digital Product License Agreement</a></span>
+    </label>
+    <button id="dplaAgreeBtn6" disabled onclick="dplaPurchase6()"
+      style="width:100%;padding:13px;border-radius:8px;border:none;background:#10b981;color:white;font-weight:700;font-size:1rem;cursor:not-allowed;opacity:0.45;transition:all 0.2s;margin-bottom:10px;">
+      Agree &amp; Purchase — $67
+    </button>
+    <button onclick="closeDplaModal6()"
       style="width:100%;padding:11px;border-radius:8px;border:1px solid #334155;background:transparent;color:#94a3b8;font-weight:600;font-size:0.9rem;cursor:pointer;">
       Cancel
     </button>
@@ -566,6 +596,36 @@ function dplaPurchase5() {
 }
 document.getElementById('dplaModal5').addEventListener('click', function(e) {
   if (e.target === this) closeDplaModal5();
+});
+
+// DPLA Modal 6 (Package 6 — Monthly AI Update & Agent Self-Maintenance Infrastructure)
+function openDplaModal6() {
+  document.getElementById('dplaModal6').style.display = 'flex';
+}
+function closeDplaModal6() {
+  document.getElementById('dplaModal6').style.display = 'none';
+  document.getElementById('dplaCheck6').checked = false;
+  updateDplaBtn6();
+}
+function updateDplaBtn6() {
+  var btn = document.getElementById('dplaAgreeBtn6');
+  var checked = document.getElementById('dplaCheck6').checked;
+  btn.disabled = !checked;
+  btn.style.opacity = checked ? '1' : '0.45';
+  btn.style.cursor = checked ? 'pointer' : 'not-allowed';
+}
+function dplaPurchase6() {
+  try {
+    fetch('https://mycustomai-backend-1.onrender.com/api/license-acceptance', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ product: 'Monthly AI Update and Agent Self-Maintenance Infrastructure', timestamp: new Date().toISOString() })
+    }).catch(function(){});
+  } catch(e) {}
+  window.location.href = 'https://buy.stripe.com/aFa9ATbaV9TzgKN4W67EQ0t';
+}
+document.getElementById('dplaModal6').addEventListener('click', function(e) {
+  if (e.target === this) closeDplaModal6();
 });
 
 // Notify Me Modal
