@@ -52,7 +52,7 @@
     <div class="hero-content">
       <div class="hero-badge"><span class="hero-badge-dot"></span> The Anti-Hype AI Expert</div>
       <h1>Stop paying for "Done-For-You" AI that breaks. <em>Bring it in-house instead.</em></h1>
-      <p>We help small businesses build in-house AI — no tech team required. Starting at $1,000. Your workflows, your tools, your data. Owned by you forever.</p>
+      <p>We help Hawaii and mainland small businesses build in-house AI — no tech team required. Starting at $1,000. Your workflows, your tools, your data. Owned by you forever.</p>
       <div class="hero-actions">
         <a href="grader.html" class="btn btn-primary btn-lg">Take the Free AI Readiness Quiz →</a>
         <a href="#pricing" class="btn btn-outline btn-lg">View Pricing</a>
@@ -252,6 +252,15 @@
     </div>
 
     <!-- First row: 3 tiers side by side -->
+    <!-- PDF Preview CTA -->
+    <div style="text-align: center; margin-bottom: 24px;">
+      <a href="pdf-preview.html" 
+         style="display: inline-block; background: rgba(16, 185, 129, 0.1); color: #10b981; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.9rem; font-weight: 600; border: 1px solid rgba(16, 185, 129, 0.3); transition: all 0.3s ease;">
+        📋 See What's in the PDF Guide →
+      </a>
+    </div>
+
+
     <!-- ── SCARCITY NOTICE ───────────────────────────────── -->
     <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin:0 auto 24px;max-width:700px;background:rgba(212,168,67,0.07);border:1px solid rgba(212,168,67,0.28);border-radius:10px;padding:12px 20px;">
       <span style="font-size:1rem;">⚡</span>
@@ -262,33 +271,30 @@
 
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px;margin:0 auto 24px;text-align:left;">
 
-            <!-- TIER 0: Do It Yourself Packages -->
+            <!-- TIER 0: PDF-Only Playbook $37 -->
 
       <div class="pricing-card" style="display:flex;flex-direction:column;justify-content:space-between;position:relative;">
-        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#64748b,transparent);"></div>
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#10b981,transparent);"></div>
         <div style="padding-top:8px;">
-          <div class="pricing-badge" style="background:#64748b;">Self-Guided</div>
-          <div class="pricing-name" style="margin-top:12px;">Do It Yourself</div>
-          <div style="font-size:0.85rem;color:#94a3b8;font-weight:600;margin-top:4px;">Full ready-to-integrate AI packages</div>
-          <div class="pricing-desc">Pre-built AI frameworks you can implement yourself — no consultation needed. Pick the package that fits your workflow.</div>
+          <div class="pricing-badge" style="background:#10b981;">PDF Playbook</div>
+          <div class="pricing-name" style="margin-top:12px;">DIY AI Setup Guide (No Consultation)</div>
+          <div style="font-size:0.85rem;color:#10b981;font-weight:600;margin-top:4px;">Do it all yourself option</div>
+          <div class="pricing-desc">Get the complete PDF playbook with step-by-step AI setup instructions, prompting strategies, and workflow templates. Perfect for DIY implementation.</div>
           <ul class="pricing-features" style="margin-top:12px;">
-            <li style="display:flex;justify-content:space-between;"><span>Building AI In-House: The Complete Playbook</span><span style="color:#34d399;font-weight:700;white-space:nowrap;margin-left:8px;">$37</span></li>
-            <li style="display:flex;justify-content:space-between;"><span>Notion AI Operating System Template Pack</span><span style="color:#34d399;font-weight:700;white-space:nowrap;margin-left:8px;">$67</span></li>
-            <li style="display:flex;justify-content:space-between;"><span>Agent Starter Kit: Ready-to-Deploy Agents</span><span style="color:#34d399;font-weight:700;white-space:nowrap;margin-left:8px;">$77</span></li>
-            <li style="display:flex;justify-content:space-between;"><span>Industry-Specific AI Playbook Editions</span><span style="color:#34d399;font-weight:700;white-space:nowrap;margin-left:8px;">$130</span></li>
-            <li style="display:flex;justify-content:space-between;"><span>Prompt & SOP Mastery Library</span><span style="color:#34d399;font-weight:700;white-space:nowrap;margin-left:8px;">$97</span></li>
-            <li style="display:flex;justify-content:space-between;"><span>Monthly AI Update & Agent Infrastructure</span><span style="color:#34d399;font-weight:700;white-space:nowrap;margin-left:8px;">$67</span></li>
-            <li style="display:flex;justify-content:space-between;"><span>AI Debugging & Troubleshooting Playbook</span><span style="color:#34d399;font-weight:700;white-space:nowrap;margin-left:8px;">$57</span></li>
-            <li style="display:flex;justify-content:space-between;"><span>Team Training & Adoption Kit</span><span style="color:#34d399;font-weight:700;white-space:nowrap;margin-left:8px;">$147</span></li>
-            <li style="display:flex;justify-content:space-between;"><span>Build Your Own AI Employee Blueprint</span><span style="color:#34d399;font-weight:700;white-space:nowrap;margin-left:8px;">$127</span></li>
+            <li>Complete 25-page AI Implementation Guide</li>
+            <li>Step-by-step setup instructions</li>
+            <li>Prompting templates & strategies</li>
+            <li>Workflow automation blueprints</li>
+            <li>Common pitfalls & how to avoid them</li>
           </ul>
         </div>
         <div style="margin-top:12px;">
-          <div style="font-size:0.78rem;color:#64748b;margin-bottom:8px;">One-time · Instant Download · Lifetime Access</div>
-          <div style="font-size:0.8rem;color:#10b981;margin-bottom:8px;">&#10003; No consultation needed</div>
-          <a href="/packages.html" style="display:block;width:100%;background:#10b981;color:white;border:none;cursor:pointer;padding:12px 24px;border-radius:8px;font-weight:600;text-align:center;margin-top:8px;transition:background 0.3s ease;font-size:1rem;text-decoration:none;box-sizing:border-box;">
-            Browse Packages
-          </a>
+          <div style="font-size:1.8rem;font-weight:800;color:#34d399;margin-bottom:4px;">$37</div>
+          <div style="font-size:0.78rem;color:#64748b;margin-bottom:8px;">One-time · Instant Download</div>
+          <div style="font-size:0.8rem;color:#10b981;margin-bottom:8px;">✓ Immediate PDF delivery</div>
+          <button onclick="document.getElementById('dplaModal').style.display='flex'" style="display:block;width:100%;background:#10b981;color:white;border:none;cursor:pointer;padding:12px 24px;border-radius:8px;font-weight:600;text-align:center;margin-top:8px;transition:background 0.3s ease;font-size:1rem;">
+            Get PDF Guide
+          </button>
         </div>
       </div>
 
@@ -328,7 +334,7 @@
             <li>Multi-workflow AI Architecture</li>
             <li>Staff Training & Adoption Plan</li>
             <li>Custom Prompt Playbooks & SOPs</li>
-
+            <li>30-day post-implementation support</li>
           </ul>
         </div>
         <div style="margin-top:12px;">
@@ -961,7 +967,7 @@ async function submitInterestForm(e) {
         Submit Support Ticket
       </button>
 
-      <div id="supportStatusMsg" style="margin-top: 16px; text-align: center; display: none;"></div>
+      <div id="supportMessage" style="margin-top: 16px; text-align: center; display: none;"></div>
     </form>
   </div>
 </section>
@@ -990,19 +996,11 @@ async function submitInterestForm(e) {
 </footer>
 
 <script>
-function toggleValue(btn) {
-  var body = btn.nextElementSibling;
-  var icon = btn.querySelector('.value-icon');
-  var isOpen = body.style.display === 'block';
-  body.style.display = isOpen ? 'none' : 'block';
-  if (icon) icon.textContent = isOpen ? '+' : '−';
-}
-
 document.getElementById('supportForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     
     const submitBtn = document.getElementById('supportSubmitBtn');
-    const messageDiv = document.getElementById('supportStatusMsg');
+    const messageDiv = document.getElementById('supportMessage');
     
     // Disable button and show loading
     submitBtn.textContent = 'Submitting...';
@@ -1048,6 +1046,63 @@ document.getElementById('supportForm').addEventListener('submit', async function
 });
 </script>
 
+
+<!-- ── DPLA AGREEMENT MODAL ──────────────────────────────── -->
+<div id="dplaModal" style="display:none;position:fixed;inset:0;z-index:2000;align-items:center;justify-content:center;background:rgba(0,0,0,0.75);padding:16px;">
+  <div style="background:#0d1117;border:1px solid rgba(212,168,67,0.3);border-radius:14px;max-width:520px;width:100%;padding:32px;position:relative;">
+    <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#d4a843;margin-bottom:12px;">Before You Purchase</div>
+    <h3 style="color:#f1f5f9;font-size:1.2rem;font-weight:700;margin:0 0 10px;">Digital Product License Agreement</h3>
+    <p style="color:#94a3b8;font-size:0.88rem;margin-bottom:24px;">This PDF is licensed for personal use only. Redistribution, resale, or sharing is strictly prohibited and may result in legal action.</p>
+
+    <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;margin-bottom:24px;">
+      <input type="checkbox" id="dplaCheck" onchange="updateDplaBtn()" style="margin-top:3px;width:18px;height:18px;accent-color:#d4a843;flex-shrink:0;">
+      <span style="font-size:0.88rem;color:#cbd5e1;">I have read and agree to the <a href="/license.html" target="_blank" style="color:#d4a843;text-decoration:underline;">Digital Product License Agreement</a></span>
+    </label>
+
+    <button id="dplaAgreeBtn" disabled onclick="dplaPurchase()"
+      style="width:100%;padding:13px;border-radius:8px;border:none;background:#10b981;color:white;font-weight:700;font-size:1rem;cursor:not-allowed;opacity:0.45;transition:all 0.2s;margin-bottom:10px;">
+      Agree &amp; Purchase — $37
+    </button>
+    <button onclick="closeDplaModal()"
+      style="width:100%;padding:11px;border-radius:8px;border:1px solid #334155;background:transparent;color:#94a3b8;font-weight:600;font-size:0.9rem;cursor:pointer;">
+      Cancel
+    </button>
+  </div>
+</div>
+
+<script>
+  function updateDplaBtn() {
+    var btn = document.getElementById('dplaAgreeBtn');
+    var checked = document.getElementById('dplaCheck').checked;
+    btn.disabled = !checked;
+    btn.style.opacity = checked ? '1' : '0.45';
+    btn.style.cursor = checked ? 'pointer' : 'not-allowed';
+  }
+
+  function closeDplaModal() {
+    document.getElementById('dplaModal').style.display = 'none';
+    document.getElementById('dplaCheck').checked = false;
+    updateDplaBtn();
+  }
+
+  function dplaPurchase() {
+    // Fire-and-forget acceptance log
+    try {
+      fetch('https://mycustomai-backend-1.onrender.com/api/license-acceptance', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ product: 'DIY AI Setup Guide PDF', timestamp: new Date().toISOString() })
+      }).catch(function(){});
+    } catch(e) {}
+    // Redirect to Stripe
+    window.location.href = 'https://buy.stripe.com/5kQcN53ItfdT5252NY7EQ0o';
+  }
+
+  // Close on overlay click
+  document.getElementById('dplaModal').addEventListener('click', function(e) {
+    if (e.target === this) closeDplaModal();
+  });
+</script>
 
 </body>
 </html>
