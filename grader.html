@@ -19,20 +19,20 @@
   <link rel="stylesheet" href="css/style.css" />
   <style>
     :root {
-      --green-dark: #2D5016;
-      --green-mid: #4A7C59;
-      --green-light: #e8f0e9;
-      --bg: #F7F4F0;
-      --text: #1A1A1A;
-      --muted: #6b7280;
-      --card-bg: #ffffff;
-      --border: #e5e7eb;
+      --primary: #d4a843;       /* amber CTA */
+      --primary-hover: #b8923a;
+      --accent: #6366f1;        /* blue trust accent */
+      --bg: #0d1117;            /* dark navy background */
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --card-bg: rgba(255,255,255,0.03);
+      --border: rgba(255,255,255,0.08);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
 
     .grader-hero {
-      background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+      background: linear-gradient(135deg, var(--primary), var(--accent));
       color: white;
       padding: 60px 24px 48px;
       text-align: center;
@@ -46,7 +46,7 @@
     .progress-bar-wrap { margin-bottom: 32px; }
     .progress-label { display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--muted); margin-bottom: 8px; }
     .progress-track { height: 6px; background: var(--border); border-radius: 99px; overflow: hidden; }
-    .progress-fill { height: 100%; background: var(--green-mid); border-radius: 99px; transition: width 0.4s ease; }
+    .progress-fill { height: 100%; background: var(--accent); border-radius: 99px; transition: width 0.4s ease; }
 
     /* Question card */
     .question-card {
@@ -58,7 +58,7 @@
       animation: fadeIn 0.3s ease;
     }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    .question-num { font-size: 0.8rem; font-weight: 600; color: var(--green-mid); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+    .question-num { font-size: 0.8rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
     .question-text { font-size: 1.2rem; font-weight: 600; line-height: 1.5; margin-bottom: 24px; }
 
     .options { display: flex; flex-direction: column; gap: 12px; }
@@ -70,15 +70,15 @@
       color: var(--text); text-align: left;
       transition: all 0.15s ease;
     }
-    .option-btn:hover { border-color: var(--green-mid); background: var(--green-light); }
-    .option-btn.selected { border-color: var(--green-dark); background: var(--green-light); }
+    .option-btn:hover { border-color: var(--accent); background: rgba(212,168,67,0.1); }
+    .option-btn.selected { border-color: var(--primary); background: rgba(212,168,67,0.1); }
     .option-dot {
       width: 20px; height: 20px; border-radius: 50%;
       border: 2px solid var(--border); flex-shrink: 0;
       display: flex; align-items: center; justify-content: center;
       transition: all 0.15s ease;
     }
-    .option-btn.selected .option-dot { background: var(--green-dark); border-color: var(--green-dark); }
+    .option-btn.selected .option-dot { background: var(--primary); border-color: var(--primary); }
     .option-btn.selected .option-dot::after { content: '✓'; color: white; font-size: 11px; font-weight: 700; }
 
     .nav-row { display: flex; justify-content: space-between; align-items: center; margin-top: 28px; }
@@ -88,13 +88,13 @@
     }
     .btn-back:hover { color: var(--text); }
     .btn-next {
-      background: var(--green-dark); color: white;
+      background: var(--primary); color: white;
       border: none; border-radius: 10px; padding: 12px 28px;
       font-size: 0.95rem; font-weight: 600; cursor: pointer;
       transition: background 0.15s ease; opacity: 0.4; pointer-events: none;
     }
     .btn-next.active { opacity: 1; pointer-events: auto; }
-    .btn-next.active:hover { background: var(--green-mid); }
+    .btn-next.active:hover { background: var(--accent); }
 
     /* Results */
     .results-card {
@@ -107,7 +107,7 @@
       display: none;
     }
     .results-header {
-      background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+      background: linear-gradient(135deg, var(--primary), var(--accent));
       color: white; padding: 32px;
     }
     .score-ring-wrap { display: flex; align-items: center; gap: 24px; margin-bottom: 16px; }
@@ -134,22 +134,22 @@
     .opp-text span { font-size: 0.85rem; color: var(--muted); }
 
     .cta-box {
-      background: var(--green-light);
+      background: rgba(212,168,67,0.1);
       border: 1px solid #c3d9c8;
       border-radius: 12px;
       padding: 24px;
       text-align: center;
     }
-    .cta-box h3 { font-size: 1.1rem; font-weight: 700; color: var(--green-dark); margin-bottom: 8px; }
+    .cta-box h3 { font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
     .cta-box p { font-size: 0.9rem; color: var(--muted); margin-bottom: 20px; line-height: 1.6; }
     .btn-cta {
       display: inline-block;
-      background: var(--green-dark); color: white;
+      background: var(--primary); color: white;
       text-decoration: none; border-radius: 10px;
       padding: 13px 28px; font-weight: 600; font-size: 0.95rem;
       transition: background 0.15s ease;
     }
-    .btn-cta:hover { background: var(--green-mid); }
+    .btn-cta:hover { background: var(--accent); }
     .btn-retake { display: block; margin-top: 12px; font-size: 0.85rem; color: var(--muted); cursor: pointer; background: none; border: none; text-decoration: underline; }
     .btn-retake:hover { color: var(--text); }
   </style>
