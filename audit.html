@@ -189,28 +189,28 @@
     var driver      = (d.driver || '').toLowerCase();
 
     // ── Tier selection — MATCHES LIVE SITE CONSULTING TIERS ONLY ────────────
-    // Quick Launch:    $1,000 — Solo, lighter workflow, some AI familiarity
-    // Full Mastery:    $2,500 — Solo (complex) OR Small Team (2-10, simpler)
-    // Team Foundation: $5,000 — Small Team (2-10, complex) OR Mid/Large (escalate)
-    // Mid/Large teams exceed published tiers → Team Foundation + ESCALATION FLAG
+    // Self-Guided + Office Hours:      $1,500  — Solo, lighter workflow, some AI familiarity
+    // Guided 1:1 Setup Sprint:         $4,500  — Solo (complex) OR Small Team (2-10, simpler)
+    // Intensive Advisory:              $9,500  — Small Team (2-10, complex)
+    // Enterprise Multi-Office Rollout: $29,500 (anchor; $25,000–$35,000 range) — Mid/Large (escalate)
     var tierName, basePrice, needsEscalation = false;
     var isHighComplexity = (prof === 'none' || dataReady !== 'ready' || manualHours > 20 || toolCount >= 4);
 
     if (size === 'solo') {
-      if (isHighComplexity) { tierName = 'Full Mastery';    basePrice = 2500; }
-      else                  { tierName = 'Quick Launch';    basePrice = 1000; }
+      if (isHighComplexity) { tierName = 'Guided 1:1 Setup Sprint';    basePrice = 4500; }
+      else                  { tierName = 'Self-Guided + Office Hours'; basePrice = 1500; }
     } else if (size === 'small') {
-      // Small team (2-10): complex cases → Team Foundation, simpler → Full Mastery
+      // Small team (2-10): complex cases → Intensive Advisory, simpler → Guided 1:1 Setup Sprint
       var needsTeamTier = (manualHours > 25 || toolCount >= 4 || dataReady === 'none' || prof === 'none');
-      if (needsTeamTier) { tierName = 'Team Foundation'; basePrice = 5000; }
-      else               { tierName = 'Full Mastery';    basePrice = 2500; }
+      if (needsTeamTier) { tierName = 'Intensive Advisory';         basePrice = 9500; }
+      else               { tierName = 'Guided 1:1 Setup Sprint';    basePrice = 4500; }
     } else {
-      // Mid (11-50) or Large (50+): no published tier — Team Foundation as floor, escalate
-      tierName = 'Team Foundation'; basePrice = 5000; needsEscalation = true;
+      // Mid (11-50) or Large (50+): Enterprise Multi-Office Rollout, escalate for exact quote
+      tierName = 'Enterprise Multi-Office Rollout'; basePrice = 29500; needsEscalation = true;
     }
 
     // Fixed price display — only show prices that actually exist on the site
-    var priceDisplay = needsEscalation ? (fmt(basePrice) + '+') : fmt(basePrice);
+    var priceDisplay = needsEscalation ? (fmt(basePrice) + ' anchor (range $25,000–$35,000)') : fmt(basePrice);
 
     // ── Complexity flags ──────────────────────────────────────────────────────
     var flags = [];
@@ -236,35 +236,40 @@
 
     // ── Timeline ──────────────────────────────────────────────────────────────
     var timeline =
-      tierName === 'Quick Launch'   ? (flags.length > 1  ? '3–4 weeks' : '2–3 weeks')
-      : tierName === 'Full Mastery' ? (flags.length >= 2  ? '4–6 weeks' : '3–5 weeks')
-      : needsEscalation             ? 'Custom — determined in discovery call'
-      :                               (flags.length >= 2  ? '6–8 weeks' : '4–6 weeks');
+      tierName === 'Self-Guided + Office Hours'  ? '4 weeks'
+      : tierName === 'Guided 1:1 Setup Sprint'   ? (flags.length >= 2 ? '8 weeks' : '6–8 weeks')
+      : tierName === 'Intensive Advisory'        ? (flags.length >= 2 ? '12 weeks' : '10–12 weeks')
+      :                                             'Custom — determined in discovery call (12–16 weeks typical)';
 
     // ── Scope items — mirrors what's on the live site pricing cards ───────────
     var scope = [];
-    if (tierName === 'Quick Launch') {
-      scope.push('1-on-1 Consultation Session');
-      scope.push('Custom In-House Agent Setup for ' + (d.target_function || 'primary workflow'));
+    if (tierName === 'Self-Guided + Office Hours') {
+      scope.push('Weekly 1-on-1 Office Hours Session (45-60 min)');
+      scope.push('Guided Agent Setup Session for ' + (d.target_function || 'primary workflow') + ' — we walk your team through building it live');
       scope.push('Interaction & Prompting Mastery');
       scope.push('Workflow Optimization Blueprint');
       scope.push('Avoiding AI Hallucination Training');
       if (prof === 'none') scope.push('Foundational AI onboarding session');
-    } else if (tierName === 'Full Mastery') {
-      scope.push('Everything in Quick Launch');
-      scope.push('Extended 1-on-1 Coaching Sessions');
-      scope.push('Multi-workflow AI Architecture for ' + (d.target_function || 'core workflows'));
+    } else if (tierName === 'Guided 1:1 Setup Sprint') {
+      scope.push('Everything in Self-Guided + Office Hours');
+      scope.push('Extended weekly 1-on-1 Coaching Sessions (60-90 min)');
+      scope.push('Multi-workflow AI setup guidance for ' + (d.target_function || 'core workflows') + ' — your team builds it, we coach every step');
       scope.push('Staff Training & Adoption Plan');
       scope.push('Custom Prompt Playbooks & SOPs');
 
       if (prof === 'none') scope.push('AI literacy and adoption training');
-    } else {
+    } else if (tierName === 'Intensive Advisory') {
       scope.push('Multiple Stakeholder Consultations');
-      scope.push('Team-wide In-House AI Architecture');
-      scope.push('Change Management & Trust Building');
+      scope.push('Team-wide In-House AI Architecture guidance — your team builds it, we coach every step');
+      scope.push('Helping your team adjust to the new workflow');
       scope.push('Scalable Process Redesign');
       scope.push('Multi-tool Synergy Workflows');
       scope.push('Manager and staff training sessions');
+    } else {
+      scope.push('Staggered multi-office rollout planning (2-4 weeks per office)');
+      scope.push('Per-office Train-the-Trainer sessions');
+      scope.push('Executive Rollout Sequencing Roadmap');
+      scope.push('Helping every office adjust to the new workflow');
       if (needsEscalation) scope.push('Custom enterprise scope — Nainoa to define before quoting');
     }
     if (driver.includes('compliance')) scope.push('Compliance governance framework and audit trail setup');
@@ -354,7 +359,7 @@
         '<div style="text-align:center;margin-bottom:32px;">' +
           '<div style="font-size:2.5rem;margin-bottom:8px;">✅</div>' +
           '<h2 style="color:#f1f5f9;margin-bottom:8px;">Your Estimate is Ready</h2>' +
-          '<p style="color:#94a3b8;">Based on your workflow, here's what we recommend:</p>' +
+          '<p style="color:#94a3b8;">Based on your workflow, here\'s what we recommend:</p>' +
         '</div>' +
         '<div style="background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.3);border-radius:14px;padding:32px;margin-bottom:24px;">' +
           '<div style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#818cf8;margin-bottom:12px;">Recommended Tier</div>' +
