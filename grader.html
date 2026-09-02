@@ -152,6 +152,45 @@
     .btn-cta:hover { background: var(--accent); }
     .btn-retake { display: block; margin-top: 12px; font-size: 0.85rem; color: var(--muted); cursor: pointer; background: none; border: none; text-decoration: underline; }
     .btn-retake:hover { color: var(--text); }
+
+    .tier-recommendation {
+      background: rgba(245,158,11,0.05);
+      border: 2px solid var(--primary);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 20px 0;
+      text-align: left;
+    }
+    .tier-recommendation h4 { font-size: 1.3rem; margin-bottom: 8px; color: var(--primary); }
+    .tier-recommendation .tier-price { font-size: 1.8rem; font-weight: 700; margin-bottom: 16px; }
+    .tier-recommendation .tier-features { list-style: none; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+    .tier-recommendation .tier-features li { padding-left: 24px; position: relative; }
+    .tier-recommendation .tier-features li::before {
+      content: '✓'; position: absolute; left: 0; color: var(--primary); font-weight: 700;
+    }
+
+    .btn-checkout {
+      display: inline-block;
+      background: var(--primary); color: white;
+      border: none; border-radius: 10px;
+      padding: 14px 32px; font-size: 1rem; font-weight: 600;
+      text-decoration: none; cursor: pointer;
+      transition: background 0.15s ease;
+      margin-top: 16px;
+    }
+    .btn-checkout:hover { background: var(--primary-hover); }
+
+    .btn-secondary {
+      display: inline-block;
+      background: transparent; color: var(--muted);
+      border: 1px solid var(--border); border-radius: 10px;
+      padding: 12px 24px; font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--text); }
+
+    .cta-actions { margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; justify-content: center; }
   </style>
 </head>
 <body>
@@ -214,10 +253,15 @@
         <div class="section-title">Your Top AI Opportunities</div>
         <div class="opportunity-list" id="oppList"></div>
         <div class="cta-box">
-          <h3>Want the full plan?</h3>
-          <p>Get a custom AI roadmap built specifically for your business — exact tools, setup steps, and a 90-day implementation plan. Starting at $1,500.</p>
-          <a href="audit.html" class="btn-cta">Get My Custom Plan →</a>
-          <button class="btn-retake" onclick="retake()">Retake the quiz</button>
+          <h3 id="ctaHeading">Your Recommended Tier</h3>
+          <p id="ctaDesc">Based on your answers, here's the best place to start.</p>
+
+          <div id="tierRecommendation" class="tier-recommendation"></div>
+
+          <div class="cta-actions">
+            <a href="audit.html" class="btn-secondary">Questions? Get a Free Audit First</a>
+            <button class="btn-retake" onclick="retake()">Retake the quiz</button>
+          </div>
         </div>
       </div>
     </div>
@@ -430,6 +474,8 @@
       document.getElementById('scoreTier').textContent = tier;
       document.getElementById('scoreDesc').textContent = desc;
 
+      renderTierRecommendation(score);
+
       const opps = getOpportunities();
       const oppList = document.getElementById('oppList');
       oppList.innerHTML = opps.map(o => `
@@ -441,6 +487,56 @@
           </div>
         </div>
       `).join('');
+    }
+
+    // Uses the same score bands as the tier headline above (score >= 70 / >= 40 / below)
+    // so the recommended purchase tier always matches what the user just read.
+    function renderTierRecommendation(score) {
+      let tierName, tierPrice, tierFeatures, stripeLink;
+
+      if (score >= 70) {
+        tierName = 'Tier 3 — Intensive Advisory';
+        tierPrice = '$9,500';
+        tierFeatures = [
+          '1 session/week + biweekly async check-in (60-90 min)',
+          '10-12 weeks total (about 3 months)',
+          'Full Practice AI Workflow Template Suite',
+          'In-Depth AI Opportunity Audit & 90-Day Roadmap',
+          '60 days of priority support access',
+        ];
+        stripeLink = 'https://buy.stripe.com/YOUR_TIER_3_LINK'; // TODO: Replace with real Stripe Payment Link
+      } else if (score >= 40) {
+        tierName = 'Tier 2 — Guided 1:1 Setup Sprint';
+        tierPrice = '$4,500';
+        tierFeatures = [
+          '1 session/week (60-90 min), 6-8 weeks total',
+          'Practice Workflow Blueprint Library',
+          'Full Session Replay + Transcript Vault',
+          'Pre-Sprint AI-Readiness Audit',
+          '30 days of priority email support',
+        ];
+        stripeLink = 'https://buy.stripe.com/YOUR_TIER_2_LINK'; // TODO: Replace with real Stripe Payment Link
+      } else {
+        tierName = 'Tier 1 — Self-Guided + Office Hours';
+        tierPrice = '$1,500';
+        tierFeatures = [
+          '1 session/week (45-60 min), 4 weeks total',
+          'AI Agent Quick-Start Template Pack',
+          'Session Replay Vault, lifetime access',
+          '"Is This Working?" 20-min diagnostic call',
+        ];
+        stripeLink = 'https://buy.stripe.com/YOUR_TIER_1_LINK'; // TODO: Replace with real Stripe Payment Link
+      }
+
+      const tierHTML = `
+        <h4>${tierName}</h4>
+        <div class="tier-price">${tierPrice}</div>
+        <ul class="tier-features">
+          ${tierFeatures.map(f => `<li>${f}</li>`).join('')}
+        </ul>
+        <a href="${stripeLink}" class="btn-checkout">Purchase ${tierName} →</a>
+      `;
+      document.getElementById('tierRecommendation').innerHTML = tierHTML;
     }
 
     function retake() {
