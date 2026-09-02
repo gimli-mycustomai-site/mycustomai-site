@@ -141,6 +141,21 @@ p  { color: var(--text-secondary); line-height: 1.7; }
 .nav-links a:hover { color: var(--text-primary); }
 .nav-cta { display: flex; align-items: center; gap: 10px; }
 
+/* Mobile nav toggle (hamburger) */
+.nav-toggle-checkbox { display: none; }
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+.nav-toggle span { display: block; height: 2px; width: 100%; background: var(--text-primary); border-radius: 2px; }
+
 /* ── Hero ─────────────────────────────────────────────────── */
 .hero {
   padding: 110px 0 90px;
@@ -643,7 +658,22 @@ p  { color: var(--text-secondary); line-height: 1.7; }
   .how-steps { grid-template-columns: 1fr 1fr; }
   .how-steps::before { display: none; }
   .pricing-grid { grid-template-columns: 1fr !important; max-width: 420px; }
-  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: rgba(11,15,30,0.98);
+    border-bottom: 1px solid var(--border);
+    padding: 8px 24px 16px;
+  }
+  .nav-links a { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .nav-toggle-checkbox:checked ~ .nav-links { display: flex; }
   .footer-inner { flex-direction: column; text-align: center; }
 }
 @media (max-width: 480px) {

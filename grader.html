@@ -19,10 +19,10 @@
   <link rel="stylesheet" href="css/style.css" />
   <style>
     :root {
-      --primary: #d4a843;       /* amber CTA */
-      --primary-hover: #b8923a;
-      --accent: #6366f1;        /* blue trust accent */
-      --bg: #0d1117;            /* dark navy background */
+      --primary: #f59e0b;       /* amber CTA */
+      --primary-hover: #d97706;
+      --accent: #3b82f6;        /* blue trust accent */
+      --bg: #0b0f1e;            /* dark navy background */
       --text: #f1f5f9;
       --muted: #94a3b8;
       --card-bg: rgba(255,255,255,0.03);
@@ -70,8 +70,8 @@
       color: var(--text); text-align: left;
       transition: all 0.15s ease;
     }
-    .option-btn:hover { border-color: var(--accent); background: rgba(212,168,67,0.1); }
-    .option-btn.selected { border-color: var(--primary); background: rgba(212,168,67,0.1); }
+    .option-btn:hover { border-color: var(--accent); background: rgba(245,158,11,0.1); }
+    .option-btn.selected { border-color: var(--primary); background: rgba(245,158,11,0.1); }
     .option-dot {
       width: 20px; height: 20px; border-radius: 50%;
       border: 2px solid var(--border); flex-shrink: 0;
@@ -134,8 +134,8 @@
     .opp-text span { font-size: 0.85rem; color: var(--muted); }
 
     .cta-box {
-      background: rgba(212,168,67,0.1);
-      border: 1px solid rgba(212,168,67,0.3);
+      background: rgba(245,158,11,0.1);
+      border: 1px solid rgba(245,158,11,0.3);
       border-radius: 12px;
       padding: 24px;
       text-align: center;
@@ -160,6 +160,8 @@
 <nav class="nav" id="graderNav" style="display:none;">
   <div class="container nav-inner">
     <div class="nav-logo">My<span>Custom</span>AI</div>
+    <input type="checkbox" id="navToggle" class="nav-toggle-checkbox">
+    <label for="navToggle" class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></label>
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="index.html#how-it-works">The Method</a>
