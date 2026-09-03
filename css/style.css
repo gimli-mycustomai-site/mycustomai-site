@@ -676,6 +676,10 @@ p  { color: var(--text-secondary); line-height: 1.7; }
 }
 
 /* ── Responsive ───────────────────────────────────────────── */
+/* Landscape tablets / small laptops — 4 columns get cramped below 1024px. */
+@media (max-width: 1024px) {
+  .tier-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 @media (max-width: 768px) {
   .hero-inner { grid-template-columns: 1fr; }
   .hero-visual { display: none; }
