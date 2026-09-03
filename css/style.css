@@ -381,6 +381,18 @@ p  { color: var(--text-secondary); line-height: 1.7; }
   transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 .pricing-card:hover { transform: translateY(-4px); border-color: var(--border-light); }
+
+/* 4-tier grid — all four cards identical width (minmax(0,1fr) stops long
+   content from widening a column; height stays content-dependent). */
+.tier-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto 48px;
+  align-items: stretch;
+}
+.tier-grid > .pricing-card { width: 100%; min-width: 0; }
 .pricing-card.featured {
   border-color: var(--blue-border);
   box-shadow: 0 0 50px rgba(59,130,246,0.12);

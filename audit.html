@@ -248,7 +248,7 @@
     // ── Scope items — mirrors what's on the live site pricing cards ───────────
     var scope = [];
     if (tierName === 'Self-Guided + Office Hours') {
-      scope.push('Weekly 1-on-1 Office Hours Session (45-60 min)');
+      scope.push('1-on-1 Office Hours Session — 60 minutes per week for 4 weeks');
       scope.push('Guided Agent Setup Session for ' + (d.target_function || 'primary workflow') + ' — we walk your team through building it live');
       scope.push('Interaction & Prompting Mastery');
       scope.push('Workflow Optimization Blueprint');
@@ -256,7 +256,7 @@
       if (prof === 'none') scope.push('Foundational AI onboarding session');
     } else if (tierName === 'Guided 1:1 Setup Sprint') {
       scope.push('Everything in Self-Guided + Office Hours');
-      scope.push('Extended weekly 1-on-1 Coaching Sessions (60-90 min)');
+      scope.push('Extended 1-on-1 Coaching Sessions — 60 minutes per session');
       scope.push('Multi-workflow AI setup guidance for ' + (d.target_function || 'core workflows') + ' — your team builds it, we coach every step');
       scope.push('Staff Training & Adoption Plan');
       scope.push('Custom Prompt Playbooks & SOPs');
