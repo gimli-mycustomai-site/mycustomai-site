@@ -16,7 +16,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Custom AI Potential Audit — MyCustomAI</title>
   <meta name="description" content="Get a free custom AI audit for your business. Answer a few questions and receive an instant estimate for your in-house AI implementation.">
-  <link rel="stylesheet" href="css/style.css?v=18">
+  <link rel="stylesheet" href="css/style.css?v=19">
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -194,20 +194,20 @@
 
     // ── Tier selection — MATCHES LIVE SITE CONSULTING TIERS ONLY ────────────
     // Self-Guided + Office Hours:      $1,500  — Solo, lighter workflow, some AI familiarity
-    // Guided 1:1 Setup Sprint:         $4,500  — Solo (complex) OR Small Team (2-10, simpler)
+    // Guided Sprint and Training:      $4,500  — Solo (complex) OR Small Team (2-10, simpler)
     // Intensive Advisory:              $9,500  — Small Team (2-10, complex)
     // Enterprise Multi-Office Rollout: $29,500 (anchor; $25,000–$35,000 range) — Mid/Large (escalate)
     var tierName, basePrice, needsEscalation = false;
     var isHighComplexity = (prof === 'none' || dataReady !== 'ready' || manualHours > 20 || toolCount >= 4);
 
     if (size === 'solo') {
-      if (isHighComplexity) { tierName = 'Guided 1:1 Setup Sprint';    basePrice = 4500; }
+      if (isHighComplexity) { tierName = 'Guided Sprint and Training'; basePrice = 4500; }
       else                  { tierName = 'Self-Guided + Office Hours'; basePrice = 1500; }
     } else if (size === 'small') {
-      // Small team (2-10): complex cases → Intensive Advisory, simpler → Guided 1:1 Setup Sprint
+      // Small team (2-10): complex cases → Intensive Advisory, simpler → Guided Sprint and Training
       var needsTeamTier = (manualHours > 25 || toolCount >= 4 || dataReady === 'none' || prof === 'none');
       if (needsTeamTier) { tierName = 'Intensive Advisory';         basePrice = 9500; }
-      else               { tierName = 'Guided 1:1 Setup Sprint';    basePrice = 4500; }
+      else               { tierName = 'Guided Sprint and Training'; basePrice = 4500; }
     } else {
       // Mid (11-50) or Large (50+): Enterprise Multi-Office Rollout, escalate for exact quote
       tierName = 'Enterprise Multi-Office Rollout'; basePrice = 29500; needsEscalation = true;
@@ -240,38 +240,38 @@
 
     // ── Timeline ──────────────────────────────────────────────────────────────
     var timeline =
-      tierName === 'Self-Guided + Office Hours'  ? '4 weeks'
-      : tierName === 'Guided 1:1 Setup Sprint'   ? (flags.length >= 2 ? '8 weeks' : '6–8 weeks')
-      : tierName === 'Intensive Advisory'        ? (flags.length >= 2 ? '12 weeks' : '10–12 weeks')
-      :                                             'Custom — determined in discovery call (12–16 weeks typical)';
+      tierName === 'Self-Guided + Office Hours'  ? '2 weeks (2 sessions)'
+      : tierName === 'Guided Sprint and Training' ? '5 weeks'
+      : tierName === 'Intensive Advisory'        ? '8 weeks'
+      :                                             '10 weeks';
 
     // ── Scope items — mirrors what's on the live site pricing cards ───────────
     var scope = [];
     if (tierName === 'Self-Guided + Office Hours') {
-      scope.push('1-on-1 Office Hours Session — 60 minutes per week for 4 weeks');
+      scope.push('1-on-1 Office Hours Sessions — 2 sessions over 2 weeks');
       scope.push('Guided Agent Setup Session for ' + (d.target_function || 'primary workflow') + ' — we walk your team through building it live');
       scope.push('Interaction & Prompting Mastery');
       scope.push('Workflow Optimization Blueprint');
       scope.push('Avoiding AI Hallucination Training');
       if (prof === 'none') scope.push('Foundational AI onboarding session');
-    } else if (tierName === 'Guided 1:1 Setup Sprint') {
+    } else if (tierName === 'Guided Sprint and Training') {
       scope.push('Everything in Self-Guided + Office Hours');
       scope.push('Extended 1-on-1 Coaching Sessions — 60 minutes per session');
-      scope.push('Multi-workflow AI setup guidance for ' + (d.target_function || 'core workflows') + ' — your team builds it, we coach every step');
+      scope.push('Multi-workflow AI implementation guidance for ' + (d.target_function || 'core workflows') + ' — your team builds it, we coach every step');
       scope.push('Staff Training & Adoption Plan');
       scope.push('Custom Prompt Playbooks & SOPs');
 
       if (prof === 'none') scope.push('AI literacy and adoption training');
     } else if (tierName === 'Intensive Advisory') {
-      scope.push('Multiple Stakeholder Consultations — 90 minutes, once a week');
+      scope.push('Multiple Stakeholder Consultations — 90 minutes per session');
       scope.push('Team-wide In-House AI Architecture guidance — your team builds it, we coach every step');
       scope.push('Helping your team adjust to the new workflow');
       scope.push('Scalable Process Redesign');
       scope.push('Multi-tool Synergy Workflows');
       scope.push('Manager and staff training sessions');
     } else {
-      scope.push('Staggered multi-office rollout planning (2-4 weeks per office)');
-      scope.push('Per-office Train-the-Trainer sessions — 90 minutes, 2 sessions per week');
+      scope.push('Staggered multi-office rollout planning across all locations');
+      scope.push('Per-office Train-the-Trainer sessions — 90 minutes per session');
       scope.push('Executive Rollout Sequencing Roadmap');
       scope.push('Helping every office adjust to the new workflow');
       if (needsEscalation) scope.push('Custom enterprise scope — Nainoa to define before quoting');
