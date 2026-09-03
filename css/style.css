@@ -676,12 +676,17 @@ p  { color: var(--text-secondary); line-height: 1.7; }
 }
 
 /* ── Responsive ───────────────────────────────────────────── */
+/* Landscape tablets / small laptops — 4 columns get cramped below 1024px. */
+@media (max-width: 1024px) {
+  .tier-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 @media (max-width: 768px) {
   .hero-inner { grid-template-columns: 1fr; }
   .hero-visual { display: none; }
   .how-steps { grid-template-columns: 1fr 1fr; }
   .how-steps::before { display: none; }
   .pricing-grid { grid-template-columns: 1fr !important; max-width: 420px; }
+  .tier-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .nav-toggle { display: flex; }
   .nav-links {
     display: none;
@@ -704,4 +709,5 @@ p  { color: var(--text-secondary); line-height: 1.7; }
   .how-steps { grid-template-columns: 1fr; }
   .hero-actions { flex-direction: column; }
   .btn-lg { width: 100%; justify-content: center; }
+  .tier-grid { grid-template-columns: minmax(0, 1fr); max-width: 420px; }
 }
