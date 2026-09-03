@@ -72,25 +72,25 @@
     const params = new URLSearchParams(window.location.search);
     const tier = params.get('tier');
     
+    // Keys are the ?tier= values sent by the existing Stripe redirect URLs and the
+    // Cal.com slugs are live booking pages — both stay as-is. Only the displayed
+    // tier numbering changed when the entry tier was removed:
+    //   ?tier=2 → Tier 1 (Guided Sprint and Training)
+    //   ?tier=3 → Tier 2 (Intensive Advisory)
     const tierConfig = {
-      '1': {
-        title: 'Tier 1 — Self-Guided + Office Hours',
-        instructions: 'Your program runs 2 weeks (2 sessions). Book your first session below — you can book the rest as we progress, or schedule them all now.',
-        calSlug: 'tier-1-office-hours'
-      },
       '2': {
-        title: 'Tier 2 — Guided Sprint and Training',
+        title: 'Tier 1 — Guided Sprint and Training',
         instructions: 'Your program runs 5 weeks. Book your first session below — you\'ll schedule the rest as we progress through your sprint.',
         calSlug: 'tier-2-setup-sprint'
       },
       '3': {
-        title: 'Tier 3 — Intensive Advisory',
+        title: 'Tier 2 — Intensive Advisory',
         instructions: 'Your program runs 8 weeks of intensive advisory sessions. Book your first session below — we\'ll coordinate the full schedule together as we go.',
         calSlug: 'tier-3-intensive-advisory'
       }
     };
     
-    const config = tierConfig[tier] || tierConfig['1'];
+    const config = tierConfig[tier] || tierConfig['2'];
     
     document.getElementById('tierTitle').textContent = config.title;
     document.getElementById('tierInstructions').textContent = config.instructions;

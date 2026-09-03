@@ -193,16 +193,13 @@
     var driver      = (d.driver || '').toLowerCase();
 
     // ── Tier selection — MATCHES LIVE SITE CONSULTING TIERS ONLY ────────────
-    // Self-Guided + Office Hours:      $1,500  — Solo, lighter workflow, some AI familiarity
-    // Guided Sprint and Training:      $4,500  — Solo (complex) OR Small Team (2-10, simpler)
+    // Guided Sprint and Training:      $4,500  — Solo OR Small Team (2-10, simpler)
     // Intensive Advisory:              $9,500  — Small Team (2-10, complex)
     // Enterprise Multi-Office Rollout: $29,500 (anchor; $25,000–$35,000 range) — Mid/Large (escalate)
     var tierName, basePrice, needsEscalation = false;
-    var isHighComplexity = (prof === 'none' || dataReady !== 'ready' || manualHours > 20 || toolCount >= 4);
 
     if (size === 'solo') {
-      if (isHighComplexity) { tierName = 'Guided Sprint and Training'; basePrice = 4500; }
-      else                  { tierName = 'Self-Guided + Office Hours'; basePrice = 1500; }
+      tierName = 'Guided Sprint and Training'; basePrice = 4500;
     } else if (size === 'small') {
       // Small team (2-10): complex cases → Intensive Advisory, simpler → Guided Sprint and Training
       var needsTeamTier = (manualHours > 25 || toolCount >= 4 || dataReady === 'none' || prof === 'none');
@@ -240,22 +237,17 @@
 
     // ── Timeline ──────────────────────────────────────────────────────────────
     var timeline =
-      tierName === 'Self-Guided + Office Hours'  ? '2 weeks (2 sessions)'
-      : tierName === 'Guided Sprint and Training' ? '5 weeks'
-      : tierName === 'Intensive Advisory'        ? '8 weeks'
-      :                                             '10 weeks';
+      tierName === 'Guided Sprint and Training' ? '5 weeks'
+      : tierName === 'Intensive Advisory'       ? '8 weeks'
+      :                                            '10 weeks';
 
     // ── Scope items — mirrors what's on the live site pricing cards ───────────
     var scope = [];
-    if (tierName === 'Self-Guided + Office Hours') {
-      scope.push('1-on-1 Office Hours Sessions — 2 sessions over 2 weeks');
+    if (tierName === 'Guided Sprint and Training') {
       scope.push('Guided Agent Setup Session for ' + (d.target_function || 'primary workflow') + ' — we walk your team through building it live');
       scope.push('Interaction & Prompting Mastery');
       scope.push('Workflow Optimization Blueprint');
       scope.push('Avoiding AI Hallucination Training');
-      if (prof === 'none') scope.push('Foundational AI onboarding session');
-    } else if (tierName === 'Guided Sprint and Training') {
-      scope.push('Everything in Self-Guided + Office Hours');
       scope.push('Extended 1-on-1 Coaching Sessions — 60 minutes per session');
       scope.push('Multi-workflow AI implementation guidance for ' + (d.target_function || 'core workflows') + ' — your team builds it, we coach every step');
       scope.push('Staff Training & Adoption Plan');
