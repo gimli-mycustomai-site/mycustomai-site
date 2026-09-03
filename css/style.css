@@ -91,6 +91,18 @@ p  { color: var(--text-secondary); line-height: 1.7; }
   box-shadow: 0 0 36px rgba(245,158,11,0.4);
 }
 
+/* Secondary CTA — muted slate for alternate-path actions (e.g. request quote) */
+.btn-secondary {
+  background: rgba(148,163,184,0.12);
+  color: var(--text-primary);
+  border: 1px solid rgba(148,163,184,0.35);
+}
+.btn-secondary:hover {
+  background: rgba(148,163,184,0.2);
+  border-color: rgba(148,163,184,0.5);
+  transform: translateY(-1px);
+}
+
 /* Secondary/outline — blue for trust */
 .btn-outline {
   background: transparent;
