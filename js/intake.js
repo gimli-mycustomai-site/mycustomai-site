@@ -205,7 +205,7 @@ function computeIntakeEstimate(fd) {
   var retainerName, retainerPrice, retainerReason;
   if (size === '1') {
     retainerName = 'The Pilot'; retainerPrice = '$200/mo';
-    retainerReason = 'Biweekly check-ins to maintain momentum';
+    retainerReason = 'Weekly support to maintain momentum';
   } else if (size === '2-5') {
     retainerName = 'The Accelerator'; retainerPrice = '$400/mo';
     retainerReason = 'Weekly support during team rollout';
