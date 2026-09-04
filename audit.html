@@ -193,18 +193,18 @@
     var driver      = (d.driver || '').toLowerCase();
 
     // ── Tier selection — MATCHES LIVE SITE CONSULTING TIERS ONLY ────────────
-    // Guided Sprint and Training:      $4,500  — Solo OR Small Team (2-10, simpler)
-    // Intensive Advisory:              $9,500  — Small Team (2-10, complex)
+    // Guided Sprint and Training:      $7,500  — Solo OR Small Team (2-10, simpler)
+    // Intensive Advisory:              $14,000 — Small Team (2-10, complex)
     // Enterprise Multi-Office Rollout: $29,500 (anchor; $25,000–$35,000 range) — Mid/Large (escalate)
     var tierName, basePrice, needsEscalation = false;
 
     if (size === 'solo') {
-      tierName = 'Guided Sprint and Training'; basePrice = 4500;
+      tierName = 'Guided Sprint and Training'; basePrice = 7500;
     } else if (size === 'small') {
       // Small team (2-10): complex cases → Intensive Advisory, simpler → Guided Sprint and Training
       var needsTeamTier = (manualHours > 25 || toolCount >= 4 || dataReady === 'none' || prof === 'none');
-      if (needsTeamTier) { tierName = 'Intensive Advisory';         basePrice = 9500; }
-      else               { tierName = 'Guided Sprint and Training'; basePrice = 4500; }
+      if (needsTeamTier) { tierName = 'Intensive Advisory';         basePrice = 14000; }
+      else               { tierName = 'Guided Sprint and Training'; basePrice = 7500; }
     } else {
       // Mid (11-50) or Large (50+): Enterprise Multi-Office Rollout, escalate for exact quote
       tierName = 'Enterprise Multi-Office Rollout'; basePrice = 29500; needsEscalation = true;

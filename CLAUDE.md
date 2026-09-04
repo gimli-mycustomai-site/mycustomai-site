@@ -13,9 +13,9 @@ https://mycustomai.co
 
 ## Pricing (updated 2026-09-03)
 **3 Main Tiers (one-time):**
-- Tier 1 — Guided 1:1 Setup Sprint: $4,500
-- Tier 2 — Intensive Advisory: $9,500
-- Tier 3 — Enterprise Multi-Office Rollout: $25,000-$35,000 (anchor: $29,500)
+- Tier 1 — Guided 1:1 Setup Sprint: $7,500 — teams of 1-3 people, 5 weeks
+- Tier 2 — Intensive Advisory: $14,000 — teams of 4-9 people, 8 weeks
+- Tier 3 — Enterprise Multi-Office Rollout: $25,000-$35,000 (anchor: $29,500) — teams larger than 9 people, custom timeline (custom quote, no Stripe link)
 
 **3 Monthly Retainers (recurring):**
 - Momentum: $500/month (no minimum)
