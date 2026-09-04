@@ -67,9 +67,9 @@
           <label>Company Size</label>
           <select name="size">
             <option value="solo">Solo Entrepreneur</option>
-            <option value="small">Small Team (2-10)</option>
-            <option value="mid">Scaling Team (11-50)</option>
-            <option value="large">Enterprise (50+)</option>
+            <option value="small">Small Team (1-4 people)</option>
+            <option value="mid">Medium Team (5-9 people)</option>
+            <option value="large">Large Team (10+ people)</option>
           </select>
         </div>
         <div class="form-group">
@@ -155,9 +155,9 @@
 (function() {
   var sizeMap = {
     'solo':  '1',
-    'small': '2-5',
-    'mid':   '6-15',
-    'large': '50+',
+    'small': '1-4',
+    'mid':   '5-9',
+    'large': '10+',
   };
 
   function normalizeProf(p) {
@@ -193,20 +193,18 @@
     var driver      = (d.driver || '').toLowerCase();
 
     // ── Tier selection — MATCHES LIVE SITE CONSULTING TIERS ONLY ────────────
-    // Guided Sprint and Training:      $7,500  — Solo OR Small Team (2-10, simpler)
-    // Intensive Advisory:              $14,000 — Small Team (2-10, complex)
-    // Enterprise Multi-Office Rollout: $29,500 (anchor; $25,000–$35,000 range) — Mid/Large (escalate)
+    // Headcount drives the tier — same ranges published on index.html.
+    // Guided Sprint and Training:      $7,500  — Solo or Small Team (1-4)
+    // Intensive Advisory:              $14,000 — Medium Team (5-9)
+    // Enterprise Multi-Office Rollout: $29,500 (anchor; $25,000–$35,000 range) — Large Team (10+, escalate)
     var tierName, basePrice, needsEscalation = false;
 
-    if (size === 'solo') {
+    if (size === 'solo' || size === 'small') {
       tierName = 'Guided Sprint and Training'; basePrice = 7500;
-    } else if (size === 'small') {
-      // Small team (2-10): complex cases → Intensive Advisory, simpler → Guided Sprint and Training
-      var needsTeamTier = (manualHours > 25 || toolCount >= 4 || dataReady === 'none' || prof === 'none');
-      if (needsTeamTier) { tierName = 'Intensive Advisory';         basePrice = 14000; }
-      else               { tierName = 'Guided Sprint and Training'; basePrice = 7500; }
+    } else if (size === 'mid') {
+      tierName = 'Intensive Advisory'; basePrice = 14000;
     } else {
-      // Mid (11-50) or Large (50+): Enterprise Multi-Office Rollout, escalate for exact quote
+      // Large Team (10+): Enterprise Multi-Office Rollout, escalate for exact quote
       tierName = 'Enterprise Multi-Office Rollout'; basePrice = 29500; needsEscalation = true;
     }
 
@@ -221,7 +219,7 @@
     else if (dataReady === 'scattered') flags.push('Scattered data — consolidation needed before automation');
     if (prof === 'none')  flags.push('No prior AI experience — additional training time built in');
     if (driver.includes('compliance'))  flags.push('Compliance driver — governance framework and audit trail required');
-    if (needsEscalation)  flags.push('Team size (mid/large) exceeds published tiers — custom scope required');
+    if (needsEscalation)  flags.push('Team size (10+) exceeds published tiers — custom scope required');
 
     // ── Follow-up session recommendation — matches live site ($200 solo / $500 team) ──
     var retainerName, retainerPrice, retainerReason;
@@ -273,7 +271,7 @@
 
     // ── Review notes for Nainoa's Telegram ───────────────────────────────────
     var reviewNotes = [];
-    if (needsEscalation) reviewNotes.push('🚨 ESCALATION REQUIRED — mid/large team, custom quote needed, do NOT use published prices');
+    if (needsEscalation) reviewNotes.push('🚨 ESCALATION REQUIRED — large team (10+), custom quote needed, do NOT use published prices');
     if (prof === 'none') reviewNotes.push('Zero AI experience — budget extra onboarding/training time');
     if (dataReady === 'none') reviewNotes.push('No data infrastructure — data setup phase may need separate line item');
     if (toolCount >= 5) reviewNotes.push('Large tool stack (' + toolCount + ' tools) — integration audit recommended before committing to timeline');

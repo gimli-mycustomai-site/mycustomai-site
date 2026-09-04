@@ -288,9 +288,9 @@
         key: "employees",
         options: [
           { label: "Just me (solo)", value: "solo" },
-          { label: "2–5 people", value: "small" },
-          { label: "6–20 people", value: "medium" },
-          { label: "20+ people", value: "large" },
+          { label: "1–4 people", value: "small" },
+          { label: "5–9 people", value: "medium" },
+          { label: "10+ people", value: "large" },
         ]
       },
       {
@@ -474,7 +474,7 @@
       document.getElementById('scoreTier').textContent = tier;
       document.getElementById('scoreDesc').textContent = desc;
 
-      renderTierRecommendation(score);
+      renderTierRecommendation();
 
       const opps = getOpportunities();
       const oppList = document.getElementById('oppList');
@@ -489,19 +489,29 @@
       `).join('');
     }
 
-    // Uses the same score bands as the tier headline above (score >= 70 / below)
-    // so the recommended purchase tier always matches what the user just read.
-    function renderTierRecommendation(score) {
-      let tierName, tierPrice, tierFeatures, stripeLink;
+    // Recommended tier follows headcount, matching the published tier ranges on
+    // index.html: 1–4 → Tier 1, 5–9 → Tier 2, 10+ → Tier 3 (custom quote via audit).
+    function renderTierRecommendation() {
+      let tierName, tierPrice, tierFeatures, ctaLink, ctaLabel;
 
-      if (score >= 70) {
+      if (answers.employees === 'large') {
+        tierName = 'Tier 3 — Enterprise Multi-Office Rollout';
+        tierPrice = '$25,000–$35,000';
+        tierFeatures = [
+          'Custom timeline',
+          '90 minutes, 2 sessions per week',
+        ];
+        ctaLink = 'audit.html';
+        ctaLabel = 'Request Enterprise Quote →';
+      } else if (answers.employees === 'medium') {
         tierName = 'Tier 2 — Intensive Advisory';
         tierPrice = '$14,000';
         tierFeatures = [
           '8 weeks',
           '90 minutes, 1 session per week',
         ];
-        stripeLink = 'https://buy.stripe.com/7sYfZh0whc1HfGJbku7EQ0I';
+        ctaLink = 'https://buy.stripe.com/7sYfZh0whc1HfGJbku7EQ0I';
+        ctaLabel = `Purchase ${tierName} →`;
       } else {
         tierName = 'Tier 1 — Guided Sprint and Training';
         tierPrice = '$7,500';
@@ -509,7 +519,8 @@
           '5 weeks',
           '60 minutes, 1 session per week',
         ];
-        stripeLink = 'https://buy.stripe.com/14AeVddj3fdT8eh60a7EQ0H';
+        ctaLink = 'https://buy.stripe.com/14AeVddj3fdT8eh60a7EQ0H';
+        ctaLabel = `Purchase ${tierName} →`;
       }
 
       const tierHTML = `
@@ -518,7 +529,7 @@
         <ul class="tier-features">
           ${tierFeatures.map(f => `<li>${f}</li>`).join('')}
         </ul>
-        <a href="${stripeLink}" class="btn-checkout">Purchase ${tierName} →</a>
+        <a href="${ctaLink}" class="btn-checkout">${ctaLabel}</a>
       `;
       document.getElementById('tierRecommendation').innerHTML = tierHTML;
     }
