@@ -66,27 +66,50 @@
     </div>
   </div>
 
-  <script type="text/javascript" src="https://app.cal.com/embed/embed.js"></script>
+  <!-- Official Cal.com embed loader. Defines the window.Cal queue stub and loads
+       embed.js itself. embed.js must NOT be loaded as a plain script src tag — it
+       expects this stub to already exist and throws "Cal is not defined" without it. -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+  </script>
   <script>
     // Parse tier from URL
     const params = new URLSearchParams(window.location.search);
     const tier = params.get('tier');
     
-    // Keys are the ?tier= values sent by the existing Stripe redirect URLs and the
-    // Cal.com slugs are live booking pages — both stay as-is. Only the displayed
-    // tier numbering changed when the entry tier was removed:
+    // Keys are the ?tier= values sent by the existing Stripe redirect URLs — those
+    // stay as-is. Only the displayed tier numbering changed when the entry tier
+    // was removed:
     //   ?tier=2 → Tier 1 (Guided Sprint and Training)
     //   ?tier=3 → Tier 2 (Intensive Advisory)
     const tierConfig = {
       '2': {
         title: 'Tier 1 — Guided Sprint and Training',
         instructions: 'Your program runs 5 weeks. Book your first session below — you\'ll schedule the rest as we progress through your sprint.',
-        calSlug: 'tier-2-setup-sprint'
+        calSlug: 'tier-2-guided-sprint'
       },
       '3': {
         title: 'Tier 2 — Intensive Advisory',
         instructions: 'Your program runs 8 weeks of intensive advisory sessions. Book your first session below — we\'ll coordinate the full schedule together as we go.',
         calSlug: 'tier-3-intensive-advisory'
+      },
+      // Monthly retainers. These require the matching Stripe payment link to redirect to
+      // confirmation.html?tier=momentum / ?tier=steady-progress / ?tier=embedded-coach
+      // (set under Payment Links → After payment in the Stripe dashboard).
+      'momentum': {
+        title: 'Momentum Retainer',
+        instructions: 'Your retainer includes one 60-minute training call per month plus light email support between sessions. Book this month\'s call below.',
+        calSlug: 'momentum-retainer'
+      },
+      'steady-progress': {
+        title: 'Steady Progress Retainer',
+        instructions: 'Your retainer includes two 60-minute training calls per month plus email support between sessions. Book your first call below — schedule the second whenever you need it.',
+        calSlug: 'steady-progress-retainer'
+      },
+      'embedded-coach': {
+        title: 'Embedded Coach Retainer',
+        instructions: 'Your retainer includes one 90-minute team training session per month plus priority email support between sessions. Book this month\'s session below.',
+        calSlug: 'embedded-coach-retainer'
       }
     };
     
@@ -95,15 +118,15 @@
     document.getElementById('tierTitle').textContent = config.title;
     document.getElementById('tierInstructions').textContent = config.instructions;
     
-    // Embed Cal.com
-    const embedDiv = document.getElementById('calEmbed');
-    embedDiv.setAttribute('data-cal-link', `mycustomai/${config.calSlug}`);
-    embedDiv.setAttribute('data-cal-config', JSON.stringify({layout: 'month_view'}));
-    
-    // Initialize Cal.com embed
-    if (window.Cal) {
-      window.Cal('init');
-    }
+    // Embed Cal.com inline. data-cal-link + Cal('init') is the popup-on-click pattern
+    // and only attaches a click handler — an inline calendar needs Cal('inline', ...).
+    Cal('init', { origin: 'https://cal.com' });
+    Cal('inline', {
+      elementOrSelector: '#calEmbed',
+      calLink: `mycustomai/${config.calSlug}`,
+      config: { layout: 'month_view' }
+    });
+    Cal('ui', { hideEventTypeDetails: false, layout: 'month_view' });
   </script>
 </body>
 </html>
